@@ -1,0 +1,127 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		//- meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
+		//- meta(http-equiv="Content-Script-Type", content="text/javascript")
+		title= title
+		//- library or plugin css files
+		//- Latest compiled and minified CSS
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", media="screen")
+		//- Latest compiled and minified JavaScript
+		script(src="//code.jquery.com/jquery-1.11.2.min.js")
+		script(src="/lib/angular.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
+		script(src="/lib/ui-bootstrap-tpls-0.12.0.min.js")
+		script(src="/lib/underscore-min.js")
+		//-
+		script(src="/js/app.js")
+		//- user define stylesheets
+		link(rel='stylesheet', href='/css/style.css')
+	body(style="padding-top:6px", ng-controller="MainCtrl")
+		.container
+			.page-header
+				h1
+					| Crusader Market
+					//- small Secondary text
+
+			.page-header
+				.row
+					.col-md-4
+						table.table.table-bordered(style="width:282px")
+							colgroup
+								col(width="16.66%")
+								col(width="16.66%")
+								col(width="16.66%")
+								col(width="16.66%")
+								col(width="16.66%")
+								col(width="16.66%")
+							tbody
+								tr(style="height:80px")
+									td(colspan="2").ac.va_m {{party[2].name}}
+									td(colspan="2").ac.va_m {{party[1].name}}
+									td(colspan="2").ac.va_m {{party[0].name}}
+								tr(style="height:40px")
+									td.ac.va_m
+									td.ac.va_m
+									td.ac.va_m
+									td.ac.va_m
+									td.ac.va_m
+									td.ac.va_m
+
+					.col-md-8
+						table.table.table-bordered(style="height:121px")
+							colgroup
+								col(width="120px")
+								col(width="*")
+							tbody
+								tr(style="height:33.33%")
+									th.ac.va_m {{party[2].name}}
+									td.ac.va_m {{party[2].block_skill_desc}}
+								tr(style="height:33.33%")
+									th.ac.va_m {{party[1].name}}
+									td.ac.va_m {{party[1].block_skill_desc}}
+								tr(style="height:33.33%")
+									th.ac.va_m {{party[0].name}}
+									td.ac.va_m {{party[0].block_skill_desc}}
+
+		.container
+			ul.nav.nav-tabs
+				li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
+					a(href="javascript:;") 전체
+				li(role="presentation", ng-repeat="type in classTypes", ng-click="selectType(type)", ng-class="{ active: currType === type }")
+					a(href="javascript:;") {{type}}
+
+				.form-group(style="float:right;width:240px;margin-bottom:0")
+					label(for="filterWarrior").hide User
+					input.form-control(type="text", id="filterWarrior", placeholder="Filter Warrior...", ng-model="filterWarrior")
+		.container
+			.container-fluid.table-bordered(style="border-top-color: transparent;")
+				table.table.table-bordered(style="margin-top:24px")
+					colgroup
+						//- 아이콘
+						col(width="60px")
+						//- 이름
+						col(width="120px")
+						//- 등급
+						col(width="46px")
+						//- 클래스
+						col(width="80px")
+						//- 공격력
+						col(width="60px")
+						//- 체력
+						col(width="60px")
+						//- 치명타 확률
+						col(width="60px")
+						//- 물리 방어력
+						col(width="60px")
+						//- 마법 저항력
+						col(width="60px")
+						//- 블록 스킬
+						col(width="*")
+					thead
+						tr
+							th.ac.va_m 아이콘
+							th.ac.va_m 이름
+							th.ac.va_m 등급
+							th.ac.va_m 클래스
+							th.ac.va_m 공격력
+							th.ac.va_m 체력
+							th.ac.va_m 치명타 확률
+							th.ac.va_m 물리 방어력
+							th.ac.va_m 마법 저항력
+							th.ac.va_m 블록 스킬
+					tbody
+						tr(ng-repeat="warrior in warriors | filter:filterWarrior",
+								ng-click="selectWarrior(warrior)", ng-class="{ active: warrior.isSelected }")
+							td.ac {{warrior.icon}}
+							td.ac {{warrior.name}}
+							td.ac ★×{{warrior.rank}}
+							td.ac {{warrior.w_class}}
+							td {{}}
+							td {{}}
+							td {{}}
+							td {{}}
+							td {{}}
+							td {{warrior.block_skill_desc}}

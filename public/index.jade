@@ -5,7 +5,7 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		//- meta(http-equiv="X-UA-Compatible", content="IE=Edge,chrome=1")
 		//- meta(http-equiv="Content-Script-Type", content="text/javascript")
-		title= title
+		title Crusader Market
 		//- library or plugin css files
 		//- Latest compiled and minified CSS
 		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", media="screen")
@@ -24,7 +24,7 @@ html
 			.page-header
 				h1
 					| Crusader Market
-					//- small Secondary text
+					small  v0.1.0
 
 			.page-header
 				.row
@@ -39,9 +39,9 @@ html
 								col(width="16.66%")
 							tbody
 								tr(style="height:80px")
-									td(colspan="2").ac.va_m {{party[2].name}}
-									td(colspan="2").ac.va_m {{party[1].name}}
-									td(colspan="2").ac.va_m {{party[0].name}}
+									td(colspan="2").ac.va_m {{party[2]['이름']}}
+									td(colspan="2").ac.va_m {{party[1]['이름']}}
+									td(colspan="2").ac.va_m {{party[0]['이름']}}
 								tr(style="height:40px")
 									td.ac.va_m
 									td.ac.va_m
@@ -57,25 +57,25 @@ html
 								col(width="*")
 							tbody
 								tr(style="height:33.33%")
-									th.ac.va_m {{party[2].name}}
-									td.ac.va_m {{party[2].block_skill_desc}}
+									th.ac.va_m {{party[0]['이름']}}
+									td.ac.va_m(bold-keyword) {{party[0]['패시브']}}
 								tr(style="height:33.33%")
-									th.ac.va_m {{party[1].name}}
-									td.ac.va_m {{party[1].block_skill_desc}}
+									th.ac.va_m {{party[1]['이름']}}
+									td.ac.va_m(bold-keyword) {{party[1]['패시브']}}
 								tr(style="height:33.33%")
-									th.ac.va_m {{party[0].name}}
-									td.ac.va_m {{party[0].block_skill_desc}}
+									th.ac.va_m {{party[2]['이름']}}
+									td.ac.va_m(bold-keyword) {{party[2]['패시브']}}
 
 		.container
 			ul.nav.nav-tabs
 				li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
 					a(href="javascript:;") 전체
-				li(role="presentation", ng-repeat="type in classTypes", ng-click="selectType(type)", ng-class="{ active: currType === type }")
+				li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type }")
 					a(href="javascript:;") {{type}}
 
 				.form-group(style="float:right;width:240px;margin-bottom:0")
-					label(for="filterWarrior").hide User
-					input.form-control(type="text", id="filterWarrior", placeholder="Filter Warrior...", ng-model="filterWarrior")
+					label(for="filterWarrior").hide Warrior
+					input.form-control(type="text", id="filterWarrior", placeholder="Find Warrior...", ng-model="filterWarrior")
 		.container
 			.container-fluid.table-bordered(style="border-top-color: transparent;")
 				table.table.table-bordered(style="margin-top:24px")
@@ -83,7 +83,7 @@ html
 						//- 아이콘
 						col(width="60px")
 						//- 이름
-						col(width="120px")
+						col(width="140px")
 						//- 등급
 						col(width="46px")
 						//- 클래스
@@ -100,6 +100,10 @@ html
 						col(width="60px")
 						//- 블록 스킬
 						col(width="*")
+						//- 패시브 타입
+						col(width="60px")
+						//- 패시브
+						col(width="*")
 					thead
 						tr
 							th.ac.va_m 아이콘
@@ -112,16 +116,20 @@ html
 							th.ac.va_m 물리 방어력
 							th.ac.va_m 마법 저항력
 							th.ac.va_m 블록 스킬
+							th.ac.va_m 패시브 타입
+							th.ac.va_m 패시브
 					tbody
 						tr(ng-repeat="warrior in warriors | filter:filterWarrior",
 								ng-click="selectWarrior(warrior)", ng-class="{ active: warrior.isSelected }")
-							td.ac {{warrior.icon}}
-							td.ac {{warrior.name}}
-							td.ac ★×{{warrior.rank}}
-							td.ac {{warrior.w_class}}
-							td {{}}
-							td {{}}
-							td {{}}
-							td {{}}
-							td {{}}
-							td {{warrior.block_skill_desc}}
+							td.ac.va_m {{}}
+							td.ac.va_m {{warrior['이름']}}
+							td.ac.va_m ★×{{warrior['등급']}}
+							td.ac.va_m {{warrior['클래스']}}
+							td.ac.va_m {{warrior['공격력']}}
+							td.ac.va_m {{warrior['체력']}}
+							td.ac.va_m {{warrior['치명타 확률']}}
+							td.ac.va_m {{warrior['물리 방어력']}}
+							td.ac.va_m {{warrior['마법 저항력']}}
+							td(bold-keyword) {{warrior['블록 스킬']}}
+							td.ac.va_m {{warrior['패시브 타입']}}
+							td(bold-keyword) {{warrior['패시브']}}

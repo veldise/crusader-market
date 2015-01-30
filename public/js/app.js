@@ -24,6 +24,8 @@
             $http.get('/warriors')
                 .success(function (data) {
                     originData = data;
+
+                    $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
                     $scope.warriors = data;
                 })
                 .error(function (reason) {
@@ -42,12 +44,12 @@
             var position = [];
 
             position.push(_.filter(party, function (warrior) {
-                return (warrior.w_class === '워리어') || (warrior.w_class === '팔라딘');
+                return (warrior['클래스'] === '워리어') || (warrior['클래스'] === '팔라딘');
             }));
-            position.push(_.where(party, { w_class: '프리스트' }));
-            position.push(_.where(party, { w_class: '아쳐' }));
-            position.push(_.where(party, { w_class: '헌터' }));
-            position.push(_.where(party, { w_class: '위자드' }));
+            position.push(_.where(party, { '클래스': '프리스트' }));
+            position.push(_.where(party, { '클래스': '아처' }));
+            position.push(_.where(party, { '클래스': '헌터' }));
+            position.push(_.where(party, { '클래스': '위자드' }));
 
             return _.flatten(position);
         }
@@ -55,7 +57,7 @@
         *   Tabset
         */
         $scope.classTypes = [
-            '워리어', '팔라딘', '아쳐', '헌터', '위자드', '프리스트'
+            '워리어', '팔라딘', '아처', '헌터', '위자드', '프리스트'
         ];
         $scope.currType = '전체';
 
@@ -65,7 +67,7 @@
         };
         $scope.selectType = function (type) {
             $scope.currType = type;
-            $scope.warriors = _.where(originData, { w_class: type });
+            $scope.warriors = _.where(originData, { '클래스': type });
         };
         /**
         *   Grid
@@ -106,6 +108,26 @@
     */
     angular.module('crusaderMarketApp', [])
         .config(config)
+        .directive('boldKeyword', function () {
+            return {
+                restrict: 'A',
+                scope: false,
+                link: function (scope, element) {
+                    var re = /(물리 피해|\d+-체인|SP)/gim;
+
+                    var text = element.html();
+                    var code = text.replace(/\{|\}/g, '');
+
+                    scope.$watch(code, function (text) {
+                        if (!text) {
+                            return;
+                        }
+
+                        element.html(text.replace(re, '<span class="bold-text">$1</span>'));
+                    });
+                }
+            };
+        })
         .controller('MainCtrl', MainCtrl);
     /**
     *

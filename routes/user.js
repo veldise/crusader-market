@@ -3,13 +3,14 @@
  * GET users listing.
  */
 
-var fs = require('fs');
+var fs = require('fs'),
+	path = require('path');
 
 exports.list = function(req, res){
-	try {
-		res.send(require('../warriors.json'));
-	}
-	catch (e) {
-		res.send(500, e);
-	}
+	fs.readFile(path.join(__dirname, '../warriors.json'), function (err, data) {
+		if (err) {
+			return res.send(500, err);
+		}
+		res.send(data);
+	});
 };

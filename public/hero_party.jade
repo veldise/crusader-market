@@ -1,0 +1,49 @@
+.container
+	ul.nav.nav-tabs
+		li(role="presentation").active
+			a(href="javascript:;") 파티
+		//- li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '비교' }")
+		//- 	a(href="javascript:;") 비교
+
+	.container-fluid.table-bordered(style="border-top-color: transparent;")
+		.row(style="margin-top:20px")
+			.col-md-4
+				table.table.table-bordered(style="width:282px")
+					colgroup
+						col(width="16.66%")
+						col(width="16.66%")
+						col(width="16.66%")
+						col(width="16.66%")
+						col(width="16.66%")
+						col(width="16.66%")
+					tbody
+						tr(style="height:80px")
+							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)")
+								img(ng-if="party[2]" ng-src="{{party[2].hero_thum}}")
+							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)")
+								img(ng-if="party[1]" ng-src="{{party[1].hero_thum}}")
+							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)")
+								img(ng-if="party[0]" ng-src="{{party[0].hero_thum}}")
+						tr(style="height:40px")
+							td.ac.va_m
+							td.ac.va_m
+							td.ac.va_m
+							td.ac.va_m
+							td.ac.va_m
+							td.ac.va_m
+
+			.col-md-8
+				table.table.table-bordered(style="height:240px")
+					colgroup
+						col(width="156px")
+						col(width="*")
+					tbody
+						tr(style="height:33.33%")
+							th.ac.va_m {{party[0]['이름']}}
+							td.ac.va_m(bold-keyword) {{party[0]['패시브']}}
+						tr(style="height:33.33%")
+							th.ac.va_m {{party[1]['이름']}}
+							td.ac.va_m(bold-keyword) {{party[1]['패시브']}}
+						tr(style="height:33.33%")
+							th.ac.va_m {{party[2]['이름']}}
+							td.ac.va_m(bold-keyword) {{party[2]['패시브']}}

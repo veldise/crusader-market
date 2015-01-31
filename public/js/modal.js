@@ -16,6 +16,7 @@
         // $scope.cancel = function () {
         //     $modalInstance.dismiss('cancel');
         // };
+
         /**
         *   Table
         */
@@ -28,7 +29,6 @@
         //         warrior['3-체인'] = +dems[3];
         //     }
         // });
-
         var defKeys = [
                 '이름',
                 '등급',

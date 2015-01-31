@@ -1,9 +1,13 @@
 .container(style="margin-top:20px;margin-bottom:56px")
 	ul.nav.nav-tabs
 		li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
-			a(href="javascript:;") 전체
-		li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type }")
-			a(href="javascript:;") {{type}}
+			a(href="javascript:;")
+				//- span.glyphicon.glyphicon-home
+				|  전체
+		li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type.heading }")
+			a(href="javascript:;")
+				img.img-icon(ng-src="{{type.icon}}")
+				span.hidden-xs  {{type.heading}}
 
 	.container-fluid.table-bordered(style="border-top-color: transparent;")
 		table.table.table-bordered(style="margin-top:24px")

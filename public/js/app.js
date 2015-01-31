@@ -25,7 +25,7 @@
                 .success(function (data) {
                     originData = data;
 
-                    $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
+                    // $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
                     $scope.warriors = data;
                 })
                 .error(function (reason) {
@@ -64,7 +64,12 @@
         *   Tabset
         */
         $scope.classTypes = [
-            '워리어', '팔라딘', '아처', '헌터', '위자드', '프리스트'
+            { heading: '워리어', icon: 'img/icon_warrior.png' },
+            { heading: '팔라딘', icon: 'img/icon_paladin.png' },
+            { heading: '아처', icon: 'img/icon_archer.png' },
+            { heading: '헌터', icon: 'img/icon_hunter.png' },
+            { heading: '위자드', icon: 'img/icon_wizard.png' },
+            { heading: '프리스트', icon: 'img/icon_priest.png' }
         ];
         $scope.currType = '전체';
 
@@ -73,8 +78,8 @@
             $scope.warriors = originData;
         };
         $scope.selectType = function (type) {
-            $scope.currType = type;
-            $scope.warriors = _.where(originData, { '클래스': type });
+            $scope.currType = type.heading;
+            $scope.warriors = _.where(originData, { '클래스': type.heading });
         };
         /**
         *   Grid

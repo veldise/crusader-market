@@ -137,8 +137,7 @@
                 $scope.statusArr[idx][$index] = arr[$index];
             });
         };
-        $scope.increaseStatus = function ($index) {
-            var plusRatio = $scope.plusRatios[$index];
+        $scope.increaseStatus = function ($index, plusRatio) {
             if (plusRatio < 5) {
                 plusRatio += 1;
 

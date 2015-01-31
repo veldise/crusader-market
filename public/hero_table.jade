@@ -30,8 +30,6 @@
 				col(width="60px")
 				//- 블록 스킬
 				col(width="*")
-				//- 패시브 타입
-				col(width="60px")
 				//- 패시브
 				col(width="*")
 			thead
@@ -47,7 +45,6 @@
 					th.ac.va_m 마법 저항력
 					th.ac.va_m 블록 이미지
 					th.ac.va_m(ng-show="showDesc") 블록 스킬
-					th.ac.va_m(ng-show="showDesc") 패시브 타입
 					th.ac.va_m(ng-show="showDesc") 패시브
 			tbody
 				tr.clickable(ng-repeat="warrior in warriors | filter:filterWarrior",
@@ -65,5 +62,4 @@
 					td.ac.va_m(style="padding:4px")
 						img.img-thum(ng-if="warrior.block_thum", ng-src="{{warrior.block_thum}}")
 					td(bold-keyword, ng-show="showDesc") {{warrior['블록 스킬']}}
-					td.ac.va_m(ng-show="showDesc") {{warrior['패시브 타입']}}
 					td(bold-keyword, ng-show="showDesc") {{warrior['패시브']}}

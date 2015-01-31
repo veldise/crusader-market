@@ -1,14 +1,21 @@
-.container
+.container(style="margin-top:6px", ng-init="showParty=true")
 	ul.nav.nav-tabs
 		li(role="presentation").active
 			a(href="javascript:;") 파티
 		//- li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '비교' }")
 		//- 	a(href="javascript:;") 비교
+		.form-group.fr(style="margin: 2px 0;")
+			button.btn.btn-default(type="button", aria-label="Left Align", ng-click="showParty=true", ng-show="!showParty")
+				span.glyphicon.glyphicon-chevron-down(aria-hidden="true")
+				|  펼치기
+			button.btn.btn-default(type="button", aria-label="Left Align", ng-click="showParty=false", ng-show="showParty")
+				span.glyphicon.glyphicon-chevron-up(aria-hidden="true")
+				|  접기
 
 	.container-fluid.table-bordered(style="border-top-color: transparent;")
-		.row(style="margin-top:20px")
+		.row(style="margin-top:20px", ng-show="showParty")
 			.col-md-4
-				table.table.table-bordered(style="width:282px")
+				table.table.table-bordered(style="width:362px")
 					colgroup
 						col(width="16.66%")
 						col(width="16.66%")
@@ -17,14 +24,14 @@
 						col(width="16.66%")
 						col(width="16.66%")
 					tbody
-						tr(style="height:80px")
+						tr(style="height:120px")
 							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)")
-								img(ng-if="party[2]" ng-src="{{party[2].hero_thum}}")
+								img.img-party(ng-if="party[2]" ng-src="{{party[2].hero_thum}}")
 							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)")
-								img(ng-if="party[1]" ng-src="{{party[1].hero_thum}}")
+								img.img-party(ng-if="party[1]" ng-src="{{party[1].hero_thum}}")
 							td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)")
-								img(ng-if="party[0]" ng-src="{{party[0].hero_thum}}")
-						tr(style="height:40px")
+								img.img-party(ng-if="party[0]" ng-src="{{party[0].hero_thum}}")
+						tr(style="height:60px")
 							td.ac.va_m
 							td.ac.va_m
 							td.ac.va_m

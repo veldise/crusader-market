@@ -48,7 +48,6 @@
             // ],
             descKeys = [
                 '블록 스킬',
-                '패시브 타입',
                 '패시브'
             ];
 
@@ -118,7 +117,7 @@
             return (_.max(arr) === _.min(arr));
         }
     }
-    // ModalCtrl.$inject = ['$scope'];
+    ModalCtrl.$inject = ['$scope', '$modalInstance', 'warriors'];
     /**
     *
     */

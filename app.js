@@ -13,7 +13,7 @@ var app = express();
 
 var dirPublic = path.join(__dirname, 'public')
 // all environments
-app.set('port', process.argv[2] || 3000);
+app.set('port', process.argv[2] || 3030);
 app.set('views', dirPublic);
 app.set('view engine', 'jade');
 // app.use(express.favicon());

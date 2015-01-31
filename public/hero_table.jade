@@ -8,14 +8,14 @@
 	.container-fluid.table-bordered(style="border-top-color: transparent;")
 		table.table.table-bordered(style="margin-top:24px")
 			colgroup
-				//- 아이콘
+				//- 이미지
 				col(width="60px")
 				//- 이름
-				col(width="156px")
+				col(width="156px").hidden-xs
 				//- 등급
-				col(width="46px")
+				col(width="46px").hidden-xs
 				//- 클래스
-				col(width="80px")
+				col(width="80px").hidden-xs
 				//- 공격력
 				col(width="60px")
 				//- 체력
@@ -26,8 +26,8 @@
 				col(width="60px")
 				//- 마법 저항력
 				col(width="60px")
-				//- 아이콘
-				col(width="60px")
+				//- 블록 이미지
+				col(width="60px").hidden-xs
 				//- 블록 스킬
 				col(width="*")
 				//- 패시브
@@ -35,15 +35,15 @@
 			thead
 				tr
 					th.ac.va_m 이미지
-					th.ac.va_m 이름
-					th.ac.va_m 등급
-					th.ac.va_m 클래스
+					th.ac.va_m.hidden-xs 이름
+					th.ac.va_m.hidden-xs 등급
+					th.ac.va_m.hidden-xs 클래스
 					th.ac.va_m 공격력
 					th.ac.va_m 체력
 					th.ac.va_m 치명타 확률
 					th.ac.va_m 물리 방어력
 					th.ac.va_m 마법 저항력
-					th.ac.va_m 블록 이미지
+					th.ac.va_m.hidden-xs 블록 이미지
 					th.ac.va_m(ng-show="showDesc") 블록 스킬
 					th.ac.va_m(ng-show="showDesc") 패시브
 			tbody
@@ -51,15 +51,15 @@
 						ng-click="selectWarrior(warrior)", ng-class="{ info: warrior.isSelected }")
 					td.ac.va_m(style="padding:4px")
 						img.img-thum(ng-if="warrior.hero_thum", ng-src="{{warrior.hero_thum}}")
-					td.ac.va_m {{warrior['이름']}}
-					td.ac.va_m ★×{{warrior['등급']}}
-					td.ac.va_m {{warrior['클래스']}}
+					td.ac.va_m.hidden-xs {{warrior['이름']}}
+					td.ac.va_m.hidden-xs ★×{{warrior['등급']}}
+					td.ac.va_m.hidden-xs {{warrior['클래스']}}
 					td.ac.va_m {{warrior['공격력']}}
 					td.ac.va_m {{warrior['체력']}}
 					td.ac.va_m {{warrior['치명타 확률']}}
 					td.ac.va_m {{warrior['물리 방어력']}}
 					td.ac.va_m {{warrior['마법 저항력']}}
-					td.ac.va_m(style="padding:4px")
+					td.ac.va_m(style="padding:4px").hidden-xs
 						img.img-thum(ng-if="warrior.block_thum", ng-src="{{warrior.block_thum}}")
 					td(bold-keyword, ng-show="showDesc") {{warrior['블록 스킬']}}
 					td(bold-keyword, ng-show="showDesc") {{warrior['패시브']}}

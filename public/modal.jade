@@ -13,10 +13,22 @@
 					th.ac.va_m 이미지
 					th.ac.va_m(ng-repeat="heroThum in heroThums")
 						img.img-thum(ng-if="heroThum", ng-src="{{heroThum}}")
+						span(ng-if="plusRatios[$index + 1] && plusRatios[$index + 1] < 5") +{{plusRatios[$index + 1]}}
+						span(ng-if="plusRatios[$index + 1] && plusRatios[$index + 1] === 5") +MAX
 			tbody
 				tr(ng-repeat="arr in defArr")
 					td.ac.va_m(ng-repeat="item in arr track by $index")
 						span(ng-class="{ 'bold-text': $first }") {{item}}
+				tr
+					td.ac.va_m
+						span.bold-text 훈련
+					td.ac.va_m(ng-repeat="heroThum in heroThums")
+						button.btn.btn-default.btn-xs.mg-lr-4(type="button", style="width:60px;",
+								ng-click="resetStatus($index + 1)", ng-disabled="plusRatios[$index + 1] === 0")
+							| 초기화
+						button.btn.btn-default.btn-xs.mg-lr-4(type="button", style="width:60px;",
+								ng-click="increaseStatus($index + 1)", ng-disabled="plusRatios[$index + 1] >= 5")
+							| 훈 련
 				tr(ng-repeat="arr in statusArr")
 					td.ac.va_m(ng-repeat="item in arr track by $index")
 						span.bold-text(ng-if="$first") {{item}}

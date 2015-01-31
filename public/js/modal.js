@@ -57,10 +57,18 @@
             arr.unshift(key);
             return arr;
         });
+        $scope.originStatusArr = _.map(statusKeys, function (key) {
+            var arr = _.pluck(warriors, key);
+            arr.unshift(key);
+            return arr;
+        });
         $scope.statusArr = _.map(statusKeys, function (key) {
             var arr = _.pluck(warriors, key);
             arr.unshift(key);
             return arr;
+        });
+        $scope.plusRatios = _.map(_.range(warriors.length + 1), function () {
+            return 0;
         });
         // $scope.chainArr = _.map(chainKeys, function (key) {
         //     var arr = _.pluck(warriors, key);
@@ -116,6 +124,44 @@
         function allEqual (arr) {
             return (_.max(arr) === _.min(arr));
         }
+        /**
+        *
+        */
+        $scope.resetStatus = function ($index) {
+            $scope.plusRatios[$index] = 0;
+            // reset status
+            _.each(statusKeys, function (key, idx) {
+                var arr = _.pluck(warriors, key);
+                arr.unshift(key);
+
+                $scope.statusArr[idx][$index] = arr[$index];
+            });
+        };
+        $scope.increaseStatus = function ($index) {
+            var plusRatio = $scope.plusRatios[$index];
+            if (plusRatio < 5) {
+                plusRatio += 1;
+
+                $scope.statusArr = _.map($scope.statusArr, function (arr, i) {
+                    // 치명타 확률
+                    if (i === 2) {
+                        return arr;
+                    }
+
+                    return _.map(arr, function (val, j) {
+                        var originVal = $scope.originStatusArr[i][j];
+                        if (j === $index) {
+                            return Math.round(originVal * (1 + (plusRatio * 0.1)));
+                        }
+                        else {
+                            return val;
+                        }
+                    });
+                });
+
+                $scope.plusRatios[$index] = plusRatio;
+            }
+        };
     }
     ModalCtrl.$inject = ['$scope', '$modalInstance', 'warriors'];
     /**

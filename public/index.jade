@@ -20,14 +20,20 @@ html
 		//- user define stylesheets
 		link(rel='stylesheet', href='/css/style.css')
 	body(style="padding-top:6px", ng-controller="MainCtrl")
-		.container
-			.page-header
+		.container#header
+			.page-header(style="margin:0")
 				h1
 					| Crusader Market
 					small  v0.1.0
+		.container
+			ul.nav.nav-tabs
+				li(role="presentation").active
+					a(href="javascript:;") 파티
+				//- li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '비교' }")
+				//- 	a(href="javascript:;") 비교
 
-			.page-header
-				.row
+			.container-fluid.table-bordered(style="border-top-color: transparent;")
+				.row(style="margin-top:20px")
 					.col-md-4
 						table.table.table-bordered(style="width:282px")
 							colgroup
@@ -39,9 +45,9 @@ html
 								col(width="16.66%")
 							tbody
 								tr(style="height:80px")
-									td(colspan="2").ac.va_m {{party[2]['이름']}}
-									td(colspan="2").ac.va_m {{party[1]['이름']}}
-									td(colspan="2").ac.va_m {{party[0]['이름']}}
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)") {{party[2]['이름']}}
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)") {{party[1]['이름']}}
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)") {{party[0]['이름']}}
 								tr(style="height:40px")
 									td.ac.va_m
 									td.ac.va_m
@@ -51,9 +57,9 @@ html
 									td.ac.va_m
 
 					.col-md-8
-						table.table.table-bordered(style="height:121px")
+						table.table.table-bordered(style="height:240px")
 							colgroup
-								col(width="120px")
+								col(width="156px")
 								col(width="*")
 							tbody
 								tr(style="height:33.33%")
@@ -66,24 +72,20 @@ html
 									th.ac.va_m {{party[2]['이름']}}
 									td.ac.va_m(bold-keyword) {{party[2]['패시브']}}
 
-		.container
+		.container(style="margin-top:20px;margin-bottom:56px")
 			ul.nav.nav-tabs
 				li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
 					a(href="javascript:;") 전체
 				li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type }")
 					a(href="javascript:;") {{type}}
 
-				.form-group(style="float:right;width:240px;margin-bottom:0")
-					label(for="filterWarrior").hide Warrior
-					input.form-control(type="text", id="filterWarrior", placeholder="Find Warrior...", ng-model="filterWarrior")
-		.container
 			.container-fluid.table-bordered(style="border-top-color: transparent;")
 				table.table.table-bordered(style="margin-top:24px")
 					colgroup
 						//- 아이콘
 						col(width="60px")
 						//- 이름
-						col(width="140px")
+						col(width="156px")
 						//- 등급
 						col(width="46px")
 						//- 클래스
@@ -115,11 +117,11 @@ html
 							th.ac.va_m 치명타 확률
 							th.ac.va_m 물리 방어력
 							th.ac.va_m 마법 저항력
-							th.ac.va_m 블록 스킬
-							th.ac.va_m 패시브 타입
-							th.ac.va_m 패시브
+							th.ac.va_m(ng-show="showDesc") 블록 스킬
+							th.ac.va_m(ng-show="showDesc") 패시브 타입
+							th.ac.va_m(ng-show="showDesc") 패시브
 					tbody
-						tr(ng-repeat="warrior in warriors | filter:filterWarrior",
+						tr.clickable(ng-repeat="warrior in warriors | filter:filterWarrior",
 								ng-click="selectWarrior(warrior)", ng-class="{ active: warrior.isSelected }")
 							td.ac.va_m {{}}
 							td.ac.va_m {{warrior['이름']}}
@@ -130,6 +132,49 @@ html
 							td.ac.va_m {{warrior['치명타 확률']}}
 							td.ac.va_m {{warrior['물리 방어력']}}
 							td.ac.va_m {{warrior['마법 저항력']}}
-							td(bold-keyword) {{warrior['블록 스킬']}}
-							td.ac.va_m {{warrior['패시브 타입']}}
-							td(bold-keyword) {{warrior['패시브']}}
+							td(bold-keyword, ng-show="showDesc") {{warrior['블록 스킬']}}
+							td.ac.va_m(ng-show="showDesc") {{warrior['패시브 타입']}}
+							td(bold-keyword, ng-show="showDesc") {{warrior['패시브']}}
+
+		#footer
+
+		nav.navbar.navbar-default#layer_fixed.va_m
+			.container-fluid
+				form.navbar-form.navbar-right(role="search")
+					.form-group.m-lr-4
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="showDesc=true", ng-show="!showDesc")
+							span.glyphicon.glyphicon-eye-open(aria-hidden="true")
+							|  스킬 보기
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="showDesc=false", ng-show="showDesc")
+							span.glyphicon.glyphicon-eye-close(aria-hidden="true")
+							|  스킬 닫기
+					.form-group.m-lr-4
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="")
+							span.glyphicon(aria-hidden="true")
+							|  비교
+					.form-group.m-lr-4
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="deselectAll()")
+							span.glyphicon.glyphicon-unchecked(aria-hidden="true")
+							|  선택 해제
+					.form-group.m-lr-4
+						label(for="filterWarrior").hide Warrior
+						input.form-control(type="text", id="filterWarrior", placeholder="Find Warrior...", ng-model="filterWarrior")
+					a.btn.btn-default(href="#header", aria-label="Left Align")
+						span.glyphicon.glyphicon-triangle-top(aria-hidden="true")
+					a.btn.btn-default(href="#footer", aria-label="Left Align")
+						span.glyphicon.glyphicon-triangle-bottom(aria-hidden="true")
+					//- .form-group(style="float:right;margin-right:6px;")
+					//- 	input.btn.btn-default(type="button" value="선택 용사 비교")
+				form.navbar-form.navbar-right(role="search", style="padding-top:10px")
+					.checkbox-inline
+						label
+							input(type="checkbox", value="")
+							| Check me out
+					.checkbox-inline
+						label
+							input(type="checkbox", value="")
+							| 패시브-주력형
+					.checkbox-inline
+						label
+							input(type="checkbox", value="")
+							| 패시브-보조형

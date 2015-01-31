@@ -53,6 +53,13 @@
 
             return _.flatten(position);
         }
+
+        $scope.rmParty = function (index) {
+            if ($scope.party[index]) {
+                $scope.party[index].isSelected = false;
+                $scope.party.splice(index, 1);
+            }
+        };
         /**
         *   Tabset
         */
@@ -74,6 +81,12 @@
         */
         $scope.warriors = originData;
 
+        $scope.deselectAll = function () {
+            _.each(originData, function (warrior) {
+                warrior.isSelected = false;
+            });
+            $scope.party = [];
+        };
         $scope.selectWarrior = function (warrior) {
             // toggle
             warrior.isSelected = !warrior.isSelected;
@@ -120,6 +133,7 @@
 
                     scope.$watch(code, function (text) {
                         if (!text) {
+                            element.html('');
                             return;
                         }
 

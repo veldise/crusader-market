@@ -47,11 +47,11 @@ html
 							tbody
 								tr(style="height:80px")
 									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)")
-										img(ng-if="party[2]" ng-src="{{party[2].thum_url}}")
+										img(ng-if="party[2]" ng-src="{{party[2].hero_thum}}")
 									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)")
-										img(ng-if="party[1]" ng-src="{{party[1].thum_url}}")
+										img(ng-if="party[1]" ng-src="{{party[1].hero_thum}}")
 									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)")
-										img(ng-if="party[0]" ng-src="{{party[0].thum_url}}")
+										img(ng-if="party[0]" ng-src="{{party[0].hero_thum}}")
 								tr(style="height:40px")
 									td.ac.va_m
 									td.ac.va_m
@@ -104,6 +104,8 @@ html
 						col(width="60px")
 						//- 마법 저항력
 						col(width="60px")
+						//- 아이콘
+						col(width="60px")
 						//- 블록 스킬
 						col(width="*")
 						//- 패시브 타입
@@ -112,7 +114,7 @@ html
 						col(width="*")
 					thead
 						tr
-							th.ac.va_m 아이콘
+							th.ac.va_m 이미지
 							th.ac.va_m 이름
 							th.ac.va_m 등급
 							th.ac.va_m 클래스
@@ -121,6 +123,7 @@ html
 							th.ac.va_m 치명타 확률
 							th.ac.va_m 물리 방어력
 							th.ac.va_m 마법 저항력
+							th.ac.va_m 블록 이미지
 							th.ac.va_m(ng-show="showDesc") 블록 스킬
 							th.ac.va_m(ng-show="showDesc") 패시브 타입
 							th.ac.va_m(ng-show="showDesc") 패시브
@@ -128,7 +131,7 @@ html
 						tr.clickable(ng-repeat="warrior in warriors | filter:filterWarrior",
 								ng-click="selectWarrior(warrior)", ng-class="{ info: warrior.isSelected }")
 							td.ac.va_m(style="padding:4px")
-								img.img-thum(ng-if="warrior.thum_url", ng-src="{{warrior.thum_url}}")
+								img.img-thum(ng-if="warrior.hero_thum", ng-src="{{warrior.hero_thum}}")
 							td.ac.va_m {{warrior['이름']}}
 							td.ac.va_m ★×{{warrior['등급']}}
 							td.ac.va_m {{warrior['클래스']}}
@@ -137,6 +140,8 @@ html
 							td.ac.va_m {{warrior['치명타 확률']}}
 							td.ac.va_m {{warrior['물리 방어력']}}
 							td.ac.va_m {{warrior['마법 저항력']}}
+							td.ac.va_m(style="padding:4px")
+								img.img-thum(ng-if="warrior.block_thum", ng-src="{{warrior.block_thum}}")
 							td(bold-keyword, ng-show="showDesc") {{warrior['블록 스킬']}}
 							td.ac.va_m(ng-show="showDesc") {{warrior['패시브 타입']}}
 							td(bold-keyword, ng-show="showDesc") {{warrior['패시브']}}

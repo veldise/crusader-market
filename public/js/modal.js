@@ -52,7 +52,7 @@
                 '패시브'
             ];
 
-        $scope.thumUrls = _.pluck(warriors, 'thum_url');
+        $scope.heroThums = _.pluck(warriors, 'hero_thum');
         $scope.defArr = _.map(defKeys, function (key) {
             var arr = _.pluck(warriors, key);
             arr.unshift(key);
@@ -68,6 +68,7 @@
         //     arr.unshift(key);
         //     return arr;
         // });
+        $scope.blockThums = _.pluck(warriors, 'block_thum');
         $scope.descArr = _.map(descKeys, function (key) {
             var arr = _.pluck(warriors, key);
             arr.unshift(key);

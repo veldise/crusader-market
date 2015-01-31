@@ -19,7 +19,7 @@ app.use(expressUglify.middleware({
 }));
 
 // all environments
-app.set('port', process.argv[2] || 3030);
+app.set('port', process.argv[2] || 8800);
 app.set('views', dirPublic);
 app.set('view engine', 'jade');
 // app.use(express.favicon());

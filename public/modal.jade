@@ -1,0 +1,30 @@
+.modal-header
+	h3.modal-title 용사 비교
+.modal-body
+	.container-fluid
+		table.table.table-bordered.slim-table
+			colgroup
+				col(width="16%")
+				col(width="28%")
+				col(width="28%")
+				col(width="28%")
+			thead
+				tr
+					th.ac.va_m 이름
+					th.ac.va_m(ng-repeat="name in names") {{name}}
+			tbody
+				tr(ng-repeat="arr in defArr")
+					td.ac.va_m(ng-repeat="item in arr track by $index")
+						span(ng-class="{ 'bold-text': $first }") {{item}}
+				tr(ng-repeat="arr in statusArr")
+					td.ac.va_m(ng-repeat="item in arr track by $index")
+						span.bold-text(ng-if="$first") {{item}}
+						span(ng-if="!$first", ng-class="{ 'bold-text': isMax(arr, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-if="!$first", ng-show="isMax(arr, item)")
+						//- span.glyphicon.glyphicon-arrow-down(aria-hidden="true", ng-show="isMin(field, item)")
+				tr(ng-repeat="arr in descArr")
+					td.ac.va_m(ng-repeat="item in arr track by $index")
+						span.bold-text(ng-if="$first") {{item}}
+						span(ng-if="!$first", bold-keyword) {{item}}
+.modal-footer
+	button.btn.btn-primary(ng-click='close()') Close

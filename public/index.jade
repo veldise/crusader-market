@@ -16,6 +16,7 @@ html
 		script(src="/lib/ui-bootstrap-tpls-0.12.0.min.js")
 		script(src="/lib/underscore-min.js")
 		//-
+		script(src="/js/modal.js")
 		script(src="/js/app.js")
 		//- user define stylesheets
 		link(rel='stylesheet', href='/css/style.css')
@@ -122,7 +123,7 @@ html
 							th.ac.va_m(ng-show="showDesc") 패시브
 					tbody
 						tr.clickable(ng-repeat="warrior in warriors | filter:filterWarrior",
-								ng-click="selectWarrior(warrior)", ng-class="{ active: warrior.isSelected }")
+								ng-click="selectWarrior(warrior)", ng-class="{ info: warrior.isSelected }")
 							td.ac.va_m {{}}
 							td.ac.va_m {{warrior['이름']}}
 							td.ac.va_m ★×{{warrior['등급']}}
@@ -149,11 +150,11 @@ html
 							span.glyphicon.glyphicon-eye-close(aria-hidden="true")
 							|  스킬 닫기
 					.form-group.m-lr-4
-						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="")
-							span.glyphicon(aria-hidden="true")
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="openDiff(party)", ng-disabled="!party.length")
+							span.glyphicon.glyphicon-stats(aria-hidden="true")
 							|  비교
 					.form-group.m-lr-4
-						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="deselectAll()")
+						button.btn.btn-default(type="button", aria-label="Left Align", ng-click="deselectAll()", ng-disabled="!party.length")
 							span.glyphicon.glyphicon-unchecked(aria-hidden="true")
 							|  선택 해제
 					.form-group.m-lr-4
@@ -165,16 +166,12 @@ html
 						span.glyphicon.glyphicon-triangle-bottom(aria-hidden="true")
 					//- .form-group(style="float:right;margin-right:6px;")
 					//- 	input.btn.btn-default(type="button" value="선택 용사 비교")
-				form.navbar-form.navbar-right(role="search", style="padding-top:10px")
-					.checkbox-inline
-						label
-							input(type="checkbox", value="")
-							| Check me out
-					.checkbox-inline
-						label
-							input(type="checkbox", value="")
-							| 패시브-주력형
-					.checkbox-inline
-						label
-							input(type="checkbox", value="")
-							| 패시브-보조형
+				//- form.navbar-form.navbar-right(role="search", style="padding-top:10px")
+				//- 	.checkbox-inline
+				//- 		label
+				//- 			input(type="checkbox", value="")
+				//- 			| 패시브-주력형
+				//- 	.checkbox-inline
+				//- 		label
+				//- 			input(type="checkbox", value="")
+				//- 			| 패시브-보조형

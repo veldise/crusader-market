@@ -14,7 +14,7 @@
     /**
     *
     */
-    function MainCtrl($scope, $http) {
+    function MainCtrl($scope, $http, $timeout, $modal) {
         /**
         *   Locals
         */
@@ -114,19 +114,44 @@
                 }
             }
         };
+        /**
+        *
+        */
+        $scope.openDiff = function (warriors) {
+            var modalInstance = $modal.open({
+                templateUrl: '/public/modal.html',
+                controller: 'ModalCtrl',
+                size: 'lg',
+                resolve: {
+                    warriors: function () {
+                        return warriors;
+                    }
+                }
+            });
+
+            // modalInstance.result.then(function (selectedItem) {
+            //     $scope.selected = selectedItem;
+            // }, function () {
+            //     $log.info('Modal dismissed at: ' + new Date());
+            // });
+        };
     }
-    MainCtrl.$inject = ['$scope', '$http'];
+    MainCtrl.$inject = ['$scope', '$http', '$timeout', '$modal'];
     /**
     *
     */
-    angular.module('crusaderMarketApp', [])
+    angular.module('crusaderMarketApp', [
+            'ui.bootstrap',
+            'cm.modalApp'
+        ])
         .config(config)
         .directive('boldKeyword', function () {
             return {
                 restrict: 'A',
                 scope: false,
                 link: function (scope, element) {
-                    var re = /(물리 피해|\d+-체인|SP)/gim;
+                    var re = /(물리 피해|마법 피해|\d+-체인|SP|\(\d+\/\d+\/\d+\)\%)/gim,
+                        reText = '<span class="bold-text">$1</span>';
 
                     var text = element.html();
                     var code = text.replace(/\{|\}/g, '');
@@ -137,7 +162,7 @@
                             return;
                         }
 
-                        element.html(text.replace(re, '<span class="bold-text">$1</span>'));
+                        element.html(text.replace(re, reText));
                     });
                 }
             };

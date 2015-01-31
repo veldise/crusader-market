@@ -32,6 +32,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/warriors', user.list);
+// views
+app.get('/public/modal.html', function (req, res) {
+  res.send(require('jade').renderFile('./public/modal.jade'));
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

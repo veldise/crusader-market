@@ -46,9 +46,12 @@ html
 								col(width="16.66%")
 							tbody
 								tr(style="height:80px")
-									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)") {{party[2]['이름']}}
-									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)") {{party[1]['이름']}}
-									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)") {{party[0]['이름']}}
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(2)")
+										img(ng-if="party[2]" ng-src="{{party[2].thum_url}}")
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(1)")
+										img(ng-if="party[1]" ng-src="{{party[1].thum_url}}")
+									td.ac.va_m.clickable(colspan="2", ng-click="rmParty(0)")
+										img(ng-if="party[0]" ng-src="{{party[0].thum_url}}")
 								tr(style="height:40px")
 									td.ac.va_m
 									td.ac.va_m
@@ -124,7 +127,8 @@ html
 					tbody
 						tr.clickable(ng-repeat="warrior in warriors | filter:filterWarrior",
 								ng-click="selectWarrior(warrior)", ng-class="{ info: warrior.isSelected }")
-							td.ac.va_m {{}}
+							td.ac.va_m(style="padding:4px")
+								img.img-thum(ng-if="warrior.thum_url", ng-src="{{warrior.thum_url}}")
 							td.ac.va_m {{warrior['이름']}}
 							td.ac.va_m ★×{{warrior['등급']}}
 							td.ac.va_m {{warrior['클래스']}}

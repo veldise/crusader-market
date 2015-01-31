@@ -30,6 +30,7 @@
         // });
 
         var defKeys = [
+                '이름',
                 '등급',
                 '클래스'
             ],
@@ -51,7 +52,7 @@
                 '패시브'
             ];
 
-        $scope.names = _.pluck(warriors, '이름');
+        $scope.thumUrls = _.pluck(warriors, 'thum_url');
         $scope.defArr = _.map(defKeys, function (key) {
             var arr = _.pluck(warriors, key);
             arr.unshift(key);

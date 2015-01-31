@@ -10,8 +10,14 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+var expressUglify = require('express-uglify');
 
-var dirPublic = path.join(__dirname, 'public')
+var dirPublic = path.join(__dirname, 'public');
+
+app.use(expressUglify.middleware({
+    src: dirPublic
+}));
+
 // all environments
 app.set('port', process.argv[2] || 3030);
 app.set('views', dirPublic);

@@ -39,7 +39,7 @@
                 '체력',
                 '치명타 확률',
                 '물리 방어력',
-                '마법 저항력',
+                '마법 저항력'
             ],
             // chainKeys = [
             //     '1-체인',
@@ -117,7 +117,7 @@
         function allEqual (arr) {
             return (_.max(arr) === _.min(arr));
         }
-    };
+    }
     // ModalCtrl.$inject = ['$scope'];
     /**
     *

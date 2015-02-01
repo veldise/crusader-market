@@ -20,7 +20,7 @@
         $scope.maxBread = 100;
 
         // $scope.currBread = 0;
-        // $scope.addBread = 0;
+        // $scope.addedBread = 0;
         $scope.rstAddBread = 0;
 
         $scope.isSuccess = true;
@@ -40,22 +40,27 @@
         *   watch
         */
         $scope.$watch('currBread', function () {
-            $scope.calcBread($scope.currBread, $scope.addBread, $scope.maxBread);
+            $scope.calcBread($scope.currBread, $scope.addedBread, $scope.maxBread);
         });
-        $scope.$watch('addBread', function () {
-            $scope.calcBread($scope.currBread, $scope.addBread, $scope.maxBread);
+        $scope.$watch('addedBread', function () {
+            $scope.calcBread($scope.currBread, $scope.addedBread, $scope.maxBread);
         });
         $scope.$watch('maxBread', function () {
-            $scope.calcBread($scope.currBread, $scope.addBread, $scope.maxBread);
+            $scope.calcBread($scope.currBread, $scope.addedBread, $scope.maxBread);
         });
         $scope.$watch('isSuccess', function () {
-            $scope.calcBread($scope.currBread, $scope.addBread, $scope.maxBread);
+            $scope.calcBread($scope.currBread, $scope.addedBread, $scope.maxBread);
         });
 
-        $scope.calcBread = function (curr, add, max) {
+        $scope.calcBread = function (curr, added, max) {
+            // curr : 현재 훈련치
+            // added : 빵 선택 후 훈련치
             var currPer = curr / max * 100;
             currPer = Math.max(0, Math.min(100, currPer));
 
+            // add: 빵 선택으로 추가되는 훈련치
+            var add = added - curr;
+            // 대성공시 1.5배
             if ($scope.isSuccess) {
                 add = Math.round(add * 1.5);
             }
@@ -68,7 +73,7 @@
         };
         $scope.resetBread = function () {
             $scope.currBread = undefined;
-            $scope.addBread = undefined;
+            $scope.addedBread = undefined;
         };
     }
     ModalCalcCtrl.$inject = ['$scope', '$modalInstance'];

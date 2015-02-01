@@ -59,7 +59,7 @@
             currPer = Math.max(0, Math.min(100, currPer));
 
             // add: 빵 선택으로 추가되는 훈련치
-            var add = added - curr;
+            var add = Math.max(0, added - curr);
             // 대성공시 1.5배
             if ($scope.isSuccess) {
                 add = Math.round(add * 1.5);

@@ -140,6 +140,17 @@
             //     $log.info('Modal dismissed at: ' + new Date());
             // });
         };
+        /**
+        *
+        */
+        $scope.openCalc = function () {
+            var modalInstance = $modal.open({
+                templateUrl: '/public/modal_calc.html',
+                controller: 'ModalCalcCtrl',
+                // size: 'sm',
+                resolve: {}
+            });
+        };
     }
     MainCtrl.$inject = ['$scope', '$http', '$timeout', '$modal'];
     /**

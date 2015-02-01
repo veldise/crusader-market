@@ -15,7 +15,7 @@ var expressUglify = require('express-uglify');
 
 var dirPublic = path.join(__dirname, 'public');
 // route log
-fs.mkdirSync('./log');
+fs.mkdir('./log', function () {});
 var routeLogStream = fs.createWriteStream('./log/route.log');
 
 app.use(expressUglify.middleware({

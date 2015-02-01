@@ -41,7 +41,7 @@
 					td.ac.va_m(ng-repeat="blockThum in blockThums")
 						img.img-thum(ng-if="blockThum", ng-src="{{blockThum}}")
 				tr(ng-repeat="arr in descArr")
-					td.ac.va_m(ng-repeat="item in arr track by $index")
+					td.ac(ng-repeat="item in arr track by $index")
 						span.bold-text(ng-if="$first") {{item}}
 						span(ng-if="!$first", bold-keyword) {{item}}
 .modal-footer

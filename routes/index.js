@@ -4,5 +4,8 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+    var remoteIP = req.ip || req.connection.remoteAddress;
+    console.log('access index.jade:', remoteIP);
+
+    res.render('index', { title: 'Express' });
 };

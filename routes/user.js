@@ -10,7 +10,7 @@ var warriors = require('../warriors.json');
 
 exports.list = function(req, res){
     var remoteIP = req.ip || req.connection.remoteAddress;
-    console.log('access list data:', remoteIP);
+    console.log('access list data:', remoteIP, req.headers['user-agent']);
     // fs.readFile(path.join(__dirname, '../warriors.json'), function (err, data) {
     //  if (err) {
     //      return res.send(500, err);

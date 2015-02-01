@@ -62,7 +62,7 @@
             var add = Math.max(0, added - curr);
             // 대성공시 1.5배
             if ($scope.isSuccess) {
-                add = Math.round(add * 1.5);
+                add = Math.floor(add * 1.5);
             }
             var addPer = add / max * 100;
             addPer = Math.max(0, Math.min(100 - currPer, addPer));

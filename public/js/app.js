@@ -90,7 +90,7 @@
     */
     angular.module('crusaderMarketApp', [
             'ngRoute',
-            'ui.bootstrap', 'ui-range-slider',
+            'ui.bootstrap',// 'ui-range-slider',
             'cm.controllers',
             'cm.modals'
         ])

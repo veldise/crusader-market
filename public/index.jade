@@ -9,29 +9,31 @@ html
 		//- library or plugin css files
 		//- Latest compiled and minified CSS
 		link(rel="stylesheet", href="/lib/bootstrap-3.3.2/css/bootstrap.min.css", media="screen")
-		link(rel="stylesheet", href="/lib/angular.rangeSlider.css", media="screen")
+		//- link(rel="stylesheet", href="/lib/angular.rangeSlider.css", media="screen")
+
+		//- user define stylesheets
+		link(rel='stylesheet', href='/css/style.css')
+
 		//- Latest compiled and minified JavaScript
 		script(src="/lib/jquery-1.11.2.min.js")
 		script(src="/lib/underscore-min.js")
 		script(src="/lib/angular/angular.min.js")
 		script(src="/lib/angular/angular-route.min.js")
-		//-
 		script(src="/lib/bootstrap-3.3.2/js/bootstrap.min.js")
 		script(src="/lib/ui-bootstrap-tpls-0.12.0.min.js")
-		script(src="/lib/angular.rangeSlider.js")
+		//- script(src="/lib/angular.rangeSlider.js")
+
 		//-
 		script(src="/js/controllers/app.js")
 		script(src="/js/controllers/hero.js")
 		script(src="/js/controllers/bread.js")
 		script(src="/js/controllers/skill.js")
-		//-
 		script(src="/js/modal_diff.js")
-		//-
 		script(src="/js/app.js")
-		//- user define stylesheets
-		link(rel='stylesheet', href='/css/style.css')
+
 	body(ng-controller="MainCtrl")
 		include ./navi.jade
+
 		#header.container
 		//- 	.page-header(style="margin:0")
 		//- 		h3

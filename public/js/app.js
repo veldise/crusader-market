@@ -12,8 +12,8 @@
             // .when('/platform/dashboard', {
             //     templateUrl: '/partials/platform/dashboard/index.html'
             // })
-            .when('/warrior', {
-                controller: 'WarriorCtrl',
+            .when('/hero', {
+                controller: 'HeroCtrl',
                 templateUrl: '/public/hero_table.html'
             })
             .when('/skill', {
@@ -26,7 +26,7 @@
             })
             // otherwise redirect
             .otherwise({
-                redirectTo: 'warrior'
+                redirectTo: '/hero'
             });
 
         // disable debug level messages
@@ -51,14 +51,14 @@
         /**
         *
         */
-        $scope.openDiff = function (warriors) {
+        $scope.openDiff = function (heros) {
             var modalInstance = $modal.open({
                 templateUrl: '/public/modal_diff.html',
                 controller: 'ModalCtrl',
                 size: 'lg',
                 resolve: {
-                    warriors: function () {
-                        return warriors;
+                    heros: function () {
+                        return heros;
                     }
                 }
             });

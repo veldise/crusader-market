@@ -41,7 +41,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/warriors', user.list);
+app.get('/heros', user.heros);
 // views
 app.get('/public/modal_diff.html', function (req, res) {
   res.render('modal_diff');

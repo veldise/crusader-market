@@ -6,7 +6,7 @@
     /**
     *
     */
-    function ModalCtrl ($scope, $modalInstance, warriors) {
+    function ModalCtrl ($scope, $modalInstance, heros) {
         /**
         *   Dialog
         */
@@ -20,7 +20,7 @@
         /**
         *   Table
         */
-        // _.each(warriors, function (warrior) {
+        // _.each(heros, function (warrior) {
         //     var re = /\((\d+)\/(\d+)\/(\d+)\)\%/;
         //     var dems = warrior['블록 스킬'].match(re);
         //     if (dems) {
@@ -51,33 +51,33 @@
                 '패시브'
             ];
 
-        $scope.heroThums = _.pluck(warriors, 'hero_thum');
+        $scope.heroThums = _.pluck(heros, 'hero_thum');
         $scope.defArr = _.map(defKeys, function (key) {
-            var arr = _.pluck(warriors, key);
+            var arr = _.pluck(heros, key);
             arr.unshift(key);
             return arr;
         });
         $scope.originStatusArr = _.map(statusKeys, function (key) {
-            var arr = _.pluck(warriors, key);
+            var arr = _.pluck(heros, key);
             arr.unshift(key);
             return arr;
         });
         $scope.statusArr = _.map(statusKeys, function (key) {
-            var arr = _.pluck(warriors, key);
+            var arr = _.pluck(heros, key);
             arr.unshift(key);
             return arr;
         });
-        $scope.plusRatios = _.map(_.range(warriors.length + 1), function () {
+        $scope.plusRatios = _.map(_.range(heros.length + 1), function () {
             return 0;
         });
         // $scope.chainArr = _.map(chainKeys, function (key) {
-        //     var arr = _.pluck(warriors, key);
+        //     var arr = _.pluck(heros, key);
         //     arr.unshift(key);
         //     return arr;
         // });
-        $scope.blockThums = _.pluck(warriors, 'block_thum');
+        $scope.blockThums = _.pluck(heros, 'block_thum');
         $scope.descArr = _.map(descKeys, function (key) {
-            var arr = _.pluck(warriors, key);
+            var arr = _.pluck(heros, key);
             arr.unshift(key);
             return arr;
         });
@@ -131,7 +131,7 @@
             $scope.plusRatios[$index] = 0;
             // reset status
             _.each(statusKeys, function (key, idx) {
-                var arr = _.pluck(warriors, key);
+                var arr = _.pluck(heros, key);
                 arr.unshift(key);
 
                 $scope.statusArr[idx][$index] = arr[$index];
@@ -162,7 +162,7 @@
             }
         };
     }
-    ModalCtrl.$inject = ['$scope', '$modalInstance', 'warriors'];
+    ModalCtrl.$inject = ['$scope', '$modalInstance', 'heros'];
     /**
     *
     */

@@ -4,19 +4,19 @@
 (function (angular, _) {
     'use strict';
 
-    function WarriorCtrl($scope, $http) {
+    function HeroCtrl($scope, $http) {
         /**
         *   Locals
         */
         var originData = [];
 
         function loadData () {
-            $http.get('/warriors')
+            $http.get('/heros')
                 .success(function (data) {
                     originData = data;
 
                     // $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
-                    $scope.warriors = data;
+                    $scope.heros = data;
                 })
                 .error(function (reason) {
                     alert(reason);
@@ -39,43 +39,43 @@
 
         $scope.deselectType = function () {
             $scope.currType = '전체';
-            $scope.warriors = originData;
+            $scope.heros = originData;
         };
         $scope.selectType = function (type) {
             $scope.currType = type.heading;
-            $scope.warriors = _.where(originData, { '클래스': type.heading });
+            $scope.heros = _.where(originData, { '클래스': type.heading });
         };
         /**
         *   Grid
         */
-        $scope.warriors = originData;
+        $scope.heros = originData;
 
         $scope.$on('deselectAll', function () {
-            _.each(originData, function (warrior) {
-                warrior.isSelected = false;
+            _.each(originData, function (hero) {
+                hero.isSelected = false;
             });
         });
-        $scope.selectWarrior = function (warrior) {
+        $scope.selectHero = function (hero) {
             // toggle
-            warrior.isSelected = !warrior.isSelected;
+            hero.isSelected = !hero.isSelected;
 
             var party = $scope.shared.party;
 
             // select
-            if (warrior.isSelected) {
+            if (hero.isSelected) {
                 if (party.length >= 3) {
-                    warrior.isSelected = false;
+                    hero.isSelected = false;
                     // alert
                     // ...
                 }
                 else {
-                    party.push(warrior);
+                    party.push(hero);
                     // $scope.shared.party = sortPosition(party);
                 }
             }
             // deselect
             else {
-                var idx = _.indexOf(party, warrior);
+                var idx = _.indexOf(party, hero);
                 if (idx !== -1) {
                     // remove
                     party.splice(idx, 1);
@@ -83,11 +83,11 @@
             }
         };
     }
-    WarriorCtrl.$inject = ['$scope', '$http'];
+    HeroCtrl.$inject = ['$scope', '$http'];
     /**
     *
     */
     angular.module('cm.controllers')
-        .controller('WarriorCtrl', WarriorCtrl);
+        .controller('HeroCtrl', HeroCtrl);
 
 })(angular, _);

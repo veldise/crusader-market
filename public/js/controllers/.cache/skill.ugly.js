@@ -1,0 +1,1 @@
+(function(e,t){"use strict";function n(e){}n.$inject=["$scope"],e.module("cm.controllers").controller("SkillCtrl",n)})(angular,_)

@@ -166,7 +166,7 @@
     /**
     *
     */
-    angular.module('cm.modalApp', [])
+    angular.module('cm.modals', [])
         .controller('ModalCtrl', ModalCtrl);
 })(angular, _);
 

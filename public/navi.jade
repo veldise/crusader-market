@@ -1,4 +1,4 @@
-nav.navbar.navbar-default.navbar-fixed-bottom
+nav.navbar.navbar-default.navbar-fixed-top
 	.container-fluid
 		.navbar-header
 			button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navigation-bar")
@@ -6,8 +6,12 @@ nav.navbar.navbar-default.navbar-fixed-bottom
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href="#")
+			a.navbar-brand(href="#warrior") Crusader Market
 		.collapse.navbar-collapse#navigation-bar
+			ul.nav.navbar-nav
+				li(ng-class="{ active: (currPath === '/warrior') }"): a(href="#warrior") 용사
+				li(ng-class="{ active: (currPath === '/skill') }"): a(href="#skill") 특수 스킬
+				li(ng-class="{ active: (currPath === '/bread') }"): a(href="#bread") 빵 계산기
 			form.navbar-form.navbar-right(role="search")
 				.form-group.hidden-xs
 					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="showDesc=true", ng-show="!showDesc")
@@ -17,22 +21,15 @@ nav.navbar.navbar-default.navbar-fixed-bottom
 						span.glyphicon.glyphicon-eye-close(aria-hidden="true")
 						|  스킬 닫기
 				.form-group
-					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="openCalc()")
-						span.glyphicon.glyphicon-cutlery(aria-hidden="true")
-						|  빵 계산
-					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="openDiff(party)", ng-disabled="!party.length")
+					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="openDiff(shared.party)", ng-disabled="!shared.party.length")
 						span.glyphicon.glyphicon-stats(aria-hidden="true")
 						|  비교
-					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="deselectAll()", ng-disabled="!party.length")
+					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="deselectAll()", ng-disabled="!shared.party.length")
 						span.glyphicon.glyphicon-unchecked(aria-hidden="true")
 						|  선택 해제
 				.form-group.mg-lr-4
-					label(for="filterWarrior").hide Warrior
-					input.form-control(type="text", id="filterWarrior", placeholder="Find Warrior...", ng-model="filterWarrior")
-				a.btn.btn-default.mg-lr-4(href="#header", aria-label="Left Align")
-					span.glyphicon.glyphicon-triangle-top(aria-hidden="true")
-				a.btn.btn-default.mg-lr-4(href="#footer", aria-label="Left Align")
-					span.glyphicon.glyphicon-triangle-bottom(aria-hidden="true")
+					label(for="searchText").hide Search
+					input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")
 				//- .form-group(style="float:right;margin-right:6px;")
 				//- 	input.btn.btn-default(type="button" value="선택 용사 비교")
 			//- form.navbar-form.navbar-right(role="search", style="padding-top:10px")

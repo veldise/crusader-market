@@ -6,125 +6,54 @@
     /**
     *
     */
-    function config ($logProvider) {
+    function config ($routeProvider, $logProvider) {
+        $routeProvider
+            // platform
+            // .when('/platform/dashboard', {
+            //     templateUrl: '/partials/platform/dashboard/index.html'
+            // })
+            .when('/warrior', {
+                controller: 'WarriorCtrl',
+                templateUrl: '/public/hero_table.html'
+            })
+            .when('/skill', {
+                controller: 'SkillCtrl',
+                templateUrl: '/public/hero_skill.html'
+            })
+            .when('/bread', {
+                controller: 'BreadCalcCtrl',
+                templateUrl: '/public/bread_calc.html'
+            })
+            // otherwise redirect
+            .otherwise({
+                redirectTo: 'warrior'
+            });
+
         // disable debug level messages
         $logProvider.debugEnabled(false);
     }
-    config.$inject = ['$logProvider'];
+    config.$inject = ['$routeProvider', '$logProvider'];
     /**
     *
     */
-    function MainCtrl($scope, $http, $timeout, $modal) {
+    function MainCtrl ($scope, $modal) {
         /**
-        *   Locals
+        *   shared
         */
-        var originData = [];
-
-        function loadData () {
-            $http.get('/warriors')
-                .success(function (data) {
-                    originData = data;
-
-                    // $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
-                    $scope.warriors = data;
-                })
-                .error(function (reason) {
-                    console.error(reason);
-                    alert(reason);
-                });
-        }
-        // init
-        loadData();
-        /**
-        *   party layer
-        */
-        $scope.party = [];
-
-        function sortPosition (party) {
-            var position = [];
-
-            position.push(_.filter(party, function (warrior) {
-                return (warrior['클래스'] === '워리어') || (warrior['클래스'] === '팔라딘');
-            }));
-            position.push(_.where(party, { '클래스': '프리스트' }));
-            position.push(_.where(party, { '클래스': '아처' }));
-            position.push(_.where(party, { '클래스': '헌터' }));
-            position.push(_.where(party, { '클래스': '위자드' }));
-
-            return _.flatten(position);
-        }
-
-        $scope.rmParty = function (index) {
-            if ($scope.party[index]) {
-                $scope.party[index].isSelected = false;
-                $scope.party.splice(index, 1);
-            }
+        $scope.shared = {
+            party: []
         };
-        /**
-        *   Tabset
-        */
-        $scope.classTypes = [
-            { heading: '워리어', icon: 'img/icon_warrior.png' },
-            { heading: '팔라딘', icon: 'img/icon_paladin.png' },
-            { heading: '아처', icon: 'img/icon_archer.png' },
-            { heading: '헌터', icon: 'img/icon_hunter.png' },
-            { heading: '위자드', icon: 'img/icon_wizard.png' },
-            { heading: '프리스트', icon: 'img/icon_priest.png' }
-        ];
-        $scope.currType = '전체';
-
-        $scope.deselectType = function () {
-            $scope.currType = '전체';
-            $scope.warriors = originData;
-        };
-        $scope.selectType = function (type) {
-            $scope.currType = type.heading;
-            $scope.warriors = _.where(originData, { '클래스': type.heading });
-        };
-        /**
-        *   Grid
-        */
-        $scope.warriors = originData;
 
         $scope.deselectAll = function () {
-            _.each(originData, function (warrior) {
-                warrior.isSelected = false;
-            });
-            $scope.party = [];
-        };
-        $scope.selectWarrior = function (warrior) {
-            // toggle
-            warrior.isSelected = !warrior.isSelected;
-
-            var party = $scope.party;
-
-            // select
-            if (warrior.isSelected) {
-                if (party.length >= 3) {
-                    warrior.isSelected = false;
-                    // alert
-                    // ...
-                }
-                else {
-                    party.push(warrior);
-                    $scope.party = sortPosition(party);
-                }
-            }
-            // deselect
-            else {
-                var idx = _.indexOf(party, warrior);
-                if (idx !== -1) {
-                    // remove
-                    party.splice(idx, 1);
-                }
-            }
+            $scope.shared.party = [];
+            $scope.$broadcast('deselectAll');
         };
         /**
         *
         */
         $scope.openDiff = function (warriors) {
             var modalInstance = $modal.open({
-                templateUrl: '/public/modal.html',
+                templateUrl: '/public/modal_diff.html',
                 controller: 'ModalCtrl',
                 size: 'lg',
                 resolve: {
@@ -141,24 +70,27 @@
             // });
         };
         /**
-        *
+        *   
         */
-        $scope.openCalc = function () {
-            var modalInstance = $modal.open({
-                templateUrl: '/public/modal_calc.html',
-                controller: 'ModalCalcCtrl',
-                // size: 'sm',
-                resolve: {}
-            });
-        };
+        $scope.$on('$routeChangeSuccess', function (scope, current/*, before*/) {
+            if (!current || !current.$$route) {
+                return;
+            }
+
+            $scope.currPath = current.$$route.originalPath;
+            // close navbar
+            // angular.element('.navbar-toggle').trigger('click');
+        });
     }
-    MainCtrl.$inject = ['$scope', '$http', '$timeout', '$modal'];
+    MainCtrl.$inject = ['$scope', '$modal'];
     /**
     *
     */
     angular.module('crusaderMarketApp', [
+            'ngRoute',
             'ui.bootstrap',
-            'cm.modalApp'
+            'cm.controllers',
+            'cm.modals'
         ])
         .config(config)
         .directive('boldKeyword', function () {

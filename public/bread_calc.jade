@@ -1,0 +1,33 @@
+form.form-horizontal
+	.form-group
+		.col-sm-12
+			button.btn.btn-default(type="button", style="width:20%", ng-click="selectRank(0)", ng-class="{ 'btn-info': currRank === 0 }") +0
+			button.btn.btn-default(type="button", style="width:20%", ng-click="selectRank(1)", ng-class="{ 'btn-info': currRank === 1 }") +1
+			button.btn.btn-default(type="button", style="width:20%", ng-click="selectRank(2)", ng-class="{ 'btn-info': currRank === 2 }") +2
+			button.btn.btn-default(type="button", style="width:20%", ng-click="selectRank(3)", ng-class="{ 'btn-info': currRank === 3 }") +3
+			button.btn.btn-default(type="button", style="width:20%", ng-click="selectRank(4)", ng-class="{ 'btn-info': currRank === 4 }") +4
+	.form-group
+		.col-sm-6
+			.progress(style="margin-top: 7px;margin-bottom: 13px;")
+				.progress-bar.progress-bar-success(role="progressbar", aria-valuenow="{{currBread}}", aria-valuemin="0", aria-valuemax="{{maxBread}}", style="width: {{currPer}}%;")
+					span {{currBread || 0}} / {{maxBread}}
+		//- label.col-sm-4.control-label(for='inputCurrTraining') 현재 훈련치
+		.col-sm-6
+			input#inputCurrTraining.form-control(type='number', placeholder='현재 훈련치', ng-model="currBread")
+	.form-group
+		.col-sm-6
+			.progress(style="margin-top: 7px;margin-bottom: 13px;")
+				.progress-bar.progress-bar-success(role="progressbar", aria-valuenow="{{currBread}}", aria-valuemin="0", aria-valuemax="{{maxBread}}", style="width: {{currPer}}%;")
+					span {{currBread + rstAddBread || 0}} / {{maxBread}}
+				.progress-bar.progress-bar-danger.progress-bar-striped.active(role="progressbar", style="width: {{addPer}}%;")
+		//- label.col-sm-4.control-label(for='inputExpectTraining') 빵 선택 훈련치
+		.col-sm-6
+			input#inputExpectTraining.form-control(type='number', placeholder='빵 선택 후 훈련치', ng-model="addedBread")
+	.form-group
+		.col-sm-6.col-xs-8
+			.checkbox
+				label
+					input(type="checkbox", value="", ng-model="isSuccess")
+					| 대성공
+		.col-sm-6.col-xs-4
+			button.btn.btn-default.fr(type='button', ng-click="resetBread()") 초기화

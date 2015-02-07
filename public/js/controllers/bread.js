@@ -6,13 +6,7 @@
     /**
     *
     */
-    function ModalCalcCtrl ($scope, $modalInstance) {
-        /**
-        *   Dialog
-        */
-        $scope.close = function () {
-            $modalInstance.close();
-        };
+    function BreadCalcCtrl ($scope) {
         /**
         *
         */
@@ -53,6 +47,7 @@
         });
 
         $scope.calcBread = function (curr, added, max) {
+            curr = curr || 0;
             // curr : 현재 훈련치
             // added : 빵 선택 후 훈련치
             var currPer = curr / max * 100;
@@ -76,12 +71,10 @@
             $scope.addedBread = undefined;
         };
     }
-    ModalCalcCtrl.$inject = ['$scope', '$modalInstance'];
+    BreadCalcCtrl.$inject = ['$scope'];
     /**
     *
     */
-    angular.module('cm.modalApp')
-        .controller('ModalCalcCtrl', ModalCalcCtrl);
+    angular.module('cm.controllers')
+        .controller('BreadCalcCtrl', BreadCalcCtrl);
 })(angular, _);
-
-// /public/modal.html

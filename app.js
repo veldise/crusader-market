@@ -43,11 +43,17 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/warriors', user.list);
 // views
-app.get('/public/modal.html', function (req, res) {
-  res.render('modal');
+app.get('/public/modal_diff.html', function (req, res) {
+  res.render('modal_diff');
 });
-app.get('/public/modal_calc.html', function (req, res) {
-  res.render('modal_calc');
+app.get('/public/hero_table.html', function (req, res) {
+  res.render('hero_table');
+});
+app.get('/public/hero_skill.html', function (req, res) {
+  res.render('hero_skill');
+});
+app.get('/public/bread_calc.html', function (req, res) {
+  res.render('bread_calc');
 });
 
 http.createServer(app).listen(app.get('port'), function(){

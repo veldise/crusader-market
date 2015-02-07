@@ -11,26 +11,32 @@ html
 		link(rel="stylesheet", href="/lib/bootstrap-3.3.2/css/bootstrap.min.css", media="screen")
 		//- Latest compiled and minified JavaScript
 		script(src="/lib/jquery-1.11.2.min.js")
-		script(src="/lib/angular.min.js")
+		script(src="/lib/underscore-min.js")
+		script(src="/lib/angular/angular.min.js")
+		script(src="/lib/angular/angular-route.min.js")
+		//-
 		script(src="/lib/bootstrap-3.3.2/js/bootstrap.min.js")
 		script(src="/lib/ui-bootstrap-tpls-0.12.0.min.js")
-		script(src="/lib/underscore-min.js")
 		//-
-		script(src="/js/modal.js")
-		script(src="/js/modal_calc.js")
+		script(src="/js/controllers/app.js")
+		script(src="/js/controllers/warrior.js")
+		script(src="/js/controllers/bread.js")
+		script(src="/js/controllers/skill.js")
+		//-
+		script(src="/js/modal_diff.js")
+		//-
 		script(src="/js/app.js")
 		//- user define stylesheets
 		link(rel='stylesheet', href='/css/style.css')
-	body(style="padding-top:6px", ng-controller="MainCtrl")
-		.container#header
-			.page-header(style="margin:0")
-				h3
-					| Crusader Market 
-					small  v0.1.1
-
-		include ./hero_party.jade
-		include ./hero_table.jade
-
-		#footer
-
+	body(ng-controller="MainCtrl")
 		include ./navi.jade
+		#header.container
+		//- 	.page-header(style="margin:0")
+		//- 		h3
+		//- 			| Crusader Market 
+		//- 			small  v0.1.1
+
+		#container.container(ng-view, style="margin-top:60px;margin-bottom:56px")
+
+		#footer.container
+

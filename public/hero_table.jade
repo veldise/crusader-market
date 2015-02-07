@@ -47,8 +47,8 @@ ul.nav.nav-tabs
 				th.ac.va_m 물리 방어력
 				th.ac.va_m 마법 저항력
 				th.ac.va_m.hidden-xs 블록 이미지
-				th.ac.va_m(ng-show="showDesc") 블록 스킬
-				th.ac.va_m(ng-show="showDesc") 패시브
+				th.ac.va_m(ng-show="showDesc").hidden-xs 블록 스킬
+				th.ac.va_m(ng-show="showDesc").hidden-xs 패시브
 		tbody
 			tr.clickable(ng-repeat="hero in heros | filter:searchText",
 					ng-click="selectHero(hero)", ng-class="{ info: hero.isSelected }")
@@ -64,5 +64,5 @@ ul.nav.nav-tabs
 				td.ac.va_m {{hero['마법 저항력']}}
 				td.ac.va_m(style="padding:4px").hidden-xs
 					img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
-				td(bold-keyword, ng-show="showDesc") {{hero['블록 스킬']}}
-				td(bold-keyword, ng-show="showDesc") {{hero['패시브']}}
+				td(bold-keyword, ng-show="showDesc").hidden-xs {{hero['블록 스킬']}}
+				td(bold-keyword, ng-show="showDesc").hidden-xs {{hero['패시브']}}

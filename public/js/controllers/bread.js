@@ -8,9 +8,14 @@
     */
     function BreadCalcCtrl ($scope) {
         /**
+        *   locals
+        */
+        var breadNums = [0, 100, 700, 2100, 5000, 10600];
+        /**
         *
         */
-        $scope.currRank = 0;
+        $scope.minRank = 0;
+        $scope.maxRank = 1;
         $scope.maxBread = 100;
 
         // $scope.currBread = 0;
@@ -19,20 +24,28 @@
 
         $scope.isSuccess = true;
 
-        $scope.selectRank = function (rank) {
-            $scope.currRank = rank;
-
-            switch (rank) {
-                case 0: $scope.maxBread = 100; break;
-                case 1: $scope.maxBread = 700; break;
-                case 2: $scope.maxBread = 2100; break;
-                case 3: $scope.maxBread = 5000; break;
-                case 4: $scope.maxBread = 10600; break;
+        $scope.selectRank = function (min, max) {
+            var sumMin = 0;
+            for (var i=0; i<=min; i++) {
+                sumMin += breadNums[i];
             }
+            var sumMax = 0;
+            for (var j=0; j<=max; j++) {
+                sumMax += breadNums[j];
+            }
+
+            $scope.maxBread = sumMax - sumMin;
         };
         /**
         *   watch
         */
+        $scope.$watch('minRank', function () {
+            $scope.selectRank($scope.minRank, $scope.maxRank);
+        });
+        $scope.$watch('maxRank', function () {
+            $scope.selectRank($scope.minRank, $scope.maxRank);
+        });
+
         $scope.$watch('currBread', function () {
             $scope.calcBread($scope.currBread, $scope.addedBread, $scope.maxBread);
         });
@@ -66,6 +79,18 @@
             $scope.currPer = currPer;
             $scope.addPer = addPer;
         };
+        $scope.calcAutoBread = function (curr, max) {
+            curr = curr || 0;
+
+            var add = max - curr,
+                added = add;
+            // 대성공시 1.5배
+            if ($scope.isSuccess) {
+                added = Math.ceil(add / 1.5);
+            }
+
+            $scope.addedBread = curr + added;
+        };
         $scope.resetBread = function () {
             $scope.currBread = undefined;
             $scope.addedBread = undefined;
@@ -76,5 +101,10 @@
     *
     */
     angular.module('cm.controllers')
+        .filter('num2rank', function () {
+            return function (num) {
+                return '+' + ((num >= 5) ? 'MAX' : (num + ''));
+            };
+        })
         .controller('BreadCalcCtrl', BreadCalcCtrl);
 })(angular, _);

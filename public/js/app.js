@@ -78,8 +78,6 @@
             }
 
             $scope.currPath = current.$$route.originalPath;
-            // close navbar
-            // angular.element('.navbar-toggle').trigger('click');
         });
     }
     MainCtrl.$inject = ['$scope', '$modal'];
@@ -88,7 +86,7 @@
     */
     angular.module('crusaderMarketApp', [
             'ngRoute',
-            'ui.bootstrap',
+            'ui.bootstrap', 'ui-range-slider',
             'cm.controllers',
             'cm.modals'
         ])

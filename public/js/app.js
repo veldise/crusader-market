@@ -43,6 +43,10 @@
         $scope.shared = {
             party: []
         };
+        /**
+        *
+        */
+        $scope.showDesc = true;
 
         $scope.deselectAll = function () {
             $scope.shared.party = [];

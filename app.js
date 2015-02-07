@@ -42,6 +42,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/heros', user.heros);
+app.get('/skills', user.skills);
 // views
 app.get('/public/modal_diff.html', function (req, res) {
   res.render('modal_diff');

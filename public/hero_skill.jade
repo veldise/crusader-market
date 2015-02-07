@@ -1,0 +1,46 @@
+ul.nav.nav-tabs
+	li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
+		a(href="javascript:;")
+			//- span.glyphicon.glyphicon-home
+			|  전체
+	li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type.heading }")
+		a(href="javascript:;")
+			img.img-icon(ng-src="{{type.icon}}")
+			span.hidden-xs  {{type.heading}}
+
+.container-fluid.table-bordered(style="border-top-color: transparent;")
+	table.table.table-bordered(style="margin-top:24px")
+		colgroup
+			//- 클래스
+			col(width="100px").hidden-xs
+			//- 이미지
+			col(width="60px")
+			//- 스킬명
+			col(width="140px")
+			//- 레벨
+			col(width="46px")
+			//- 타입
+			col(width="90px")
+			//- 설명
+			col(width="*").hidden-xs
+		thead
+			tr
+				th.ac.va_m.hidden-xs 클래스
+				th.ac.va_m 이미지
+				th.ac.va_m 스킬명
+				//- th.ac.va_m 상급 여부
+				th.ac.va_m 레벨
+				th.ac.va_m 타입
+				th.ac.va_m(ng-show="showDesc").hidden-xs 스킬 설명
+		tbody
+			tr.clickable(ng-repeat="skill in skills | filter:searchText",
+					ng-click="selectSkill(skill)", ng-class="{ info: skill.isSelected }")
+				td.ac.va_m.hidden-xs
+					img.img-icon(ng-src="{{convIconUrl(skill['클래스'])}}")
+					span  {{skill['클래스']}}
+				td.ac.va_m(style="padding:4px")
+					img.img-thum(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}")
+				td.ac.va_m {{skill['스킬명']}}
+				td.ac.va_m {{skill['레벨']}}
+				td.ac.va_m {{skill['타입']}}
+				td(bold-keyword, ng-show="showDesc").hidden-xs {{skill['설명']}}

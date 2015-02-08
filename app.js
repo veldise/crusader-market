@@ -1,7 +1,4 @@
-/**
-*	globals
-*/
-global.ips = require('./data/ips.json');
+'use strict';
 /**
  * Module dependencies.
  */
@@ -15,7 +12,21 @@ var path = require('path');
 
 var app = express();
 var expressUglify = require('express-uglify');
-
+/**
+*   globals
+*/
+fs.readFile('./data/ips.json', function (err, data) {
+    // ignore err
+    if (err) {
+        global.ips = {};
+    }
+    else {
+        global.ips = JSON.parse(data.toString());
+    }
+});
+/**
+*   Express
+*/
 var dirPublic = path.join(__dirname, 'public');
 // route log
 fs.mkdir('./log', function () {});
@@ -68,11 +79,11 @@ http.createServer(app).listen(app.get('port'), function(){
 *
 */
 process.once('SIGINT', function serverExit() {
-	fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
-		if (err) {
-			throw err;
-			process.exit(1);
-		}
-		process.exit(0);
-	});
+    fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
+        if (err) {
+            throw err;
+            process.exit(1);
+        }
+        process.exit(0);
+    });
 });

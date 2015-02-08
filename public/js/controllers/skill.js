@@ -43,7 +43,7 @@
         };
         $scope.selectType = function (type) {
             $scope.currType = type.heading;
-            $scope.skills = _.where(originData, { '클래스': type.heading });
+            $scope.skills = _.where(originData, { classType: type.heading });
         };
         /**
         *   Grid
@@ -78,7 +78,7 @@
                 var template = [
                     '<tr class="open-row hidden-md hidden-sm">',
                         '<td colspan="6" class="well">',
-                            skill['설명'],
+                            skill.desc,
                         '</td>',
                     '</tr>'
                 ].join('');

@@ -35,11 +35,11 @@ ul.nav.nav-tabs
 		tbody
 			tr.clickable(ng-repeat="skill in skills | filter:searchText")
 				td.ac.va_m.hidden-xs
-					img.img-icon(ng-src="{{convIconUrl(skill['클래스'])}}")
-					span  {{skill['클래스']}}
+					img.img-icon(ng-src="{{convIconUrl(skill.classType)}}")
+					span  {{skill.classType}}
 				td.ac.va_m(style="padding:4px")
 					img.img-thum.clickable(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}", ng-click="toggleDesc($event, skill)")
-				td.ac.va_m {{skill['스킬명']}}
-				td.ac.va_m {{skill['레벨']}}
-				td.ac.va_m {{skill['타입']}}
-				td(bold-keyword, ng-show="showDesc").hidden-xs {{skill['설명']}}
+				td.ac.va_m {{skill.name}}
+				td.ac.va_m {{skill.level}}
+				td.ac.va_m {{skill.effect}}
+				td(bold-keyword="skill.desc", ng-show="showDesc").hidden-xs

@@ -10,24 +10,24 @@
 				col(width="29%")
 			thead
 				tr
-					th.ac.va_m 이미지
+					th.ac.va_m.hidden-xs 이미지
 					th.ac.va_m(ng-repeat="hero in party")
 						img.img-thum(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}")
 						span(ng-if="plusRatios[index] && plusRatios[index] < 5") +{{plusRatios[index]}}
 						span(ng-if="plusRatios[index] && plusRatios[index] === 5") +MAX
 			tbody
 				tr
-					th.ac.va_m 이름
+					th.ac.va_m.hidden-xs 이름
 					td.ac.va_m(ng-repeat="hero in party") {{hero.name}}
 				tr
-					th.ac.va_m 등급
+					th.ac.va_m.hidden-xs 등급
 					td.ac.va_m(ng-repeat="hero in party") {{hero.rank}}
 				tr
-					th.ac.va_m 클래스
+					th.ac.va_m.hidden-xs 클래스
 					td.ac.va_m(ng-repeat="hero in party") {{hero.classType}}
 
 				tr
-					th.ac.va_m 훈련
+					th.ac.va_m.hidden-xs 훈련
 					td.ac.va_m(ng-repeat="plusRatio in plusRatios track by $index")
 						span
 							button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
@@ -37,41 +37,41 @@
 									ng-click="increaseStatus($index, plusRatio)", ng-disabled="plusRatio >= 5")
 								| 훈 련
 				tr
-					th.ac.va_m 공격력
+					th.ac.va_m.hidden-xs 공격력
 					td.ac.va_m(ng-repeat="item in status.AP track by $index")
 						span(ng-class="{ 'bold-text': isMax(status.AP, item) }") {{item | number}}
 						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.AP, item)")
 				tr
-					th.ac.va_m 체력
+					th.ac.va_m.hidden-xs 체력
 					td.ac.va_m(ng-repeat="item in status.HP track by $index")
 						span(ng-class="{ 'bold-text': isMax(status.HP, item) }") {{item | number}}
 						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.HP, item)")
 				tr
-					th.ac.va_m 치명타 확률
+					th.ac.va_m.hidden-xs 치명타 확률
 					td.ac.va_m(ng-repeat="item in status.critical track by $index")
 						span(ng-class="{ 'bold-text': isMax(status.critical, item) }") {{item | number}}
 						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.critical, item)")
 				tr
-					th.ac.va_m 물리 방어력
+					th.ac.va_m.hidden-xs 물리 방어력
 					td.ac.va_m(ng-repeat="item in status.defense track by $index")
 						span(ng-class="{ 'bold-text': isMax(status.defense, item) }") {{item | number}}
 						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.defense, item)")
 				tr
-					th.ac.va_m 마법 저항력
+					th.ac.va_m.hidden-xs 마법 저항력
 					td.ac.va_m(ng-repeat="item in status.resist track by $index")
 						span(ng-class="{ 'bold-text': isMax(status.resist, item) }") {{item | number}}
 						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.resist, item)")
 
 				tr
-					th.ac.va_m 블록 이미지
+					th.ac.va_m.hidden-xs 블록 이미지
 					td.ac.va_m(ng-repeat="hero in party")
 						img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
 				tr
-					th.ac.va_m 블록 스킬
+					th.ac.va_m.hidden-xs 블록 스킬
 					td.ac(ng-repeat="hero in party")
 						span(bold-keyword="hero.block_desc")
 				tr
-					th.ac.va_m 패시브
+					th.ac.va_m.hidden-xs 패시브
 					td.ac(ng-repeat="hero in party")
 						span(bold-keyword="hero.passive_desc")
 .modal-footer

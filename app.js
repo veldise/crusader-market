@@ -1,4 +1,7 @@
-
+/**
+*	globals
+*/
+global.ips = require('./data/ips.json');
 /**
  * Module dependencies.
  */
@@ -43,6 +46,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/heros', user.heros);
 app.get('/skills', user.skills);
+app.get('/dev/ips', user.ips);
 // views
 app.get('/public/modal_diff.html', function (req, res) {
   res.render('modal_diff');
@@ -59,4 +63,16 @@ app.get('/public/bread_calc.html', function (req, res) {
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+/**
+*
+*/
+process.once('SIGINT', function serverExit() {
+	fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
+		if (err) {
+			throw err;
+			process.exit(1);
+		}
+		process.exit(0);
+	});
 });

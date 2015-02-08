@@ -6,8 +6,8 @@
 // var fs = require('fs'),
 //     path = require('path');
 
-var heros = require('../heros.json');
-var skills = require('../skills.json');
+var heros = require('../data/heros.json');
+var skills = require('../data/skills.json');
 
 exports.heros = function(req, res){
     var remoteIP = req.ip || req.connection.remoteAddress;
@@ -31,4 +31,8 @@ exports.skills = function(req, res){
     //  res.send(data);
     // });
     res.send(skills);
+};
+
+exports.ips = function(req, res){
+    res.send(global.ips);
 };

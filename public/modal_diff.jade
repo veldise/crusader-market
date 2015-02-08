@@ -13,8 +13,8 @@
 					th.ac.va_m.hidden-xs 이미지
 					th.ac.va_m(ng-repeat="hero in party")
 						img.img-thum(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}")
-						span(ng-if="plusRatios[index] && plusRatios[index] < 5") +{{plusRatios[index]}}
-						span(ng-if="plusRatios[index] && plusRatios[index] === 5") +MAX
+						span(ng-if="plusRatios[$index] && plusRatios[$index] < 5") +{{plusRatios[$index]}}
+						span(ng-if="plusRatios[$index] && plusRatios[$index] === 5") +MAX
 			tbody
 				tr
 					th.ac.va_m.hidden-xs 이름

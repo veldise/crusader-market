@@ -82,6 +82,40 @@
                 }
             }
         };
+
+        $scope.toggleDesc = function (event, hero) {
+            // enable xs screen
+            var screenWidth = angular.element(document).width();
+            if (screenWidth > 767) {
+                return;
+            }
+
+            var $target = angular.element(event.target);
+            var $tr = $target.parents('tr');
+
+            hero.isOpened = !hero.isOpened;
+            if (hero.isOpened) {
+                // tr
+                //     td(colspan="6").well {{heros[0]['설명']}}
+                var template = [
+                    '<tr class="open-row hidden-md hidden-sm">',
+                        '<td class="ac va_m well" style="padding:4px">',
+                            '<img class="img-thum" src="' + hero.block_thum + '"/>',
+                        '</td>',
+                        '<td colspan="5" class="well">',
+                            '<h4><b>' + hero['스킬명'] + '</b></h4>',
+                            '<h5>' + hero['블록 스킬'] + '</h5>',
+                            '<h5>패시브' + hero['패시브'] + '</h5>',
+                        '</td>',
+                    '</tr>'
+                ].join('');
+
+                $tr.after(template);
+            }
+            else {
+                $tr.next('.open-row').remove();
+            }
+        };
     }
     HeroCtrl.$inject = ['$scope', '$http'];
     /**

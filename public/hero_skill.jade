@@ -33,13 +33,12 @@ ul.nav.nav-tabs
 				th.ac.va_m 타입
 				th.ac.va_m(ng-show="showDesc").hidden-xs 스킬 설명
 		tbody
-			tr.clickable(ng-repeat="skill in skills | filter:searchText",
-					ng-click="selectSkill(skill)", ng-class="{ info: skill.isSelected }")
+			tr.clickable(ng-repeat="skill in skills | filter:searchText")
 				td.ac.va_m.hidden-xs
 					img.img-icon(ng-src="{{convIconUrl(skill['클래스'])}}")
 					span  {{skill['클래스']}}
 				td.ac.va_m(style="padding:4px")
-					img.img-thum(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}")
+					img.img-thum.clickable(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}", ng-click="toggleDesc($event, skill)")
 				td.ac.va_m {{skill['스킬명']}}
 				td.ac.va_m {{skill['레벨']}}
 				td.ac.va_m {{skill['타입']}}

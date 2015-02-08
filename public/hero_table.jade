@@ -53,7 +53,7 @@ ul.nav.nav-tabs
 			tr.clickable(ng-repeat="hero in heros | filter:searchText",
 					ng-click="selectHero(hero)", ng-class="{ info: hero.isSelected }")
 				td.ac.va_m(style="padding:4px")
-					img.img-thum(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}")
+					img.img-thum.clickable(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}", ng-click="toggleDesc($event, hero)")
 				td.ac.va_m.hidden-xs {{hero['이름']}}
 				td.ac.va_m.hidden-xs ★×{{hero['등급']}}
 				td.ac.va_m.hidden-xs {{hero['클래스']}}

@@ -60,6 +60,35 @@
                 '프리스트': 'img/icon_priest.png'
             }[classType];
         };
+
+        $scope.toggleDesc = function (event, skill) {
+            // enable xs screen
+            var screenWidth = angular.element(document).width();
+            if (screenWidth > 767) {
+                return;
+            }
+
+            var $target = angular.element(event.target);
+            var $tr = $target.parents('tr');
+
+            skill.isOpened = !skill.isOpened;
+            if (skill.isOpened) {
+                // tr
+                //     td(colspan="6").well {{skills[0]['설명']}}
+                var template = [
+                    '<tr class="open-row hidden-md hidden-sm">',
+                        '<td colspan="6" class="well">',
+                            skill['설명'],
+                        '</td>',
+                    '</tr>'
+                ].join('');
+
+                $tr.after(template);
+            }
+            else {
+                $tr.next('.open-row').remove();
+            }
+        };
     }
     SkillCtrl.$inject = ['$scope', '$http'];
     /**

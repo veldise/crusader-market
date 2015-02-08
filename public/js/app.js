@@ -100,7 +100,7 @@
                 restrict: 'A',
                 scope: false,
                 link: function (scope, element) {
-                    var re = /(물리 피해|마법 피해|\d+-체인|SP|\(\d+\/\d+\/\d+\)\%)/gim,
+                    var re = /(무속성 피해|물리 피해|마법 피해|\d+-체인|SP|\(\d+\/\d+\/\d+\)\%)/gim,
                         reText = '<span class="bold-text">$1</span>';
 
                     var text = element.html();

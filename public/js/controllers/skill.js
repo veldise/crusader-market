@@ -4,7 +4,7 @@
 (function (angular, _) {
     'use strict';
 
-    function SkillCtrl($scope, $http) {
+    function SkillCtrl($scope, $http, $compile) {
         /**
         *   Locals
         */
@@ -68,29 +68,31 @@
                 return;
             }
 
+            skill.isOpened = !skill.isOpened;
+
             var $target = angular.element(event.target);
             var $tr = $target.parents('tr');
 
-            skill.isOpened = !skill.isOpened;
-            if (skill.isOpened) {
+            // create open row
+            if (!$tr.next('.open-row').length) {
                 // tr
                 //     td(colspan="6").well {{skills[0]['설명']}}
                 var template = [
-                    '<tr class="open-row hidden-md hidden-sm">',
+                    '<tr class="open-row hidden-md hidden-sm" ng-show="skill.isOpened">',
                         '<td colspan="6" class="well">',
-                            skill.desc,
+                            '<h5 bold-keyword="skill.desc"></h5>',
                         '</td>',
                     '</tr>'
                 ].join('');
 
-                $tr.after(template);
-            }
-            else {
-                $tr.next('.open-row').remove();
+                var newScope = $scope.$new({});
+                newScope.skill = skill;
+
+                $tr.after($compile(template)(newScope));
             }
         };
     }
-    SkillCtrl.$inject = ['$scope', '$http'];
+    SkillCtrl.$inject = ['$scope', '$http', '$compile'];
     /**
     *
     */

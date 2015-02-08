@@ -99,14 +99,11 @@
             return {
                 restrict: 'A',
                 scope: false,
-                link: function (scope, element) {
-                    var re = /(무속성 피해|물리 피해|마법 피해|\d+-체인|SP|\(\d+\/\d+\/\d+\)\%)/gim,
+                link: function (scope, element, attrs) {
+                    var re = /(무속성 피해|물리 피해|마법 피해|\(\d+\/\d+\/\d+\)\%)/gim,
                         reText = '<span class="bold-text">$1</span>';
 
-                    var text = element.html();
-                    var code = text.replace(/\{|\}/g, '');
-
-                    scope.$watch(code, function (text) {
+                    scope.$watch(attrs.boldKeyword, function (text) {
                         if (!text) {
                             element.html('');
                             return;

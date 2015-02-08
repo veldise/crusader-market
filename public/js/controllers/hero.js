@@ -4,7 +4,7 @@
 (function (angular, _) {
     'use strict';
 
-    function HeroCtrl($scope, $http) {
+    function HeroCtrl($scope, $http, $compile) {
         /**
         *   Locals
         */
@@ -90,32 +90,37 @@
                 return;
             }
 
+            hero.isOpened = !hero.isOpened;
+
             var $target = angular.element(event.target);
             var $tr = $target.parents('tr');
 
-            hero.isOpened = !hero.isOpened;
-            if (hero.isOpened) {
+            // create open row
+            if (!$tr.next('.open-row').length) {
                 var template = [
-                    '<tr class="open-row hidden-md hidden-sm">',
-                        '<td class="ac va_m well" style="padding:4px">',
-                            '<img class="img-thum" src="' + hero.block_thum + '"/>',
+                    '<tr class="open-row hidden-md hidden-sm" ng-show="hero.isOpened">',
+                        '{{hero}}<td class="ac va_m well" style="padding:4px">',
+                            '<img class="img-thum" ng-src="{{hero.block_thum}}"/>',
                         '</td>',
                         '<td colspan="5" class="well">',
-                            '<h4><b>' + hero.block_name + '</b></h4>',
-                            '<h5>' + hero.block_desc + '</h5>',
-                            '<h5>패시브' + hero.passive_desc + '</h5>',
+                            '<h5><b>{{hero.block_name}}</b></h4>',
+                            '<h5 bold-keyword="hero.block_desc"></h5>',
+                            '<div>',
+                                '<h5 style="display:inline">패시브</h5>',
+                                '<h5 style="display:inline" bold-keyword="hero.passive_desc"></h5>',
+                            '</div>',
                         '</td>',
                     '</tr>'
                 ].join('');
 
-                $tr.after(template);
-            }
-            else {
-                $tr.next('.open-row').remove();
+                var newScope = $scope.$new({});
+                newScope.hero = hero;
+
+                $tr.after($compile(template)(newScope));
             }
         };
     }
-    HeroCtrl.$inject = ['$scope', '$http'];
+    HeroCtrl.$inject = ['$scope', '$http', '$compile'];
     /**
     *
     */

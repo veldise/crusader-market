@@ -64,5 +64,5 @@ ul.nav.nav-tabs
 				td.ac.va_m {{hero.resist}}
 				td.ac.va_m(style="padding:4px").hidden-xs
 					img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
-				td(bold-keyword, ng-show="showDesc").hidden-xs {{hero.block_desc}}
-				td(bold-keyword, ng-show="showDesc").hidden-xs {{hero.passive_desc}}
+				td(bold-keyword="hero.block_desc", ng-show="showDesc").hidden-xs
+				td(bold-keyword="hero.passive_desc", ng-show="showDesc").hidden-xs

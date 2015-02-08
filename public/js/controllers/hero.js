@@ -43,7 +43,7 @@
         };
         $scope.selectType = function (type) {
             $scope.currType = type.heading;
-            $scope.heros = _.where(originData, { '클래스': type.heading });
+            $scope.heros = _.where(originData, { classType: type.heading });
         };
         /**
         *   Grid
@@ -95,17 +95,15 @@
 
             hero.isOpened = !hero.isOpened;
             if (hero.isOpened) {
-                // tr
-                //     td(colspan="6").well {{heros[0]['설명']}}
                 var template = [
                     '<tr class="open-row hidden-md hidden-sm">',
                         '<td class="ac va_m well" style="padding:4px">',
                             '<img class="img-thum" src="' + hero.block_thum + '"/>',
                         '</td>',
                         '<td colspan="5" class="well">',
-                            '<h4><b>' + hero['스킬명'] + '</b></h4>',
-                            '<h5>' + hero['블록 스킬'] + '</h5>',
-                            '<h5>패시브' + hero['패시브'] + '</h5>',
+                            '<h4><b>' + hero.block_name + '</b></h4>',
+                            '<h5>' + hero.block_desc + '</h5>',
+                            '<h5>패시브' + hero.passive_desc + '</h5>',
                         '</td>',
                     '</tr>'
                 ].join('');

@@ -11,38 +11,68 @@
 			thead
 				tr
 					th.ac.va_m 이미지
-					th.ac.va_m(ng-repeat="heroThum in heroThums", ng-if="rIdx = $index + 1")
-						img.img-thum(ng-if="heroThum", ng-src="{{heroThum}}")
-						span(ng-if="plusRatios[rIdx] && plusRatios[rIdx] < 5") +{{plusRatios[rIdx]}}
-						span(ng-if="plusRatios[rIdx] && plusRatios[rIdx] === 5") +MAX
+					th.ac.va_m(ng-repeat="hero in party")
+						img.img-thum(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}")
+						span(ng-if="plusRatios[index] && plusRatios[index] < 5") +{{plusRatios[index]}}
+						span(ng-if="plusRatios[index] && plusRatios[index] === 5") +MAX
 			tbody
-				tr(ng-repeat="arr in defArr")
-					td.ac.va_m(ng-repeat="item in arr track by $index")
-						span(ng-class="{ 'bold-text': $first }") {{item}}
 				tr
+					th.ac.va_m 이름
+					td.ac.va_m(ng-repeat="hero in party") {{hero.name}}
+				tr
+					th.ac.va_m 등급
+					td.ac.va_m(ng-repeat="hero in party") {{hero.rank}}
+				tr
+					th.ac.va_m 클래스
+					td.ac.va_m(ng-repeat="hero in party") {{hero.classType}}
+
+				tr
+					th.ac.va_m 훈련
 					td.ac.va_m(ng-repeat="plusRatio in plusRatios track by $index")
-						span.bold-text(ng-if="$first") 훈련
-						span(ng-if="!$first")
+						span
 							button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
 									ng-click="resetStatus($index)", ng-disabled="plusRatio === 0")
 								| 초기화
 							button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
 									ng-click="increaseStatus($index, plusRatio)", ng-disabled="plusRatio >= 5")
 								| 훈 련
-				tr(ng-repeat="arr in statusArr")
-					td.ac.va_m(ng-repeat="item in arr track by $index")
-						span.bold-text(ng-if="$first") {{item}}
-						span(ng-if="!$first", ng-class="{ 'bold-text': isMax(arr, item) }") {{item | number}}
-						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-if="!$first", ng-show="isMax(arr, item)")
-						//- span.glyphicon.glyphicon-arrow-down(aria-hidden="true", ng-show="isMin(field, item)")
 				tr
-					td.ac.va_m
-						span.bold-text 블록 이미지
-					td.ac.va_m(ng-repeat="blockThum in blockThums")
-						img.img-thum(ng-if="blockThum", ng-src="{{blockThum}}")
-				tr(ng-repeat="arr in descArr")
-					td.ac(ng-repeat="item in arr track by $index")
-						span.bold-text(ng-if="$first") {{item}}
-						span(ng-if="!$first", bold-keyword) {{item}}
+					th.ac.va_m 공격력
+					td.ac.va_m(ng-repeat="item in status.AP track by $index")
+						span(ng-class="{ 'bold-text': isMax(status.AP, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.AP, item)")
+				tr
+					th.ac.va_m 체력
+					td.ac.va_m(ng-repeat="item in status.HP track by $index")
+						span(ng-class="{ 'bold-text': isMax(status.HP, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.HP, item)")
+				tr
+					th.ac.va_m 치명타 확률
+					td.ac.va_m(ng-repeat="item in status.critical track by $index")
+						span(ng-class="{ 'bold-text': isMax(status.critical, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.critical, item)")
+				tr
+					th.ac.va_m 물리 방어력
+					td.ac.va_m(ng-repeat="item in status.defense track by $index")
+						span(ng-class="{ 'bold-text': isMax(status.defense, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.defense, item)")
+				tr
+					th.ac.va_m 마법 저항력
+					td.ac.va_m(ng-repeat="item in status.resist track by $index")
+						span(ng-class="{ 'bold-text': isMax(status.resist, item) }") {{item | number}}
+						span.glyphicon.glyphicon-arrow-up(aria-hidden="true", ng-show="isMax(status.resist, item)")
+
+				tr
+					th.ac.va_m 블록 이미지
+					td.ac.va_m(ng-repeat="hero in party")
+						img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
+				tr
+					th.ac.va_m 블록 스킬
+					td.ac(ng-repeat="hero in party")
+						span(bold-keyword) {{hero.block_desc}}
+				tr
+					th.ac.va_m 패시브
+					td.ac(ng-repeat="hero in party")
+						span(bold-keyword) {{hero.passive_desc}}
 .modal-footer
 	button.btn.btn-primary(ng-click='close()') Close

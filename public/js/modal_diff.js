@@ -20,67 +20,8 @@
         /**
         *   Table
         */
-        // _.each(heros, function (warrior) {
-        //     var re = /\((\d+)\/(\d+)\/(\d+)\)\%/;
-        //     var dems = warrior['블록 스킬'].match(re);
-        //     if (dems) {
-        //         warrior['1-체인'] = +dems[1];
-        //         warrior['2-체인'] = +dems[2];
-        //         warrior['3-체인'] = +dems[3];
-        //     }
-        // });
-        var defKeys = [
-                '이름',
-                '등급',
-                '클래스'
-            ],
-            statusKeys = [
-                '공격력',
-                '체력',
-                '치명타 확률',
-                '물리 방어력',
-                '마법 저항력'
-            ],
-            // chainKeys = [
-            //     '1-체인',
-            //     '2-체인',
-            //     '3-체인'
-            // ],
-            descKeys = [
-                '블록 스킬',
-                '패시브'
-            ];
-
-        $scope.heroThums = _.pluck(heros, 'hero_thum');
-        $scope.defArr = _.map(defKeys, function (key) {
-            var arr = _.pluck(heros, key);
-            arr.unshift(key);
-            return arr;
-        });
-        $scope.originStatusArr = _.map(statusKeys, function (key) {
-            var arr = _.pluck(heros, key);
-            arr.unshift(key);
-            return arr;
-        });
-        $scope.statusArr = _.map(statusKeys, function (key) {
-            var arr = _.pluck(heros, key);
-            arr.unshift(key);
-            return arr;
-        });
-        $scope.plusRatios = _.map(_.range(heros.length + 1), function () {
-            return 0;
-        });
-        // $scope.chainArr = _.map(chainKeys, function (key) {
-        //     var arr = _.pluck(heros, key);
-        //     arr.unshift(key);
-        //     return arr;
-        // });
-        $scope.blockThums = _.pluck(heros, 'block_thum');
-        $scope.descArr = _.map(descKeys, function (key) {
-            var arr = _.pluck(heros, key);
-            arr.unshift(key);
-            return arr;
-        });
+        $scope.party = heros;
+        $scope.indexes = _.range(heros.length);
 
         $scope.isMax = function (arr, item) {
             if (!arr || !arr.length) {
@@ -127,35 +68,38 @@
         /**
         *
         */
+        $scope.plusRatios = _.map(_.range(heros.length), function () {
+            return 0;
+        });
+        $scope.status = {
+            'AP': _.pluck(heros, 'AP'),
+            'HP': _.pluck(heros, 'HP'),
+            'critical': _.pluck(heros, 'critical'),
+            'defense': _.pluck(heros, 'defense'),
+            'resist': _.pluck(heros, 'resist')
+        };
+
         $scope.resetStatus = function ($index) {
             $scope.plusRatios[$index] = 0;
             // reset status
-            _.each(statusKeys, function (key, idx) {
-                var arr = _.pluck(heros, key);
-                arr.unshift(key);
-
-                $scope.statusArr[idx][$index] = arr[$index];
+            _.each($scope.status, function (arr, key) {
+                arr[$index] = heros[$index][key];
             });
         };
         $scope.increaseStatus = function ($index, plusRatio) {
             if (plusRatio < 5) {
                 plusRatio += 1;
 
-                $scope.statusArr = _.map($scope.statusArr, function (arr, i) {
-                    // 치명타 확률
-                    if (i === 2) {
-                        return arr;
+                var status = $scope.status;
+                _.each(status, function (arr, key) {
+                    if (key === 'critical') {
+                        return;
                     }
 
-                    return _.map(arr, function (val, j) {
-                        var originVal = $scope.originStatusArr[i][j];
-                        if (j === $index) {
-                            return Math.round(originVal * (1 + (plusRatio * 0.1)));
-                        }
-                        else {
-                            return val;
-                        }
-                    });
+                    var originVal = heros[$index][key],
+                        ratio = 1 + (plusRatio * 0.1);
+
+                    status[key][$index] = Math.round(originVal * ratio);
                 });
 
                 $scope.plusRatios[$index] = plusRatio;

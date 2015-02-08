@@ -15,14 +15,14 @@ form.form-horizontal.col-md-6
 				.btn-group(role="group")
 					button(type="button", ng-click="minRank=4", ng-class="{ 'btn-success': minRank === 4 }").btn.btn-default +4
 				.btn-group(role="group")
-					//- button(type="button", ng-click="minRank=5", ng-class="{ 'btn-success': minRank === 5 }").btn.btn-default +5
+					button(type="button", disabled).btn.btn-default &nbsp;
 	.form-group
 		.col-sm-2.col-xs-2(style="padding-right:0;")
 			label.control-label(style="margin-top:5px") 목표:
 		.col-sm-10.col-xs-10
 			.btn-group(role="group", aria-label="...").btn-group-justified
 				.btn-group(role="group")
-					//- button(type="button", ng-click="maxRank=0", ng-class="{ 'btn-success': maxRank === 0 }", ng-disabled="").btn.btn-default +0
+					button(type="button", disabled).btn.btn-default &nbsp;
 				.btn-group(role="group")
 					button(type="button", ng-click="maxRank=1", ng-class="{ 'btn-success': maxRank === 1 }").btn.btn-default +1
 				.btn-group(role="group")

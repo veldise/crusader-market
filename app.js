@@ -78,7 +78,7 @@ http.createServer(app).listen(app.get('port'), function(){
 /**
 *
 */
-process.once('SIGINT', function serverExit() {
+function serverExit() {
     fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
         if (err) {
             throw err;
@@ -86,4 +86,6 @@ process.once('SIGINT', function serverExit() {
         }
         process.exit(0);
     });
-});
+}
+process.once('SIGINT', serverExit);
+process.once('SIGTERM', serverExit);

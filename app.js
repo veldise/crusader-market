@@ -79,6 +79,7 @@ http.createServer(app).listen(app.get('port'), function(){
 *
 */
 function serverExit() {
+    // save
     fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
         if (err) {
             throw err;

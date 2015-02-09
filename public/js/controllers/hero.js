@@ -63,15 +63,13 @@
 
             // select
             if (hero.isSelected) {
-                if (party.length >= 3) {
-                    hero.isSelected = false;
-                    // alert
-                    // ...
+                party.push(hero);
+                // only 3 heros
+                if (party.length > 3) {
+                    var shiftHero = party.shift();
+                    shiftHero.isSelected = false;
                 }
-                else {
-                    party.push(hero);
-                    // $scope.shared.party = sortPosition(party);
-                }
+                // $scope.shared.party = sortPosition(party);
             }
             // deselect
             else {

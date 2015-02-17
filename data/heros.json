@@ -59,7 +59,7 @@
     "resist": 44,
     "block_name": "마검의 부름",
     "block_desc": "체인 수에 따라 공격력의 (56/178/322)% 만큼 마법 피해를 주는 마검을 소환합니다.",
-    "passive_desc": "(주력형) : 사용 시 체인에 따라 (33/66/100)% 확률로 궁극의 마검을 소환해 공격력의 380%만큼 마법 피해를 주고 피해량의 20%만큼 체력을 회복합니다.",
+    "passive_desc": "(주력형) : 3-체인 사용시, 궁극의 마검을 소환해 공격력의 380%만큼 마법 피해를 줍니다. 이후 3초간 받는 피해가 50% 감소하고, 적에게 공격받는 즉시 반격해 궁극의 마검을 다시 소환합니다. (반격은 최대 2회 발동)",
     "hero_thum": "img/hero/thum/15.gif",
     "block_thum": "img/hero/block/12.gif"
   },
@@ -126,6 +126,22 @@
     "passive_desc": "(보조형) : 심검으로 피해를 입힐 때마다 자기 최대 체력의 5%만큼 체력을 회복합니다. 다른 아군이 3-체인을 사용하면 공격력의 270%만큼 물리 피해를 주고 아군 전체를 회복시키는 화염-심검을 추가로 발동합니다. (2초에 1회 발동)",
     "hero_thum": "img/hero/thum/byeongeomsu.png",
     "block_thum": "img/hero/block/byeongeomsu_block.png"
+  },
+  {
+    "name": "대족장 우지멘트",
+    "isContract": null,
+    "rank": 6,
+    "classType": "워리어",
+    "AP": 575,
+    "HP": 4148,
+    "critical": 10,
+    "defense": 247,
+    "resist": 44,
+    "block_name": "야성의 분노",
+    "block_desc": "검을 빠르게 휘둘러, 체인 수에 따라 공격력의 (50/125/250)%만큼 물리 피해를 줍니다.",
+    "passive_desc": "(주력형) : 자동 공격 4회마다 공격력의 240%만큼 물리 피해를 주는 연격을 사용합니다. 3-체인을 사용하면 공격 속도가 35% 증가합니다. 추가로 5초간 특수 스킬을 제외한 모든 공격에 공격력의 75%만큼 무속성 피해가 추가됩니다.",
+    "hero_thum": "img/hero/thum/uziment.png",
+    "block_thum": "img/hero/block/uziment_block.png"
   },
   {
     "name": "맹세의 크림힐트",
@@ -219,7 +235,7 @@
     "resist": 247,
     "block_name": "파멸의 기둥",
     "block_desc": "악마의 기운을 쏟아내어, 체인 수에 따라 공격력의 (50/142/322)% 만큼 마법 피해를 줍니다.",
-    "passive_desc": "(주력형) : 같은 체인을 두 번 사용하면 3-체인을 추가로 발동합니다. 동시에 5초간 치명타 확률이 15% 증가합니다.",
+    "passive_desc": "(주력형) : 파멸의 기둥으로 적을 공격한 후 다른 아군이 3-체인을 사용하면, 공격력의 150%만큼 무속성 피해를 주는 지옥의 기둥 다섯개를 불러냅니다. 파멸의 기둥으로 공격한 적에게 공격받을 때마다 자신의 공격력이 5초간 2% 상승합니다. (2초에 1회 발동)",
     "hero_thum": "img/hero/thum/61.gif",
     "block_thum": "img/hero/block/36.gif"
   },
@@ -254,6 +270,22 @@
     "passive_desc": "(주력형) : 기마돌진 중에는 자신이 받는 피해가 50% 감소합니다. 또한 기마돌진 중 사용하는 다른 아군의 블록은 2회에 한해 3-체인으로 발동됩니다. 기마돌진은 멈출 수 없습니다.",
     "hero_thum": "img/hero/thum/mundeok.png",
     "block_thum": "img/hero/block/mundeok_block.png"
+  },
+  {
+    "name": "분쇄자 스타냐",
+    "isContract": null,
+    "rank": 6,
+    "classType": "팔라딘",
+    "AP": 314,
+    "HP": 6383,
+    "critical": 10,
+    "defense": 77,
+    "resist": 432,
+    "block_name": "빛이 되어라!",
+    "block_desc": "체인 수에 따라 (50/142/322)%만큼 물리 피해를 주고 적을 멀리 쳐냅니다. 돌진 도중에는 밀려나지 않습니다.",
+    "passive_desc": "(주력형) : 3-체인을 사용하면 아군 전체가 5초간 해로운 효과에 면역 상태가 됩니다. 효과 도중 자신이 피해를 받으면 즉시 돌진해, 상대를 1초 기절시키고 공격력의 322%만큼 물리 피해를 줍니다. (2초에 1회 발동)",
+    "hero_thum": "img/hero/thum/starnya.png",
+    "block_thum": "img/hero/block/starnya_block.png"
   },
   {
     "name": "마궁 시구르나",
@@ -384,6 +416,22 @@
     "block_thum": "img/hero/block/chunhyang_block.png"
   },
   {
+    "name": "서리악령 니븐",
+    "isContract": null,
+    "rank": 6,
+    "classType": "아처",
+    "AP": 659,
+    "HP": 3907,
+    "critical": 15.75,
+    "defense": 145,
+    "resist": 145,
+    "block_name": "얼어붙은 가시",
+    "block_desc": "가장 뒤의 적을 향해 체인 수에 따라 공격력의 (50/150/300)%만큼 마법 피해를 주는 얼음 화살을 발사해, 맞은 적을 끌어옵니다.",
+    "passive_desc": "(보조형) : 다른 아군의 3-체인 이후 블록을 사용하면 맞은 적을 3초간 이동 불가 상태로 만듭니다. 이동 불가 상태의 적에게 아군의 3-체인 공격이 명중하면 2회에 한해 최대 체력의 2%만큼 무속성 추가 피해를 줍니다.",
+    "hero_thum": "img/hero/thum/niven.png",
+    "block_thum": "img/hero/block/niven_block.png"
+  },
+  {
     "name": "불굴의 달타냥",
     "isContract": null,
     "rank": 6,
@@ -512,6 +560,22 @@
     "block_thum": "img/hero/block/mandy_block.png"
   },
   {
+    "name": "센티널R",
+    "isContract": null,
+    "rank": 6,
+    "classType": "헌터",
+    "AP": 651,
+    "HP": 3543,
+    "critical": 21,
+    "defense": 340,
+    "resist": 79,
+    "block_name": "역습의 드론",
+    "block_desc": "적 하나에게, 체인 수에 따라 공격력의 (100/300/600)%만큼 마법 피해를 주는 드론들을 출격시킵니다.",
+    "passive_desc": "(주력형) : 자신의 3-체인 이후 사용하는 블록은 1회에 한해 3-체인으로 발동됩니다. 추가로 공격력의 150%만큼 마법 피해를 주고 5초간 저항력을 100 감소시키는 위성 포격을 4회 가합니다. (3초에 1회 발동)",
+    "hero_thum": "img/hero/thum/sentinel_r.png",
+    "block_thum": "img/hero/block/sentinel_r_block.png"
+  },
+  {
     "name": "검은마녀 도로시",
     "isContract": null,
     "rank": 6,
@@ -539,7 +603,7 @@
     "resist": 246,
     "block_name": "유성 낙하",
     "block_desc": "체인 수에 따라 공격력의 (49/150/270)% 만큼 물리 피해를 주는 유성을 소환합니다.",
-    "passive_desc": "(주력형) : 3-체인 사용 시 아군 전체에 자기 공격력의 50%만큼 방어, 저항 관통력을 부여합니다. 이미 이로운 효과를 받고 있으면 매 타격마다 공격력의 50% 만큼 피해를 주는 전격 구체를 5개 소환합니다.",
+    "passive_desc": "(주력형) : 3-체인 사용 시 아군 전체에 자기 공격력의 30%만큼 방어, 저항 관통력을 부여합니다. 이미 이로운 효과를 받고 있으면 매 타격마다 공격력의 40% 만큼 피해를 주는 전격 구체를 2~4개 소환합니다.",
     "hero_thum": "img/hero/thum/169.gif",
     "block_thum": "img/hero/block/77.gif"
   },
@@ -629,15 +693,31 @@
     "rank": 6,
     "classType": "위자드",
     "AP": 1042,
-    "HP": 2722,
+    "HP": 2312,
     "critical": 21,
     "defense": 46,
     "resist": 198,
     "block_name": "마패분신술",
     "block_desc": "마패로 분신을 소환해, 체인 수에 따라 공격력의 (50/150/240)% 만큼 마법 피해를 줍니다.",
-    "passive_desc": "(주력형) : 다른 아군이 블록을 사용한 후 발동하는 마패분신술은 분신들이 2회 공격합니다. 분신에게 공격당한 적은 5초간 공격력이 150만큼 감소합니다.",
+    "passive_desc": "(주력형) : 다른 아군이 블록을 사용한 후 발동하는 마패분신술은 분신들이 2회 공격합니다. 분신에게 공격당한 적은 5초간 공격력이 6%만큼 감소합니다.",
     "hero_thum": "img/hero/thum/leemongryong.png",
     "block_thum": "img/hero/block/leemongryong_block.png"
+  },
+  {
+    "name": "자연의 나즈룬",
+    "isContract": null,
+    "rank": 6,
+    "classType": "위자드",
+    "AP": 777,
+    "HP": 2834,
+    "critical": 21,
+    "defense": 88,
+    "resist": 378,
+    "block_name": "야수 부르기",
+    "block_desc": "체인 수에 따라 공격력의 150%만큼 마법 피해를 주는 (늑대/늑대/물소)를 불러 공격합니다. 각 야수는 5초간 대상의 (공격속도/공격력/방어력)을 15% 감소시킵니다.",
+    "passive_desc": "(보조형) : 다른 아군의 3-체인 뒤에 사용하는 블록은 1회에 한해 모든 야수들을 부르고, 야수들의 공격력과 효과가 50% 증가합니다.",
+    "hero_thum": "img/hero/thum/nazrune.png",
+    "block_thum": "img/hero/block/nazrune_block.png"
   },
   {
     "name": "구세의 성녀 마리아",
@@ -766,5 +846,21 @@
     "passive_desc": "(보조형) : 다른 아군 용사의 3-체인 이후 사용한 블록은 대성공 음식을 8개 생성합니다. 대성공 음식은 회복량이 100% 증가하고 아군 전체를 회복시키며, SP를 3 증가시킵니다.",
     "hero_thum": "img/hero/thum/chyayi.png",
     "block_thum": "img/hero/block/chyayi_block.png"
+  },
+  {
+    "name": "광기의 슈타인",
+    "isContract": null,
+    "rank": 6,
+    "classType": "프리스트",
+    "AP": 449,
+    "HP": 4720,
+    "critical": 10,
+    "defense": 232,
+    "resist": 232,
+    "block_name": "생명유지장치",
+    "block_desc": "아군이 공격 받을 때마다 공격력의 65%만큼 회복시키는 생명유지장치를, 아군 한 명에게 체인 수에 따라 (3/4/5)초간 배치시킵니다.",
+    "passive_desc": "(보조형) : 다른 아군 용사의 3-체인 이후 블록을 사용하면 아군 전체에 5초간 생명유지장치를 배치시킵니다. 이 장치는 공격받을 때마다 아군의 공격력을 5초간 2%씩 증가시킵니다. (3초에 1회 발동)",
+    "hero_thum": "img/hero/thum/stein.png",
+    "block_thum": "img/hero/block/stein_block.png"
   }
 ]

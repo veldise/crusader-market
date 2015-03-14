@@ -7,27 +7,27 @@
     *
     */
     function config ($routeProvider, $logProvider) {
-        $routeProvider
-            // platform
-            // .when('/platform/dashboard', {
-            //     templateUrl: '/partials/platform/dashboard/index.html'
-            // })
-            .when('/hero', {
-                controller: 'HeroCtrl',
-                templateUrl: '/public/hero_table.html'
-            })
-            .when('/skill', {
-                controller: 'SkillCtrl',
-                templateUrl: '/public/hero_skill.html'
-            })
-            .when('/bread', {
-                controller: 'BreadCalcCtrl',
-                templateUrl: '/public/bread_calc.html'
-            })
-            // otherwise redirect
-            .otherwise({
-                redirectTo: '/hero'
-            });
+        // $routeProvider
+        //     // platform
+        //     // .when('/platform/dashboard', {
+        //     //     templateUrl: '/partials/platform/dashboard/index.html'
+        //     // })
+        //     .when('/hero', {
+        //         controller: 'HeroCtrl',
+        //         templateUrl: '/public/hero_table.html'
+        //     })
+        //     .when('/skill', {
+        //         controller: 'SkillCtrl',
+        //         templateUrl: '/public/hero_skill.html'
+        //     })
+        //     .when('/bread', {
+        //         controller: 'BreadCalcCtrl',
+        //         templateUrl: '/public/bread_calc.html'
+        //     })
+        //     // otherwise redirect
+        //     .otherwise({
+        //         redirectTo: '/hero'
+        //     });
 
         // disable debug level messages
         $logProvider.debugEnabled(false);

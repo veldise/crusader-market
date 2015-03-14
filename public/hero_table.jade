@@ -1,73 +1,74 @@
-form.form-inline.hidden-md.hidden-sm
-	.form-group
-		label(for="searchText").sr-only Search
-		input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")
+div(ng-controller="HeroCtrl")
+	form.form-inline.hidden-md.hidden-sm
+		.form-group
+			label(for="searchText").sr-only Search
+			input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")
 
-ul.nav.nav-tabs
-	li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
-		a(href="javascript:;")
-			//- span.glyphicon.glyphicon-home
-			|  전체
-	li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type.heading }")
-		a(href="javascript:;")
-			img.img-icon(ng-src="{{type.icon}}")
-			span.hidden-xs  {{type.heading}}
+	ul.nav.nav-tabs
+		li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
+			a(href="javascript:;")
+				//- span.glyphicon.glyphicon-home
+				|  전체
+		li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type.heading }")
+			a(href="javascript:;")
+				img.img-icon(ng-src="{{type.icon}}")
+				span.hidden-xs  {{type.heading}}
 
-.container-fluid.table-bordered(style="border-top-color: transparent;")
-	table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="heros")
-		colgroup
-			//- 이미지
-			col(width="60px")
-			//- 이름
-			col(width="156px").hidden-xs
-			//- 등급
-			col(width="46px").hidden-xs
-			//- 클래스
-			col(width="80px").hidden-xs
-			//- 공격력
-			col(width="60px")
-			//- 체력
-			col(width="60px")
-			//- 치명타 확률
-			col(width="60px")
-			//- 물리 방어력
-			col(width="60px")
-			//- 마법 저항력
-			col(width="60px")
-			//- 블록 이미지
-			col(width="60px").hidden-xs
-			//- 블록 스킬
-			col(width="*")
-			//- 패시브
-			col(width="*")
-		thead
-			tr
-				th.ac.va_m 이미지
-				th.clickable(st-sort="name").ac.va_m.hidden-xs 이름
-				th.clickable(st-sort="rank").ac.va_m.hidden-xs 등급
-				th.clickable(st-sort="classType").ac.va_m.hidden-xs 클래스
-				th.clickable(st-sort="AP").ac.va_m 공격력
-				th.clickable(st-sort="HP").ac.va_m 체력
-				th.clickable(st-sort="critical").ac.va_m 치명타 확률
-				th.clickable(st-sort="defense").ac.va_m 물리 방어력
-				th.clickable(st-sort="resist").ac.va_m 마법 저항력
-				th.ac.va_m.hidden-xs 블록 이미지
-				th.ac.va_m(ng-show="showDesc").hidden-xs 블록 스킬
-				th.ac.va_m(ng-show="showDesc").hidden-xs 패시브
-		tbody
-			tr.clickable(ng-repeat="hero in displayedCollection | filter:searchText",
-					ng-click="selectHero(hero)", ng-class="{ info: hero.isSelected }")
-				td.ac.va_m(style="padding:4px")
-					img.img-thum.clickable(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}", ng-click="toggleDesc($event, hero)")
-				td.ac.va_m.hidden-xs {{hero.name}}
-				td.ac.va_m.hidden-xs ★×{{hero.rank}}
-				td.ac.va_m.hidden-xs {{hero.classType}}
-				td.ac.va_m {{hero.AP}}
-				td.ac.va_m {{hero.HP}}
-				td.ac.va_m {{hero.critical}}
-				td.ac.va_m {{hero.defense}}
-				td.ac.va_m {{hero.resist}}
-				td.ac.va_m(style="padding:4px").hidden-xs
-					img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
-				td(bold-keyword="hero.block_desc", ng-show="showDesc").hidden-xs
-				td(bold-keyword="hero.passive_desc", ng-show="showDesc").hidden-xs
+	.container-fluid.table-bordered(style="border-top-color: transparent;")
+		table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="heros")
+			colgroup
+				//- 이미지
+				col(width="60px")
+				//- 이름
+				col(width="156px").hidden-xs
+				//- 등급
+				col(width="46px").hidden-xs
+				//- 클래스
+				col(width="80px").hidden-xs
+				//- 공격력
+				col(width="60px")
+				//- 체력
+				col(width="60px")
+				//- 치명타 확률
+				col(width="60px")
+				//- 물리 방어력
+				col(width="60px")
+				//- 마법 저항력
+				col(width="60px")
+				//- 블록 이미지
+				col(width="60px").hidden-xs
+				//- 블록 스킬
+				col(width="*")
+				//- 패시브
+				col(width="*")
+			thead
+				tr
+					th.ac.va_m 이미지
+					th.clickable(st-sort="name").ac.va_m.hidden-xs 이름
+					th.clickable(st-sort="rank").ac.va_m.hidden-xs 등급
+					th.clickable(st-sort="classType").ac.va_m.hidden-xs 클래스
+					th.clickable(st-sort="AP").ac.va_m 공격력
+					th.clickable(st-sort="HP").ac.va_m 체력
+					th.clickable(st-sort="critical").ac.va_m 치명타 확률
+					th.clickable(st-sort="defense").ac.va_m 물리 방어력
+					th.clickable(st-sort="resist").ac.va_m 마법 저항력
+					th.ac.va_m.hidden-xs 블록 이미지
+					th.ac.va_m(ng-show="showDesc").hidden-xs 블록 스킬
+					th.ac.va_m(ng-show="showDesc").hidden-xs 패시브
+			tbody
+				tr.clickable(ng-repeat="hero in displayedCollection | filter:searchText",
+						ng-click="selectHero(hero)", ng-class="{ info: hero.isSelected }")
+					td.ac.va_m(style="padding:4px")
+						img.img-thum.clickable(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}", ng-click="toggleDesc($event, hero)")
+					td.ac.va_m.hidden-xs {{hero.name}}
+					td.ac.va_m.hidden-xs ★×{{hero.rank}}
+					td.ac.va_m.hidden-xs {{hero.classType}}
+					td.ac.va_m {{hero.AP}}
+					td.ac.va_m {{hero.HP}}
+					td.ac.va_m {{hero.critical}}
+					td.ac.va_m {{hero.defense}}
+					td.ac.va_m {{hero.resist}}
+					td.ac.va_m(style="padding:4px").hidden-xs
+						img.img-thum(ng-if="hero.block_thum", ng-src="{{hero.block_thum}}")
+					td(bold-keyword="hero.block_desc", ng-show="showDesc").hidden-xs
+					td(bold-keyword="hero.passive_desc", ng-show="showDesc").hidden-xs

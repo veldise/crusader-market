@@ -54,10 +54,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/heros', user.heros);
-app.get('/skills', user.skills);
+app.get('/:menu?', routes.index);
+app.get('/docs/heros', user.heros);
+app.get('/docs/skills', user.skills);
 app.get('/dev/ips', user.ips);
+
 // views
 app.get('/public/modal_diff.html', function (req, res) {
   res.render('modal_diff');

@@ -6,12 +6,12 @@ nav.navbar.navbar-default.navbar-fixed-top
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href="#hero") Crusader Market
+			a.navbar-brand(href="/") Crusader Market
 		.collapse.navbar-collapse#navigation-bar
 			ul.nav.navbar-nav
-				li(ng-class="{ active: (currPath === '/hero') }"): a(href="#hero") 용사
-				li(ng-class="{ active: (currPath === '/skill') }"): a(href="#skill") 특수 스킬
-				li(ng-class="{ active: (currPath === '/bread') }"): a(href="#bread") 빵 계산기
+				li(ng-class="{ active: (currPath === '/hero') }"): a(href="/hero") 용사
+				li(ng-class="{ active: (currPath === '/skill') }"): a(href="/skill") 특수 스킬
+				li(ng-class="{ active: (currPath === '/bread') }"): a(href="/bread") 빵 계산기
 			form.navbar-form.navbar-right(role="search")
 				.form-group.hidden-xs
 					button.btn.btn-default.mg-lr-4(type="button", aria-label="Left Align", ng-click="showDesc=true", ng-show="!showDesc")

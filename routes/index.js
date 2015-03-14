@@ -4,6 +4,7 @@
  */
 
 exports.index = function(req, res){
+    var menu = req.params.menu;
     var remoteIP = req.ip || req.connection.remoteAddress;
     console.log('access index.jade:', remoteIP, req.headers['user-agent']);
 
@@ -14,5 +15,8 @@ exports.index = function(req, res){
     global.ips[remoteIP].count += 1;
     global.ips[remoteIP].last_atime = new Date();
 
-    res.render('index', { version: 'v0.1.1' });
+    res.render('index', {
+        menu: menu,
+        version: 'v0.1.1'
+    });
 };

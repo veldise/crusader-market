@@ -41,7 +41,16 @@ html
 		//- 			| Crusader Market 
 		//- 			small  v0.1.1
 
-		#container.container(ng-view, style="margin-top:72px;margin-bottom:56px")
+		//- #container.container(ng-view, style="margin-top:72px;margin-bottom:56px")
+		#container.container(style="margin-top:72px;margin-bottom:56px")
+			case menu
+				when 'hero'
+					include ./hero_table.jade
+				when 'skill'
+					include ./hero_skill.jade
+				when 'bread'
+					include ./bread_calc.jade
+				default
+					include ./hero_table.jade
 
 		#footer.container
-

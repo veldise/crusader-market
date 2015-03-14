@@ -11,7 +11,7 @@
         var originData = [];
 
         function loadData () {
-            $http.get('/heros')
+            $http.get('/docs/heros')
                 .success(function (data) {
                     originData = data;
 

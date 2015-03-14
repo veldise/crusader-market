@@ -72,6 +72,15 @@
     "skill_thum": "img/hero/skill/warrior_08.png"
   },
   {
+    "classType": "워리어",
+    "name": "탐식의 불길",
+    "isSuper": "TRUE",
+    "level": 4,
+    "effect": "물리 공격",
+    "desc": "적들을 강하게 끌어당긴 후, 공격력의 650%만큼 물리 피해를 입히고, 5초간 피해를 받은 적이 회복 효과를 받을 때마다 최대 체력의 2%만큼 무속성 추가 피해를 줍니다. 발동 도중에는 기절 효과에 면역이 됩니다.",
+    "skill_thum": "img/hero/skill/warrior_09.png"
+  },
+  {
     "classType": "팔라딘",
     "name": "용기의 함성",
     "isSuper": null,
@@ -127,12 +136,21 @@
   },
   {
     "classType": "팔라딘",
+    "name": "응징의 가시",
+    "isSuper": null,
+    "level": 5,
+    "effect": "방어 강화 효과",
+    "desc": "아군 전체가 7초간 피해를 받을 때마다, 피해량의 65%만큼 적에게 무속성 피해로 반사합니다. 반사 피해를 3회 받으면 즉시 폭발해 대상 최대 체력의 3%만큼 물리 피해를 입힙니다.",
+    "skill_thum": "img/hero/skill/paladin_07.png"
+  },
+  {
+    "classType": "팔라딘",
     "name": "신성의 망치",
     "isSuper": "TRUE",
     "level": 3,
     "effect": "마법 공격",
     "desc": "빛의 망치로 내려쳐, 공격력의 400% 마법 피해를 입히고 맞은 상대를 3초간 기절시킵니다. 공격력의 200%만큼 아군 전체의 체력을 회복합니다.",
-    "skill_thum": "img/hero/skill/paladin_07.png"
+    "skill_thum": "img/hero/skill/paladin_08.png"
   },
   {
     "classType": "팔라딘",
@@ -141,7 +159,7 @@
     "level": 3,
     "effect": "아군 전체 무적",
     "desc": "4초간 아군 전체가 무적이 되고 모든 해로운 효과에 면역이 됩니다.",
-    "skill_thum": "img/hero/skill/paladin_08.png"
+    "skill_thum": "img/hero/skill/paladin_09.png"
   },
   {
     "classType": "팔라딘",
@@ -150,7 +168,7 @@
     "level": 3,
     "effect": "지속 강화 효과",
     "desc": "10초간 수호의 화신으로 변신합니다. 방어력과 저항력이 200% 증가하고 아군의 피해를 대신 받습니다. 효과 도중 다시 발동하면, 저항력의 100%만큼 무속성 피해를 주고 맞은 상대를 1.5초간 기절시킵니다.",
-    "skill_thum": "img/hero/skill/paladin_09.png"
+    "skill_thum": "img/hero/skill/paladin_10.png"
   },
   {
     "classType": "아처",
@@ -280,12 +298,21 @@
   },
   {
     "classType": "헌터",
+    "name": "NS-17 연막탄",
+    "isSuper": null,
+    "level": 5,
+    "effect": "적군 방해 효과",
+    "desc": "적에게 연막탄을 던져, 연막 속 적의 공격 명중 확률과 치명타 확률을 35% 낮춥니다. 추가로 연막 속의 적을 아군이 공격할 때마다, 35%확률로 대상 최대 체력의 3%만큼 물리 피해를 입힙니다.",
+    "skill_thum": "img/hero/skill/hunter_07.png"
+  },
+  {
+    "classType": "헌터",
     "name": "CURV-603 융단 폭격",
     "isSuper": "TRUE",
     "level": 3,
     "effect": "물리 공격",
     "desc": "융단 폭격을 요청해, 공격력의 100/130/175%만큼 물리 피해를 주는 폭탄들을 떨어뜨립니다. 폭탄에 맞은 적은 5초간 방어력이 30% 감소합니다.",
-    "skill_thum": "img/hero/skill/hunter_07.png"
+    "skill_thum": "img/hero/skill/hunter_08.png"
   },
   {
     "classType": "헌터",
@@ -294,7 +321,7 @@
     "level": 3,
     "effect": "물리 공격",
     "desc": "쌍권총 라피스와 라즐리를 난사해 공격력의 1200%만큼 물리 피해를 줍니다. 3-체인을 사용한 후 발동하면 적 방어력을 1000만큼 무시합니다.",
-    "skill_thum": "img/hero/skill/hunter_08.png"
+    "skill_thum": "img/hero/skill/hunter_09.png"
   },
   {
     "classType": "헌터",
@@ -303,7 +330,7 @@
     "level": 3,
     "effect": "지원 유닛 소환",
     "desc": "10초간 유지되는 지원 포대를 설치합니다. 아군이 3-체인을 발동하면 다음 공격은 2연속 발사합니다. (공격력 : 400, 체력 : 5500)",
-    "skill_thum": "img/hero/skill/hunter_09.png"
+    "skill_thum": "img/hero/skill/hunter_10.png"
   },
   {
     "classType": "위자드",
@@ -352,12 +379,21 @@
   },
   {
     "classType": "위자드",
+    "name": "수상한 뭉게구름",
+    "isSuper": null,
+    "level": 5,
+    "effect": "마법 공격",
+    "desc": "적에게 닿을 때마다 공격력의 80%만큼 마법 피해를 주는 뭉게구름을 소환합니다. 구름 속의 적이 공격을 시도할 때마다 65%확률로, 대상 공격력의 100%만큼 마법 피해를 입히는 번개를 내려칩니다.",
+    "skill_thum": "img/hero/skill/wizard_06.png"
+  },
+  {
+    "classType": "위자드",
     "name": "연속 마력광선",
     "isSuper": "TRUE",
     "level": 3,
     "effect": "마법 공격",
     "desc": "공격력이 100%만큼 마법 피해를 주는 마력 광선을 5회 연속 발사합니다. 피해를 받은 적의 다음 블록 스킬은 1회에 한해 반드시 1-체인으로 발동됩니다.",
-    "skill_thum": "img/hero/skill/wizard_06.png"
+    "skill_thum": "img/hero/skill/wizard_07.png"
   },
   {
     "classType": "위자드",
@@ -366,7 +402,7 @@
     "level": 3,
     "effect": "마법 공격",
     "desc": "3초간 유지되는 강력한 마력 폭풍 두 줄기를 소환합니다. 각 마력 폭풍은 공격력의 90%만큼 마법 피해를 입히고 상대를 띄웁니다. 자신의 저항력만큼 무속성 추가 피해를 입힙니다.",
-    "skill_thum": "img/hero/skill/wizard_07.png"
+    "skill_thum": "img/hero/skill/wizard_08.png"
   },
   {
     "classType": "위자드",
@@ -375,7 +411,7 @@
     "level": 3,
     "effect": "마법 공격",
     "desc": "공격력의 (50~200)%만큼 마법 피해를 주고 맞은 적을 0.7초간 기절시키는 낙뢰를 다섯 번 부릅니다.",
-    "skill_thum": "img/hero/skill/wizard_08.png"
+    "skill_thum": "img/hero/skill/wizard_09.png"
   },
   {
     "classType": "위자드",
@@ -384,7 +420,7 @@
     "level": 3,
     "effect": "마법 복제",
     "desc": "15초간 따라다니며 소환자의 마법을 따라하는 그림자를 부릅니다. 그림자는 소환자의 모든 능력치를 125%만큼 부여받습니다.",
-    "skill_thum": "img/hero/skill/wizard_09.png"
+    "skill_thum": "img/hero/skill/wizard_10.png"
   },
   {
     "classType": "프리스트",
@@ -457,5 +493,14 @@
     "effect": "아군 부활 및 회복",
     "desc": "부활 가능한 아군을 최대 두 명까지 부활시킵니다. 부활 가능한 아군이 없을 경우 아군 하나의 체력을 30% 회복시킵니다. 동시에 아군 전체의 해로운 효과를 모두 해제합니다.",
     "skill_thum": "img/hero/skill/priest_08.png"
+  },
+  {
+    "classType": "프리스트",
+    "name": "자애의 화신",
+    "isSuper": "TRUE",
+    "level": 4,
+    "effect": "지속 강화 효과",
+    "desc": "10초간 자애의 화신으로 변신해, 가장 체력이 적은 아군을 100% 회복시킵니다. 이후 자동 공격으로 자기 공격력의 150%만큼 아군을 회복시킵니다. 변신 도중에는 해로운 효과에 면역 상태입니다.",
+    "skill_thum": "img/hero/skill/priest_09.png"
   }
 ]

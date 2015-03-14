@@ -61,9 +61,6 @@
   color: black;
 }
 @media (max-width: 767px) {
-  .hidden-xs {
-    display: none !important;
-  }
   .padding-0-xs {
     padding: 0;
   }
@@ -86,16 +83,30 @@
     padding: 10px 12px;
   }
 }
+/**
+*   reset hidden
+*/
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .hidden-sm {
     display: none !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1399px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .hidden-md {
     display: none !important;
   }
 }
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
   select:focus,
   textarea:focus,

@@ -49,7 +49,7 @@
   },
   {
     "name": "절대마왕 비비안",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "워리어",
     "AP": 479,
@@ -97,7 +97,7 @@
   },
   {
     "name": "진마사냥꾼 아벨",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "워리어",
     "AP": 479,
@@ -113,7 +113,7 @@
   },
   {
     "name": "포도대장 변검수",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "워리어",
     "AP": 504,
@@ -123,7 +123,7 @@
     "resist": 46,
     "block_name": "심검",
     "block_desc": "검의 의지를 움직여, 체인 수에 따라 공격력의 (50/125/250)% 만큼 물리 피해를 줍니다.",
-    "passive_desc": "(보조형) : 심검으로 피해를 입힐 때마다 자기 최대 체력의 5%만큼 체력을 회복합니다. 다른 아군이 3-체인을 사용하면 공격력의 270%만큼 물리 피해를 주고 아군 전체를 회복시키는 화염-심검을 추가로 발동합니다. (2초에 1회 발동)",
+    "passive_desc": "(보조형) : 심검으로 피해를 입힐 때마다 자기 최대 체력의 5%만큼 체력을 회복합니다. 다른 아군이 3-체인을 사용하면 공격력의 270%만큼 물리 피해를 주고 아군 전체를 회복시키는 '화염-심검'을 추가로 발동합니다. (2초에 1회 발동)",
     "hero_thum": "img/hero/thum/byeongeomsu.png",
     "block_thum": "img/hero/block/byeongeomsu_block.png"
   },
@@ -225,7 +225,7 @@
   },
   {
     "name": "어둠의 기사 베인",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "팔라딘",
     "AP": 384,
@@ -241,7 +241,7 @@
   },
   {
     "name": "진마 카인",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "팔라딘",
     "AP": 537,
@@ -257,7 +257,7 @@
   },
   {
     "name": "대막리지 문덕",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "팔라딘",
     "AP": 403,
@@ -305,7 +305,7 @@
   },
   {
     "name": "본드래곤 곤",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "아처",
     "AP": 583,
@@ -385,7 +385,7 @@
   },
   {
     "name": "백발백중 히카리",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "아처",
     "AP": 629,
@@ -394,14 +394,14 @@
     "defense": 152,
     "resist": 152,
     "block_name": "바람살",
-    "block_desc": "바람이 휘감긴 화살을 쏘아보내 체인 수에 따라 공격력의 (34/122/221)% 만큼의 마법 피해를 입힙니다. 3-체인 바람살은 맞힌 적을 공중에 띄웁니다.",
-    "passive_desc": "(보조형) : 자동 공격 5회마다 돌개바람살을 발사해, 타격 마다 공격력의 80%만큼 마법 피해를 주고, 자신이 이로운 효과를 받고 있으면 1회 더 발사합니다. 이 횟수는 바람살을 사용할 때 마다 2회씩 추가로 적용됩니다.",
+    "block_desc": "바람이 휘감긴 화살을 쏘아보내 체인 수에 따라 공격력의 (34/122/221)% 만큼의 마법 피해를 입힙니다. 3-체인 '바람살'은 맞힌 적을 공중에 띄웁니다.",
+    "passive_desc": "(보조형) : 자동 공격 5회마다 '돌개바람살'을 발사해, 타격 마다 공격력의 80%만큼 마법 피해를 주고, 자신이 이로운 효과를 받고 있으면 1회 더 발사합니다. 이 횟수는 바람살을 사용할 때 마다 2회씩 추가로 적용됩니다.",
     "hero_thum": "img/hero/thum/251.gif",
     "block_thum": "img/hero/block/119.gif"
   },
   {
     "name": "경국지색 춘향",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "아처",
     "AP": 475,
@@ -410,7 +410,7 @@
     "defense": 152,
     "resist": 152,
     "block_name": "향단아!",
-    "block_desc": "보디가드 의뢰 업체 향단을 불러, 체인 수에 따라 공격력의 (150/325/325)% 만큼 물리 피해를 줍니다. 3-체인 향단은 폭발성 화살을 발사합니다.",
+    "block_desc": "보디가드 의뢰 업체 '향단'을 불러, 체인 수에 따라 공격력의 (150/325/325)% 만큼 물리 피해를 줍니다. 3-체인 향단은 폭발성 화살을 발사합니다.",
     "passive_desc": "(보조형) : 다른 아군 용사가 3-체인을 사용한 후 향단을 부르면, 3-체인으로 발동됩니다. 3-체인 향단의 공격 도중 다른 아군 용사가 3-체인을 사용하면 3-체인보다 두 배 강한 엘리트 향단을 부릅니다. (3초에 1회 발동)",
     "hero_thum": "img/hero/thum/chunhyang.png",
     "block_thum": "img/hero/block/chunhyang_block.png"
@@ -481,7 +481,7 @@
   },
   {
     "name": "전설의 용병 스네이쿠",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "헌터",
     "AP": 720,
@@ -529,7 +529,7 @@
   },
   {
     "name": "마탄의 No. 9",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "헌터",
     "AP": 756,
@@ -545,7 +545,7 @@
   },
   {
     "name": "히어로 맨디",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "헌터",
     "AP": 756,
@@ -641,7 +641,7 @@
   },
   {
     "name": "밤의 여신 릴리스",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "위자드",
     "AP": 1122,
@@ -673,7 +673,7 @@
   },
   {
     "name": "스페이드 퀸 앨리스",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "위자드",
     "AP": 906,
@@ -689,7 +689,7 @@
   },
   {
     "name": "장원급제 이몽룡",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "위자드",
     "AP": 1042,
@@ -753,7 +753,7 @@
   },
   {
     "name": "빛의 나이팅게일",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "프리스트",
     "AP": 498,
@@ -817,7 +817,7 @@
   },
   {
     "name": "신녀 히미코",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "프리스트",
     "AP": 523,
@@ -833,7 +833,7 @@
   },
   {
     "name": "미식헌터 챠이",
-    "isContract": "TRUE",
+    "isContract": true,
     "rank": 6,
     "classType": "프리스트",
     "AP": 395,

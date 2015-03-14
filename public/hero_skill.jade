@@ -1,3 +1,8 @@
+form.form-inline.hidden-md.hidden-sm
+	.form-group
+		label(for="searchText").sr-only Search
+		input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")
+
 ul.nav.nav-tabs
 	li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
 		a(href="javascript:;")

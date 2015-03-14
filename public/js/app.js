@@ -90,6 +90,7 @@
     */
     angular.module('crusaderMarketApp', [
             'ngRoute',
+            'smart-table',
             'ui.bootstrap',// 'ui-range-slider',
             'cm.controllers',
             'cm.modals'

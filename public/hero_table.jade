@@ -9,7 +9,7 @@ ul.nav.nav-tabs
 			span.hidden-xs  {{type.heading}}
 
 .container-fluid.table-bordered(style="border-top-color: transparent;")
-	table.table.table-bordered(style="margin-top:24px")
+	table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="heros")
 		colgroup
 			//- 이미지
 			col(width="60px")
@@ -38,19 +38,19 @@ ul.nav.nav-tabs
 		thead
 			tr
 				th.ac.va_m 이미지
-				th.ac.va_m.hidden-xs 이름
-				th.ac.va_m.hidden-xs 등급
-				th.ac.va_m.hidden-xs 클래스
-				th.ac.va_m 공격력
-				th.ac.va_m 체력
-				th.ac.va_m 치명타 확률
-				th.ac.va_m 물리 방어력
-				th.ac.va_m 마법 저항력
+				th.clickable(st-sort="name").ac.va_m.hidden-xs 이름
+				th.clickable(st-sort="rank").ac.va_m.hidden-xs 등급
+				th.clickable(st-sort="classType").ac.va_m.hidden-xs 클래스
+				th.clickable(st-sort="AP").ac.va_m 공격력
+				th.clickable(st-sort="HP").ac.va_m 체력
+				th.clickable(st-sort="critical").ac.va_m 치명타 확률
+				th.clickable(st-sort="defense").ac.va_m 물리 방어력
+				th.clickable(st-sort="resist").ac.va_m 마법 저항력
 				th.ac.va_m.hidden-xs 블록 이미지
 				th.ac.va_m(ng-show="showDesc").hidden-xs 블록 스킬
 				th.ac.va_m(ng-show="showDesc").hidden-xs 패시브
 		tbody
-			tr.clickable(ng-repeat="hero in heros | filter:searchText",
+			tr.clickable(ng-repeat="hero in displayedCollection | filter:searchText",
 					ng-click="selectHero(hero)", ng-class="{ info: hero.isSelected }")
 				td.ac.va_m(style="padding:4px")
 					img.img-thum.clickable(ng-if="hero.hero_thum", ng-src="{{hero.hero_thum}}", ng-click="toggleDesc($event, hero)")

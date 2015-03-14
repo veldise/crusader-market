@@ -4,26 +4,21 @@
 (function (angular, _) {
     'use strict';
 
-    function SkillCtrl($scope, $http, $compile) {
+    function SkillCtrl($scope, $compile) {
         /**
         *   Locals
         */
         var originData = [];
 
-        function loadData () {
-            $http.get('/skills')
-                .success(function (data) {
-                    originData = data;
+        $scope.$watch('shared.skills', function (skills) {
+            if (!skills) {
+                return;
+            }
+            originData = skills;
 
-                    // $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
-                    $scope.skills = data;
-                })
-                .error(function (reason) {
-                    alert(reason);
-                });
-        }
-        // init
-        loadData();
+            // $scope.classTypes = _.uniq(_.pluck(skills, '클래스'));
+            $scope.skills = skills;
+        });
         /**
         *   Tabset
         */
@@ -92,7 +87,7 @@
             }
         };
     }
-    SkillCtrl.$inject = ['$scope', '$http', '$compile'];
+    SkillCtrl.$inject = ['$scope', '$compile'];
     /**
     *
     */

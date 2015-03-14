@@ -36,13 +36,28 @@
     /**
     *
     */
-    function MainCtrl ($scope, $document, $modal) {
+    function MainCtrl ($scope, $http, $document, $modal) {
         /**
         *   shared
         */
         $scope.shared = {
-            party: []
+            party: [],
+            heros: null,
+            skills: null
         };
+
+        function loadData () {
+            $http.get('/heros')
+                .success(function (data) { $scope.shared.heros = data; })
+                .error(function (reason) { alert(reason); });
+            $http.get('/skills')
+                .success(function (data) { $scope.shared.skills = data; })
+                .error(function (reason) { alert(reason); });
+        }
+        /**
+        *   init
+        */
+        loadData();
         /**
         *   navbar hide
         */
@@ -105,7 +120,7 @@
             }
         });
     }
-    MainCtrl.$inject = ['$scope', '$document', '$modal'];
+    MainCtrl.$inject = ['$scope', '$http', '$document', '$modal'];
     /**
     *
     */

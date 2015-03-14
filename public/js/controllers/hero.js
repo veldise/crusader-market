@@ -4,26 +4,21 @@
 (function (angular, _) {
     'use strict';
 
-    function HeroCtrl($scope, $http, $compile) {
+    function HeroCtrl($scope, $compile) {
         /**
         *   Locals
         */
         var originData = [];
 
-        function loadData () {
-            $http.get('/heros')
-                .success(function (data) {
-                    originData = data;
+        $scope.$watch('shared.heros', function (heros) {
+            if (!heros) {
+                return;
+            }
+            originData = heros;
 
-                    // $scope.classTypes = _.uniq(_.pluck(data, '클래스'));
-                    $scope.heros = data;
-                })
-                .error(function (reason) {
-                    alert(reason);
-                });
-        }
-        // init
-        loadData();
+            // $scope.classTypes = _.uniq(_.pluck(heros, '클래스'));
+            $scope.heros = heros;
+        });
         /**
         *   Tabset
         */
@@ -118,7 +113,7 @@
             }
         };
     }
-    HeroCtrl.$inject = ['$scope', '$http', '$compile'];
+    HeroCtrl.$inject = ['$scope', '$compile'];
     /**
     *
     */

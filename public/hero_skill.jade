@@ -1,15 +1,15 @@
 form.row
-	.checkbox.col-md-8
+	.checkbox.col-md-8.col-sm-6
 		label.mg-lr-4
 			input(type="checkbox", ng-model="isNoSuper", ng-change="filterSkills()")
 			| 일반
 		label.mg-lr-4
 			input(type="checkbox", ng-model="isSuper", ng-change="filterSkills()")
 			| 상급
-	.col-md-4(style="margin-top: 10px;padding-right:0;").hidden-sm.hidden-xs
-		.col-md-3(style="padding-left:0;padding-right:0")
+	.col-md-4.col-sm-6(style="margin-top: 10px;padding-right:0;").hidden-xs
+		.col-md-3.col-sm-3(style="padding-left:0;padding-right:0")
 			label.control-label(style="margin-top:5px") 레벨 선택:
-		.col-md-9(style="padding-left:0")
+		.col-md-9.col-sm-9(style="padding-left:0")
 			.btn-group(role="group", aria-label="...").btn-group-justified
 				.btn-group(role="group")
 					button(type="button", ng-click="allLv=1", ng-class="{ 'btn-success': allLv === 1 }").btn.btn-default.btn-sm 1
@@ -40,7 +40,7 @@ ul.nav.nav-tabs
 	table.table.table-bordered(style="margin-top:24px")
 		colgroup
 			//- 클래스
-			col(width="100px").hidden-xs
+			col(width="100px").hidden-xs.hidden-sm
 			//- 이미지
 			col(width="60px")
 			//- 스킬명
@@ -55,7 +55,7 @@ ul.nav.nav-tabs
 			col(width="210px").hidden-xs
 		thead
 			tr
-				th.ac.va_m.hidden-xs 클래스
+				th.ac.va_m.hidden-xs.hidden-sm 클래스
 				th.ac.va_m 이미지
 				th.ac.va_m 스킬명
 				//- th.ac.va_m 상급 여부
@@ -65,7 +65,7 @@ ul.nav.nav-tabs
 				th.ac.va_m(ng-show="showDesc").hidden-xs 레벨업 조건
 		tbody
 			tr.clickable(ng-repeat="skill in skills | filter:searchText")
-				td.ac.va_m.hidden-xs
+				td.ac.va_m.hidden-xs.hidden-sm
 					img.img-icon(ng-src="{{convIconUrl(skill.classType)}}")
 					span  {{skill.classType}}
 				td.ac.va_m(style="padding:4px")

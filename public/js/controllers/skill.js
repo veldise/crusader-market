@@ -27,8 +27,11 @@
                 return;
             }
             // convert
+            var allLv = $scope.allLv;
+
             skills = _.map(skills, function (skill) {
                 var rst = _.omit(skill, lvProps);
+                rst.currLv = Math.min(allLv, skill.max_level);
                 rst.lvs = [null];
 
                 var lvs = _.values(_.pick(skill, lvProps));
@@ -81,6 +84,21 @@
 
             $scope.skills = rst;
         };
+        /**
+        *   button group
+        */
+        $scope.allLv = 5;
+        $scope.$watch('allLv', function (allLv) {
+            if (!allLv) {
+                return;
+            }
+            _.each(originData, function (skill) {
+                skill.currLv = Math.min(allLv, skill.max_level);
+            });
+            _.each($scope.skills, function (skill) {
+                skill.currLv = Math.min(allLv, skill.max_level);
+            });
+        });
         /**
         *   Tabset
         */

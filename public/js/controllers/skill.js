@@ -158,11 +158,25 @@
             }
         };
 
+        $scope.getCondText = function (skill) {
+            if (skill.currLv === 1) {
+                return '해제';
+            }
+            else if (skill.currLv === skill.max_level) {
+                return '초월';
+            }
+            else {
+                return '레벨업';
+            }
+        };
         $scope.minusLv = function (skill) {
             skill.currLv = Math.max(skill.currLv - 1, 0);
         };
         $scope.plusLv = function (skill) {
             skill.currLv = Math.min(skill.currLv + 1, skill.max_level);
+        };
+        $scope.setMinLv = function (skill) {
+            skill.currLv = 1;
         };
         $scope.setMaxLv = function (skill) {
             skill.currLv = skill.max_level;

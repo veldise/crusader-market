@@ -43,7 +43,7 @@ fs.readFile(tsvPath, 'utf8', function (err, data) {
 function tsv2json (tsv) {
     var json;
 
-    var lines = tsv.split(/\r?\n/);
+    var lines = tsv.replace(/\?/igm, ' ').split(/\r?\n/);
     lines = _.compact(_.map(lines, function (line) {
         if (line.trim()) {
             line = line.trim().split(/\t/);

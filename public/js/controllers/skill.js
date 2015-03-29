@@ -10,10 +10,39 @@
         */
         var originData = [];
 
+        var lvProps = [
+            'lv1_desc',
+            'lv1_up_cond',
+            'lv2_desc',
+            'lv2_up_cond',
+            'lv3_desc',
+            'lv3_up_cond',
+            'lv4_desc',
+            'lv4_up_cond',
+            'lv5_desc',
+            'lv5_up_cond'
+        ];
         $scope.$watch('shared.skills', function (skills) {
             if (!skills) {
                 return;
             }
+            // convert
+            skills = _.map(skills, function (skill) {
+                var rst = _.omit(skill, lvProps);
+                rst.lvs = [null];
+
+                var lvs = _.values(_.pick(skill, lvProps));
+                for (var i=0, l=lvs.length; i<l; i+=2) {
+                    var lv = {
+                        desc: lvs[i],
+                        up_cond: lvs[i+1]
+                    };
+                    rst.lvs.push(lv);
+                }
+
+                return rst;
+            });
+
             originData = skills;
 
             // $scope.classTypes = _.uniq(_.pluck(skills, '클래스'));

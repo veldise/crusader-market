@@ -53,6 +53,6 @@ ul.nav.nav-tabs
 				td.ac.va_m(style="padding:4px")
 					img.img-thum.clickable(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}", ng-click="toggleDesc($event, skill)")
 				td.ac.va_m {{skill.name}}
-				td.ac.va_m {{skill.level}}
+				td.ac.va_m {{skill.max_level}}
 				td.ac.va_m {{skill.effect}}
-				td(bold-keyword="skill.desc", ng-show="showDesc").hidden-xs
+				td(bold-keyword="skill.lvs[skill.max_level].desc", ng-show="showDesc").hidden-xs

@@ -4,7 +4,7 @@
 (function (angular, _) {
     'use strict';
 
-    function HeroCtrl($scope, $compile) {
+    function HeroCtrl($scope, $compile, $templateCache) {
         /**
         *   Locals
         */
@@ -123,21 +123,7 @@
 
             // create open row
             if (!$tr.next('.open-row').length) {
-                var template = [
-                    '<tr class="open-row hidden-md hidden-sm" ng-show="hero.isOpened">',
-                        '{{hero}}<td class="ac va_m well" style="padding:4px">',
-                            '<img class="img-thum" ng-src="{{hero.block_thum}}"/>',
-                        '</td>',
-                        '<td colspan="5" class="well">',
-                            '<h5><b>{{hero.block_name}}</b></h4>',
-                            '<h5 bold-keyword="hero.block_desc"></h5>',
-                            '<div>',
-                                '<h5 style="display:inline">패시브</h5>',
-                                '<h5 style="display:inline" bold-keyword="hero.passive_desc"></h5>',
-                            '</div>',
-                        '</td>',
-                    '</tr>'
-                ].join('');
+                var template = $templateCache.get('row_hero_desc');
 
                 var newScope = $scope.$new({});
                 newScope.hero = hero;
@@ -146,7 +132,7 @@
             }
         };
     }
-    HeroCtrl.$inject = ['$scope', '$compile'];
+    HeroCtrl.$inject = ['$scope', '$compile', '$templateCache'];
     /**
     *
     */

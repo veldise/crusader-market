@@ -6,7 +6,7 @@
     /**
     *
     */
-    function config ($routeProvider, $logProvider) {
+    function fnConfig ($routeProvider, $logProvider) {
         $routeProvider
             // platform
             // .when('/platform/dashboard', {
@@ -32,7 +32,23 @@
         // disable debug level messages
         $logProvider.debugEnabled(false);
     }
-    config.$inject = ['$routeProvider', '$logProvider'];
+    fnConfig.$inject = ['$routeProvider', '$logProvider'];
+    /**
+    *
+    */
+    function fnRun ($templateCache, $http) {
+        $http.get('public/partials/row_skill_desc.html')
+            .success(function (data) {
+                $templateCache.put('row_skill_desc', data);
+            })
+            .error(function (reason) { alert(reason); });
+        $http.get('public/partials/row_hero_desc.html')
+            .success(function (data) {
+                $templateCache.put('row_hero_desc', data);
+            })
+            .error(function (reason) { alert(reason); });
+    }
+    fnRun.$inject = ['$templateCache', '$http'];
     /**
     *
     */
@@ -131,7 +147,8 @@
             'cm.controllers',
             'cm.modals'
         ])
-        .config(config)
+        .config(fnConfig)
+        .run(fnRun)
         .directive('boldKeyword', function () {
             return {
                 restrict: 'A',

@@ -4,7 +4,7 @@
 (function (angular, _) {
     'use strict';
 
-    function SkillCtrl($scope, $compile) {
+    function SkillCtrl($scope, $compile, $templateCache) {
         /**
         *   Locals
         */
@@ -150,15 +150,7 @@
 
             // create open row
             if (!$tr.next('.open-row').length) {
-                // tr
-                //     td(colspan="6").well {{skills[0]['설명']}}
-                var template = [
-                    '<tr class="open-row hidden-md hidden-sm" ng-show="skill.isOpened">',
-                        '<td colspan="6" class="well">',
-                            '<h5 bold-keyword="skill.desc"></h5>',
-                        '</td>',
-                    '</tr>'
-                ].join('');
+                var template = $templateCache.get('row_skill_desc');
 
                 var newScope = $scope.$new({});
                 newScope.skill = skill;
@@ -167,7 +159,7 @@
             }
         };
     }
-    SkillCtrl.$inject = ['$scope', '$compile'];
+    SkillCtrl.$inject = ['$scope', '$compile', '$templateCache'];
     /**
     *
     */

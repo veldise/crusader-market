@@ -1,0 +1,10 @@
+tr.open-row.hidden-md.hidden-sm(ng-show="hero.isOpened")
+    //- | {{hero}}
+    td.ac.va_m(style="padding:4px").well
+        img.img-thum(ng-src="{{hero.block_thum}}")
+    td(colspan="5").well
+        h5: b {{hero.block_name}}
+        h5(bold-keyword="hero.block_desc")
+        div
+            h5(style="display:inline") 패시브
+            h5(style="display:inline", bold-keyword="hero.passive_desc")

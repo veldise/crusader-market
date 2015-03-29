@@ -30,10 +30,10 @@
 					th.ac.va_m.hidden-xs 훈련
 					td.ac.va_m(ng-repeat="plusRatio in plusRatios track by $index")
 						span
-							button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
+							button.btn.btn-default.btn-sm.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
 									ng-click="resetStatus($index)", ng-disabled="plusRatio === 0")
 								| 초기화
-							button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
+							button.btn.btn-default.btn-sm.mg-lr-4.mg-tb-2-xs(type="button", style="width:60px;",
 									ng-click="increaseStatus($index, plusRatio)", ng-disabled="plusRatio >= 5")
 								| 훈 련
 				tr

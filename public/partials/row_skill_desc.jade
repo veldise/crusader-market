@@ -1,16 +1,16 @@
 tr.open-row.hidden-md.hidden-sm(ng-show="skill.isOpened")
 	td(colspan="6").well
-		span
-			button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", aria-label="Left Align",
+		h5(bold-keyword="skill.lvs[skill.currLv].desc", style="min-height: 80px")
+		h5
+			| 레벨업 조건: 
+			b {{skill.lvs[skill.currLv].up_cond}}
+		span.fr
+			button.btn.btn-default.btn-sm.mg-lr-4.mg-tb-2-xs(type="button", aria-label="Left Align",
 					ng-click="minusLv(skill)", ng-disabled="skill.currLv <= 1")
 				span.glyphicon.glyphicon-minus(aria-hidden="true")
-			button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button", aria-label="Left Align",
+			button.btn.btn-default.btn-sm.mg-lr-4.mg-tb-2-xs(type="button", aria-label="Left Align",
 					ng-click="plusLv(skill)", ng-disabled="skill.currLv >= skill.max_level")
 				span.glyphicon.glyphicon-plus(aria-hidden="true")
-			button.btn.btn-default.btn-xs.mg-lr-4.mg-tb-2-xs(type="button",
+			button.btn.btn-default.btn-sm.mg-lr-4.mg-tb-2-xs(type="button",
 					ng-click="setMaxLv(skill)", ng-disabled="skill.currLv >= skill.max_level")
 				| 초월
-		h5(bold-keyword="skill.lvs[skill.currLv].desc")
-		h5
-			b 레벨업 조건: 
-			| {{skill.lvs[skill.currLv].up_cond}}

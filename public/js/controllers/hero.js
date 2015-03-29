@@ -125,10 +125,9 @@
             if (!$tr.next('.open-row').length) {
                 var template = $templateCache.get('row_hero_desc');
 
-                var newScope = $scope.$new({});
-                newScope.hero = hero;
-
-                $tr.after($compile(template)(newScope));
+                // var newScope = $scope.$new({});
+                // newScope.hero = hero;
+                $tr.after($compile(template)($tr.scope()));
             }
         };
     }

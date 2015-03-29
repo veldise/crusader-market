@@ -152,11 +152,20 @@
             if (!$tr.next('.open-row').length) {
                 var template = $templateCache.get('row_skill_desc');
 
-                var newScope = $scope.$new({});
-                newScope.skill = skill;
-
-                $tr.after($compile(template)(newScope));
+                // var newScope = $scope.$new({});
+                // newScope.skill = skill;
+                $tr.after($compile(template)($tr.scope()));
             }
+        };
+
+        $scope.minusLv = function (skill) {
+            skill.currLv = Math.max(skill.currLv - 1, 0);
+        };
+        $scope.plusLv = function (skill) {
+            skill.currLv = Math.min(skill.currLv + 1, skill.max_level);
+        };
+        $scope.setMaxLv = function (skill) {
+            skill.currLv = skill.max_level;
         };
     }
     SkillCtrl.$inject = ['$scope', '$compile', '$templateCache'];

@@ -1,4 +1,12 @@
-form.form-inline.hidden-sm.hidden-md.hidden-lg
+form
+	.checkbox
+		label.mg-lr-4
+			input(type="checkbox", ng-model="isNoContract", ng-change="filterHeros()")
+			| 승급획득
+		label.mg-lr-4
+			input(type="checkbox", ng-model="isContract", ng-change="filterHeros()")
+			| 계약전용
+form.hidden-sm.hidden-md.hidden-lg
 	.form-group
 		label(for="searchText").sr-only Search
 		input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")

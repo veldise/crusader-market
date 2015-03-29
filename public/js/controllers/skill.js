@@ -20,6 +20,39 @@
             $scope.skills = skills;
         });
         /**
+        *   func
+        */
+        $scope.filterSkills = function () {
+            var currType = $scope.currType;
+            var rst;
+
+            // filter class type
+            if (!currType || currType === '전체') {
+                rst = originData;
+            }
+            else {
+                rst = _.where(originData, { classType: $scope.currType });
+            }
+
+            // filter contract only or not
+            var isSuper = $scope.isSuper;
+            var isNoSuper = $scope.isNoSuper;
+            if (isSuper ^ isNoSuper) { // xor
+                if (!isSuper) {
+                    rst = _.filter(rst, function (hero) {
+                        return !hero.isSuper;
+                    });
+                }
+                if (!isNoSuper) {
+                    rst = _.filter(rst, function (hero) {
+                        return hero.isSuper;
+                    });
+                }
+            }
+
+            $scope.skills = rst;
+        };
+        /**
         *   Tabset
         */
         $scope.classTypes = [
@@ -34,11 +67,11 @@
 
         $scope.deselectType = function () {
             $scope.currType = '전체';
-            $scope.skills = originData;
+            $scope.filterSkills();
         };
         $scope.selectType = function (type) {
             $scope.currType = type.heading;
-            $scope.skills = _.where(originData, { classType: type.heading });
+            $scope.filterSkills();
         };
         /**
         *   Grid

@@ -1,4 +1,12 @@
-form.form-inline.hidden-sm.hidden-md.hidden-lg
+form
+	.checkbox
+		label.mg-lr-4
+			input(type="checkbox", ng-model="isNoSuper", ng-change="filterSkills()")
+			| 일반
+		label.mg-lr-4
+			input(type="checkbox", ng-model="isSuper", ng-change="filterSkills()")
+			| 상급
+form.hidden-sm.hidden-md.hidden-lg
 	.form-group
 		label(for="searchText").sr-only Search
 		input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")

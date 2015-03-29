@@ -20,6 +20,39 @@
             $scope.heros = heros;
         });
         /**
+        *   func
+        */
+        $scope.filterHeros = function () {
+            var currType = $scope.currType;
+            var rst;
+
+            // filter class type
+            if (!currType || currType === '전체') {
+                rst = originData;
+            }
+            else {
+                rst = _.where(originData, { classType: $scope.currType });
+            }
+
+            // filter contract only or not
+            var isContract = $scope.isContract;
+            var isNoContract = $scope.isNoContract;
+            if (isContract ^ isNoContract) { // xor
+                if (!isContract) {
+                    rst = _.filter(rst, function (hero) {
+                        return !hero.isContract;
+                    });
+                }
+                if (!isNoContract) {
+                    rst = _.filter(rst, function (hero) {
+                        return hero.isContract;
+                    });
+                }
+            }
+
+            $scope.heros = rst;
+        };
+        /**
         *   Tabset
         */
         $scope.classTypes = [
@@ -34,11 +67,11 @@
 
         $scope.deselectType = function () {
             $scope.currType = '전체';
-            $scope.heros = originData;
+            $scope.filterHeros();
         };
         $scope.selectType = function (type) {
             $scope.currType = type.heading;
-            $scope.heros = _.where(originData, { classType: type.heading });
+            $scope.filterHeros();
         };
         /**
         *   Grid

@@ -35,19 +35,29 @@
             }
 
             // filter contract only or not
-            var isContract = $scope.isContract;
+            var isLegend = $scope.isLegend;
             var isNoContract = $scope.isNoContract;
-            if (isContract ^ isNoContract) { // xor
-                if (!isContract) {
-                    rst = _.filter(rst, function (hero) {
-                        return !hero.isContract;
-                    });
-                }
-                if (!isNoContract) {
-                    rst = _.filter(rst, function (hero) {
-                        return hero.isContract;
-                    });
-                }
+            var isContract = $scope.isContract;
+
+            var isAll = isLegend && isNoContract && isContract;
+            var isOne = isLegend || isNoContract || isContract;
+
+            // xor
+            // One are true is true, but all true is false, all false is false.
+            if (!isAll && isOne) {
+                rst = _.filter(rst, function (hero) {
+                    if (isLegend && hero.heroType === '전설') {
+                        return true;
+                    }
+                    if (isContract && hero.isContract && hero.heroType === '고급') {
+                        return true;
+                    }
+                    if (isNoContract && !hero.isContract && hero.heroType === '고급') {
+                        return true;
+                    }
+
+                    return false;
+                });
             }
 
             $scope.heros = rst;

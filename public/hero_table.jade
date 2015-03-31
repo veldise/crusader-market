@@ -1,6 +1,9 @@
 form
 	.checkbox
 		label.mg-lr-4
+			input(type="checkbox", ng-model="isLegend", ng-change="filterHeros()")
+			| 전설
+		label.mg-lr-4
 			input(type="checkbox", ng-model="isNoContract", ng-change="filterHeros()")
 			| 승급획득
 		label.mg-lr-4

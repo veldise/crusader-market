@@ -42,6 +42,7 @@ app.set('views', dirPublic);
 app.set('view engine', 'jade');
 // app.use(express.favicon());
 app.use(express.logger({ format: 'short', stream: routeLogStream }));
+app.use(express.compress());
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());

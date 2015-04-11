@@ -1,7 +1,38 @@
 /**
 *
 */
-(function (angular, _) {
+requirejs.config({
+    paths: {
+        'jquery': '/lib/jquery/jquery-1.11.2.min',
+        'lodash': '/lib/lodash.min',
+        'angular': '/lib/angular/angular.min',
+        'angular-route': '/lib/angular/angular-route.min',
+        'bootstrap': '/lib/bootstrap-3.3.2/js/bootstrap.min',
+
+        'ui-bootstrap': '/lib/ui-bootstrap-tpls-0.12.0.min',
+        'smart-table': '/lib/smart-table.min'
+    },
+
+    shim: {
+        'jquery': { exports: '$' },
+        'lodash': { exports: '_' },
+        'angular': { deps: [ 'jquery' ], exports: 'angular' },
+        'angular-route': { deps: [ 'angular' ] },
+        'bootstrap': { deps: [ 'jquery' ] },
+
+        'ui-bootstrap': { deps: [ 'angular' ] },
+        'smart-table': { deps: [ 'angular' ] }
+    }
+});
+
+requirejs([
+    'angular', 'lodash',
+    'angular-route',
+    'bootstrap',
+    'ui-bootstrap', 'smart-table',
+    '/js/controllers/app.js',
+    '/js/modal_diff.js'
+], function (angular) {
     'use strict';
     /**
     *
@@ -143,7 +174,7 @@
     angular.module('crusaderMarketApp', [
             'ngRoute',
             'smart-table',
-            'ui.bootstrap',// 'ui-range-slider',
+            'ui.bootstrap',
             'cm.controllers',
             'cm.modals'
         ])
@@ -175,4 +206,4 @@
     angular.element(document).ready(function () {
         angular.bootstrap(document, [ 'crusaderMarketApp' ]);
     });
-})(angular, _);
+});

@@ -1,7 +1,9 @@
 /**
 *
 */
-(function (angular, _) {
+define([
+    'angular', 'lodash'
+], function (angular, _) {
     'use strict';
 
     function SkillCtrl($scope, $compile, $templateCache) {
@@ -183,10 +185,6 @@
         };
     }
     SkillCtrl.$inject = ['$scope', '$compile', '$templateCache'];
-    /**
-    *
-    */
-    angular.module('cm.controllers')
-        .controller('SkillCtrl', SkillCtrl);
 
-})(angular, _);
+    return SkillCtrl;
+});

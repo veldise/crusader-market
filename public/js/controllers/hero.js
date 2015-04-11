@@ -1,7 +1,9 @@
 /**
 *
 */
-(function (angular, _) {
+define([
+    'angular', 'lodash'
+], function (angular, _) {
     'use strict';
 
     function HeroCtrl($scope, $compile, $templateCache) {
@@ -142,10 +144,6 @@
         };
     }
     HeroCtrl.$inject = ['$scope', '$compile', '$templateCache'];
-    /**
-    *
-    */
-    angular.module('cm.controllers')
-        .controller('HeroCtrl', HeroCtrl);
 
-})(angular, _);
+    return HeroCtrl;
+});

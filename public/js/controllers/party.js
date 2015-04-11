@@ -1,7 +1,9 @@
 /**
 *
 */
-(function (angular, _) {
+define([
+    'angular', 'lodash'
+], function (angular, _) {
     'use strict';
 
     function PartyCtrl($scope) {
@@ -10,6 +12,7 @@
         */
         $scope.party = [];
 
+        /*
         function sortPosition (party) {
             var position = [];
 
@@ -23,6 +26,7 @@
 
             return _.flatten(position);
         }
+        */
 
         $scope.rmParty = function (index) {
             if ($scope.party[index]) {
@@ -32,10 +36,6 @@
         };
     }
     PartyCtrl.$inject = ['$scope'];
-    /**
-    *
-    */
-    angular.module('cm.controllers')
-        .controller('PartyCtrl', PartyCtrl);
 
-})(angular, _);
+    return PartyCtrl;
+});

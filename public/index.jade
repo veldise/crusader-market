@@ -15,23 +15,7 @@ html
 		link(rel='stylesheet', href='/css/style.css')
 
 		//- Latest compiled and minified JavaScript
-		script(src="/lib/jquery-1.11.2.min.js")
-		//- script(src="/lib/underscore-min.js")
-		script(src="/lib/lodash.min.js")
-		script(src="/lib/angular/angular.min.js")
-		script(src="/lib/angular/angular-route.min.js")
-		script(src="/lib/bootstrap-3.3.2/js/bootstrap.min.js")
-		script(src="/lib/ui-bootstrap-tpls-0.12.0.min.js")
-		script(src="/lib/smart-table.min.js")
-		//- script(src="/lib/angular.rangeSlider.js")
-
-		//-
-		script(src="/js/controllers/app.js")
-		script(src="/js/controllers/hero.js")
-		script(src="/js/controllers/bread.js")
-		script(src="/js/controllers/skill.js")
-		script(src="/js/modal_diff.js")
-		script(src="/js/app.js")
+		script(data-main="/js/app.js", src="/lib/require.js")
 
 	body(ng-controller="MainCtrl")
 		include ./navi.jade
@@ -45,4 +29,3 @@ html
 		#container.container(ng-view, style="margin-top:60px;margin-bottom:56px")
 
 		#footer.container
-

@@ -1,7 +1,9 @@
 /**
 *
 */
-(function (angular, _) {
+define([
+    'angular', 'lodash'
+], function (angular, _) {
     'use strict';
     /**
     *
@@ -97,14 +99,6 @@
         };
     }
     BreadCalcCtrl.$inject = ['$scope'];
-    /**
-    *
-    */
-    angular.module('cm.controllers')
-        .filter('num2rank', function () {
-            return function (num) {
-                return '+' + ((num >= 5) ? 'MAX' : (num + ''));
-            };
-        })
-        .controller('BreadCalcCtrl', BreadCalcCtrl);
-})(angular, _);
+
+    return BreadCalcCtrl;
+});

@@ -1,7 +1,9 @@
 /**
 *
 */
-(function (angular, _) {
+define([
+    'angular', 'lodash'
+], function (angular, _) {
     'use strict';
     /**
     *
@@ -112,6 +114,4 @@
     */
     angular.module('cm.modals', [])
         .controller('ModalCtrl', ModalCtrl);
-})(angular, _);
-
-// /public/modal.html
+});

@@ -9,13 +9,11 @@ html
 		//- library or plugin css files
 		//- Latest compiled and minified CSS
 		link(rel="stylesheet", href="/lib/bootstrap-3.3.2/css/bootstrap.min.css", media="screen")
-		//- link(rel="stylesheet", href="/lib/angular.rangeSlider.css", media="screen")
-
 		//- user define stylesheets
 		link(rel='stylesheet', href='/css/style.css')
 
 		//- Latest compiled and minified JavaScript
-		script(data-main="/js/app.js", src="/lib/require.js")
+		script(async, data-main="/js/app.js", src="/lib/require.js")
 
 	body(ng-controller="MainCtrl")
 		include ./navi.jade

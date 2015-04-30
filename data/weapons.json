@@ -1,0 +1,13 @@
+[
+  {
+    "name": "엑스칼리버",
+    "hero": "레온",
+    "classType": "검",
+    "rank": 6,
+    "AP": 210,
+    "AS": 1.0,
+    "bonus": "(궁극의 성검) 피해량 +100%, 방어 관통량 +100%, 치명타 확률 +25%",
+    "hero_thum": "img/hero/thum/6.gif",
+    "weapon_thum": ""
+  }
+]

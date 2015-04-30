@@ -58,7 +58,9 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/heros', user.heros);
 app.get('/skills', user.skills);
+app.get('/weapons', user.weapons);
 app.get('/dev/ips', user.ips);
+
 // views
 app.get('/public/modal_diff.html', function (req, res) {
   res.render('modal_diff');
@@ -68,6 +70,9 @@ app.get('/public/hero_table.html', function (req, res) {
 });
 app.get('/public/hero_skill.html', function (req, res) {
   res.render('hero_skill');
+});
+app.get('/public/hero_weapon.html', function (req, res) {
+  res.render('hero_weapon');
 });
 app.get('/public/bread_calc.html', function (req, res) {
   res.render('bread_calc');

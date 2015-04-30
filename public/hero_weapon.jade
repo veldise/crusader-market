@@ -1,0 +1,67 @@
+form(style="height:40px")
+    //- .checkbox
+    //-     label.mg-lr-4
+    //-         input(type="checkbox", ng-model="isLegend", ng-change="filterWeapons()")
+    //-         | 전설
+    //-     label.mg-lr-4
+    //-         input(type="checkbox", ng-model="isNoContract", ng-change="filterWeapons()")
+    //-         | 승급획득
+    //-     label.mg-lr-4
+    //-         input(type="checkbox", ng-model="isContract", ng-change="filterWeapons()")
+    //-         | 계약전용
+form.hidden-sm.hidden-md.hidden-lg
+    .form-group
+        label(for="searchText").sr-only Search
+        input.form-control(type="text", id="searchText", placeholder="Search", ng-model="searchText")
+
+ul.nav.nav-tabs
+    li(role="presentation", ng-click="deselectType()", ng-class="{ active: currType === '전체' }")
+        a(href="javascript:;")
+            //- span.glyphicon.glyphicon-home
+            |  전체
+    li(role="presentation", ng-repeat="type in classTypes track by $index", ng-click="selectType(type)", ng-class="{ active: currType === type.heading }")
+        a(href="javascript:;")
+            img.img-icon(ng-src="{{type.icon}}")
+            span.hidden-xs  {{type.heading}}
+
+.container-fluid.table-bordered(style="border-top-color: transparent;")
+    table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="weapons")
+        colgroup
+            //- 이미지
+            col(width="60px")
+            //- 이름
+            col(width="156px")
+            //- 등급
+            col(width="46px")
+            //- 클래스
+            col(width="80px")
+            //- 착용가능
+            col(width="80px")
+            //- 공격력
+            col(width="60px")
+            //- 공격속도
+            col(width="80px")
+            //- 전용 옵션
+            col(width="*")
+        thead
+            tr
+                th.ac.va_m 이미지
+                th.clickable(st-sort="name").ac.va_m 이름
+                th.clickable(st-sort="rank").ac.va_m 등급
+                th.clickable(st-sort="classType").ac.va_m 클래스
+                th.clickable(st-sort="hero").ac.va_m 착용가능
+                th.clickable(st-sort="AP").ac.va_m 공격력
+                th.clickable(st-sort="AS").ac.va_m 공격속도
+                th.clickable(st-sort="bonus") 전용 옵션
+        tbody
+            tr.clickable(ng-repeat="weapon in displayedCollection | filter:searchText",
+                    ng-click="selectWeapon(weapon)", ng-class="{ info: weapon.isSelected }")
+                td.ac.va_m(style="padding:4px")
+                    img.img-thum.clickable(ng-if="weapon.weapon_thum", ng-src="{{weapon.weapon_thum}}", ng-click="toggleDesc($event, weapon)")
+                td.ac.va_m {{weapon.name}}
+                td.ac.va_m ★×{{weapon.rank}}
+                td.ac.va_m {{weapon.classType}}
+                td.ac.va_m {{weapon.hero}}
+                td.ac.va_m {{weapon.AP}}
+                td.ac.va_m {{weapon.AS.toFixed(1)}}
+                td.ac.va_m {{weapon.bonus}}

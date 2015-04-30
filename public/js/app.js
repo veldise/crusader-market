@@ -51,6 +51,10 @@ requirejs([
                 controller: 'SkillCtrl',
                 templateUrl: '/public/hero_skill.html'
             })
+            .when('/weapon', {
+                controller: 'WeaponCtrl',
+                templateUrl: '/public/hero_weapon.html'
+            })
             .when('/bread', {
                 controller: 'BreadCalcCtrl',
                 templateUrl: '/public/bread_calc.html'
@@ -90,7 +94,8 @@ requirejs([
         $scope.shared = {
             party: [],
             heros: null,
-            skills: null
+            skills: null,
+            weapons: null
         };
 
         function loadData () {
@@ -99,6 +104,9 @@ requirejs([
                 .error(function (reason) { alert(reason); });
             $http.get('/skills')
                 .success(function (data) { $scope.shared.skills = data; })
+                .error(function (reason) { alert(reason); });
+            $http.get('/weapons')
+                .success(function (data) { $scope.shared.weapons = data; })
                 .error(function (reason) { alert(reason); });
         }
         /**

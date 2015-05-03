@@ -62,29 +62,13 @@ app.get('/weapons', user.weapons);
 app.get('/dev/ips', user.ips);
 
 // views
-app.get('/public/modal_diff.html', function (req, res) {
-  res.render('modal_diff');
+app.get('/public/*.html', function (req, res) {
+  var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
+  res.render(renderUrl);
 });
-app.get('/public/hero_table.html', function (req, res) {
-  res.render('hero_table');
-});
-app.get('/public/hero_skill.html', function (req, res) {
-  res.render('hero_skill');
-});
-app.get('/public/hero_weapon.html', function (req, res) {
-  res.render('hero_weapon');
-});
-app.get('/public/bread_calc.html', function (req, res) {
-  res.render('bread_calc');
-});
-app.get('/public/partials/row_skill_desc.html', function (req, res) {
-  res.render('partials/row_skill_desc');
-});
-app.get('/public/partials/row_hero_desc.html', function (req, res) {
-  res.render('partials/row_hero_desc');
-});
-app.get('/public/partials/row_weapon_desc.html', function (req, res) {
-  res.render('partials/row_weapon_desc');
+app.get('/public/partials/*.html', function (req, res) {
+  var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
+  res.render(renderUrl);
 });
 
 http.createServer(app).listen(app.get('port'), function(){

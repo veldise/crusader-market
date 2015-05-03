@@ -14,5 +14,5 @@ exports.index = function(req, res){
     global.ips[remoteIP].count += 1;
     global.ips[remoteIP].last_atime = new Date();
 
-    res.render('index', { version: 'v0.1.1' });
+    res.render('index', { version: global.version });
 };

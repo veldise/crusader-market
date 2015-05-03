@@ -24,6 +24,17 @@ fs.readFile('./data/ips.json', function (err, data) {
         global.ips = JSON.parse(data.toString());
     }
 });
+require('child_process').exec('git describe --tags', function (err, stdout) {
+  if (err) {
+    throw err;
+  }
+  // ex) v0.3.0-14-g2638707 -> v0.3.14
+  var m = /(v\d+\.\d+\.)\d+\-(\d+)\-\w+/.exec(stdout);
+  if (!m) {
+    return;
+  }
+  global.version = m[1] + m[2];
+});
 /**
 *   Express
 */

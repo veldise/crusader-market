@@ -1,0 +1,4 @@
+﻿<weapon>
+460 x 313 으로 cut / new canvas
+246 x 246 으로 하단 anchor 잡고 canvas size
+264 x 264 로  canvas size

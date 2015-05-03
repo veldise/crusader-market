@@ -24,7 +24,7 @@ ul.nav.nav-tabs
 			img.img-icon(ng-src="{{type.icon}}")
 			span.hidden-xs  {{type.heading}}
 
-.container-fluid.table-bordered(style="border-top-color: transparent;")
+.container-fluid.table-bordered(style="border-top-color: transparent;")#table-cont
 	table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="heros")
 		colgroup
 			//- 이미지

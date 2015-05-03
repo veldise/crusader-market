@@ -1,13 +1,562 @@
 [
   {
     "name": "엑스칼리버",
-    "hero": "레온",
+    "hero": "광휘의 레온",
     "classType": "검",
     "rank": 6,
     "AP": 210,
     "AS": 1.0,
     "bonus": "(궁극의 성검) 피해량 +100%, 방어 관통량 +100%, 치명타 확률 +25%",
-    "hero_thum": "img/hero/thum/6.gif",
-    "weapon_thum": ""
+    "weapon_thum": "img/hero/weapon/sword_01.png"
+  },
+  {
+    "name": "신념의 갈라틴",
+    "hero": "강철기사 잔다르크",
+    "classType": "검",
+    "rank": 6,
+    "AP": 135,
+    "AS": 1.5,
+    "bonus": "(패시브 발동) 물리 피해 면역 +8회, 매 초 체력 회복 +2%",
+    "weapon_thum": "img/hero/weapon/sword_02.png"
+  },
+  {
+    "name": "귀도 무라마사",
+    "hero": "쇼군 스사노오",
+    "classType": "검",
+    "rank": 6,
+    "AP": 198,
+    "AS": 1.0,
+    "bonus": "(블록 사용 시 30% 확률) 다음 스킬 피해량 +90%, 체력 -15%",
+    "weapon_thum": "img/hero/weapon/sword_03.png"
+  },
+  {
+    "name": "절대마검 발록",
+    "hero": "절대마왕 비비안",
+    "classType": "검",
+    "rank": 6,
+    "AP": 162,
+    "AS": 1.2,
+    "bonus": "(궁극의 마검) 피해랑 +75%, 흡혈률 +25%, 치명타 피해 +30%",
+    "weapon_thum": "img/hero/weapon/sword_04.png"
+  },
+  {
+    "name": "빔 블레이드",
+    "hero": "몽테 크리스토",
+    "classType": "검",
+    "rank": 6,
+    "AP": 234,
+    "AS": 0.8,
+    "bonus": "(극-질풍검) 발동 횟수 +1, 발사수 +1, 치명타 확률 +20%",
+    "weapon_thum": "img/hero/weapon/sword_05.png"
+  },
+  {
+    "name": "흑월",
+    "hero": "백전무패 카오리",
+    "classType": "검",
+    "rank": 6,
+    "AP": 216,
+    "AS": 0.9,
+    "bonus": "(마지막 흑월섬) 피해량 +150%, 치명타 피해량 +30%, 3-체인으로 인정",
+    "weapon_thum": "img/hero/weapon/sword_06.png"
+  },
+  {
+    "name": null,
+    "hero": "진마사냥꾼 아벨",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "포도대장 변검수",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "대족장 우지멘트",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "이능의 이사벨",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": "학살의 발뭉",
+    "hero": "맹세의 크림힐트",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 149,
+    "AS": 0.9,
+    "bonus": "(마지막 궁극의 용오름) 피해량 +300%, 치명타 확률 +15%",
+    "weapon_thum": "img/hero/weapon/hammer_01.png"
+  },
+  {
+    "name": "묠니르",
+    "hero": "혹한의 토르",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 116,
+    "AS": 1.1,
+    "bonus": "(패시브 발동) 번개 수 +1, 번개불꽃 +3 (번개 피해량의 20%)",
+    "weapon_thum": "img/hero/weapon/hammer_02.png"
+  },
+  {
+    "name": "중앙집권",
+    "hero": "황제 알렉산더",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 129,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 마법 피해 면역 +8회, 받는 회복 효과 +30%",
+    "weapon_thum": "img/hero/weapon/hammer_03.png"
+  },
+  {
+    "name": "타이타노스",
+    "hero": "군신 아킬레우스",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 139,
+    "AS": 0.9,
+    "bonus": "(패시브 발동) 양쪽에서 동시 발동, 적 치명타 확률 -30%",
+    "weapon_thum": "img/hero/weapon/hammer_04.png"
+  },
+  {
+    "name": "세계수의 노",
+    "hero": "흰수염 드레이크",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 151,
+    "AS": 0.8,
+    "bonus": "(패시브 발동) 효과량 +50%, 파도 공격 (보호막 효과만큼 물리 피해)",
+    "weapon_thum": "img/hero/weapon/hammer_05.png"
+  },
+  {
+    "name": "절멸의 티르빙",
+    "hero": "어둠의 기사 베인",
+    "classType": "망치",
+    "rank": 6,
+    "AP": 170,
+    "AS": 0.7,
+    "bonus": "(지옥의 기둥) 피해량 +45%, 파멸의 기둥 효과 적용, 재사용 대기 -1초",
+    "weapon_thum": "img/hero/weapon/hammer_06.png"
+  },
+  {
+    "name": null,
+    "hero": "진마 카인",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "대막리지 문덕",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "분쇄자 스타냐",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": "마궁 그라나르",
+    "hero": "마궁 시구르나",
+    "classType": "활",
+    "rank": 6,
+    "AP": 214,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 마법 화살 +3개, 피해량 +25%",
+    "weapon_thum": "img/hero/weapon/bow_01.png"
+  },
+  {
+    "name": "티가의 활",
+    "hero": "본드래곤 곤",
+    "classType": "활",
+    "rank": 6,
+    "AP": 187,
+    "AS": 1.1,
+    "bonus": "(패시브 발동 시 45% 확률) 티가 소환(700%, 물리, SP 회복 +5)",
+    "weapon_thum": "img/hero/weapon/bow_02.png"
+  },
+  {
+    "name": "풍림화산",
+    "hero": "질풍의 한조",
+    "classType": "활",
+    "rank": 6,
+    "AP": 175,
+    "AS": 1.2,
+    "bonus": "(패시브 발동) 무속성 피해량 +50%, 표창 발사 수 4 (고정)",
+    "weapon_thum": "img/hero/weapon/bow_03.png"
+  },
+  {
+    "name": "그리폴의 정의",
+    "hero": "귀족 로빈 후드",
+    "classType": "활",
+    "rank": 6,
+    "AP": 224,
+    "AS": 0.9,
+    "bonus": "(패시브의 치명타 적중) 효과 재장전, 추가타 +1 (1초 기절)",
+    "weapon_thum": "img/hero/weapon/bow_04.png"
+  },
+  {
+    "name": "알바트로스",
+    "hero": "R - 0",
+    "classType": "활",
+    "rank": 6,
+    "AP": 234,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 폭발 피해량 +50%, 10회 폭발시 U.W.L-7 발동(400%, 물리 피해)",
+    "weapon_thum": "img/hero/weapon/bow_05.png"
+  },
+  {
+    "name": "위풍당당",
+    "hero": "만월의 기파랑",
+    "classType": "활",
+    "rank": 6,
+    "AP": 244,
+    "AS": 0.8,
+    "bonus": "(패시브 발동) 다음 3-체인 피해량 +100%, 효과 적용 횟수 +1",
+    "weapon_thum": "img/hero/weapon/bow_06.png"
+  },
+  {
+    "name": null,
+    "hero": "백발백중 히카리",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "경국지색 춘향",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "서리악령 니븐",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": "피스메이커",
+    "hero": "불굴의 달타냥",
+    "classType": "총",
+    "rank": 6,
+    "AP": 238,
+    "AS": 0.9,
+    "bonus": "(패시브 발동) 피해량 +45%, 방어 관통력 +200",
+    "weapon_thum": "img/hero/weapon/gun_01.png"
+  },
+  {
+    "name": "정열의 로데오",
+    "hero": "카우걸 맥시",
+    "classType": "총",
+    "rank": 6,
+    "AP": 187,
+    "AS": 1.1,
+    "bonus": "(패시브 발동) 공격력 증가량 +50%, 아군 전체에 효과 적용 +3초",
+    "weapon_thum": "img/hero/weapon/gun_02.png"
+  },
+  {
+    "name": "가정파괴자",
+    "hero": "사령관 스파이로",
+    "classType": "총",
+    "rank": 6,
+    "AP": 220,
+    "AS": 0.9,
+    "bonus": "(10초 마다, 블록 사용) CBR-18 발사 (매 초 50%, 마법 피해, 패시브 적용)",
+    "weapon_thum": "img/hero/weapon/gun_03.png"
+  },
+  {
+    "name": "팬텀 레이지",
+    "hero": "전설의 용병 바이퍼",
+    "classType": "총",
+    "rank": 6,
+    "AP": 264,
+    "AS": 0.8,
+    "bonus": "폭발 확률 +15%, 10회 폭발 시 STFT-3 발동(300%, 물리, 폭발 확률 적용)",
+    "weapon_thum": "img/hero/weapon/gun_04.png"
+  },
+  {
+    "name": "밤 그림자",
+    "hero": "악령 까마귀",
+    "classType": "총",
+    "rank": 6,
+    "AP": 205,
+    "AS": 1.0,
+    "bonus": "(PD-CROW탄) 발사 횟수 +2, 기본 및 폭발 피해 +50%",
+    "weapon_thum": "img/hero/weapon/gun_05.png"
+  },
+  {
+    "name": "정의집행",
+    "hero": "심판자 빈센트",
+    "classType": "총",
+    "rank": 6,
+    "AP": 242,
+    "AS": 0.8,
+    "bonus": "(추가타의 치명타 적중) 재발동 +1회, 2차 폭발 확률 +45%",
+    "weapon_thum": "img/hero/weapon/gun_06.png"
+  },
+  {
+    "name": null,
+    "hero": "마탄의 No. 9",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "히어로 맨디",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "센티널R",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": "달의 여왕",
+    "hero": "검은마녀 도로시",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 290,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 5초간 공격시 고양이 광선 추가 (150%, 마법, 이로운 효과 해제)",
+    "weapon_thum": "img/hero/weapon/staff_01.png"
+  },
+  {
+    "name": "개벽의 눈",
+    "hero": "각성의 아칸",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 264,
+    "AS": 0.9,
+    "bonus": "강화 구체 +(1~2)개 (40~100%, 마법), 구체 타격 속도 +15%",
+    "weapon_thum": "img/hero/weapon/staff_02.png"
+  },
+  {
+    "name": "염라화",
+    "hero": "염라사자 귀향",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 211,
+    "AS": 1.1,
+    "bonus": "(3-체인 발동) 효과량 +50%, 보호막 해제 불가",
+    "weapon_thum": "img/hero/weapon/staff_03.png"
+  },
+  {
+    "name": "눈의 꽃",
+    "hero": "빙결의 사스콰치",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 272,
+    "AS": 0.9,
+    "bonus": "(기절한 적 공격) 눈의 꽃 발동 (300%, 마법, 3초 1회, 패시브 적용)",
+    "weapon_thum": "img/hero/weapon/staff_04.png"
+  },
+  {
+    "name": "영혼 탐식자",
+    "hero": "밤의 여신 릴리스",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 304,
+    "AS": 0.8,
+    "bonus": "1회 부활 (15초 1회, 3초 무적, 5초간 공격력 +50%, SP +50)",
+    "weapon_thum": "img/hero/weapon/staff_05.png"
+  },
+  {
+    "name": "죽음의 입맞춤",
+    "hero": "서큐버스 퀸 레이첼",
+    "classType": "지팡이",
+    "rank": 6,
+    "AP": 282,
+    "AS": 0.8,
+    "bonus": "(패시브 발동 시 50% 확률) 죽음의 입맞춤 발동 (480%, 마법, 아군 전체 회복 +10%)",
+    "weapon_thum": "img/hero/weapon/staff_06.png"
+  },
+  {
+    "name": null,
+    "hero": "스페이드 퀸 앨리스",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "장원급제 이몽룡",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "자연의 나즈룬",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "강령술사 네크론",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": "미카엘라",
+    "hero": "구세의 성녀 마리아",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 164,
+    "AS": 1.1,
+    "bonus": "(추가 효과 발동) 해로운 효과 받을 때마다 회복 +10% 및 피해 면역 +2회",
+    "weapon_thum": "img/hero/weapon/orb_01.png"
+  },
+  {
+    "name": "울티메이큐트",
+    "hero": "캣 마스터 뮤",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 148,
+    "AS": 1.2,
+    "bonus": "(회복받은 아군) 5회 피해 면역, 해로운 효과 면역 +1회",
+    "weapon_thum": "img/hero/weapon/orb_02.png"
+  },
+  {
+    "name": "가브리엘라",
+    "hero": "빛의 나이팅게일",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 183,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 발동 횟수 +2, 회복량 +50%, 자신 기절 면역 +5초",
+    "weapon_thum": "img/hero/weapon/orb_03.png"
+  },
+  {
+    "name": "혼비백산",
+    "hero": "구미호 여우동",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 201,
+    "AS": 0.9,
+    "bonus": "(블록이 생성된 아군) 5초간 회피율 +30%, 치명타 확률 +25%",
+    "weapon_thum": "img/hero/weapon/orb_04.png"
+  },
+  {
+    "name": "백신 - G",
+    "hero": "긴급구조 너스파이",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 192,
+    "AS": 1.0,
+    "bonus": "(패시브 발동) 공격력 감소량 +50%, 회복 받은 아군 부활(50% 확률, 10초 1회 발동)",
+    "weapon_thum": "img/hero/weapon/orb_05.png"
+  },
+  {
+    "name": "황금 액막이",
+    "hero": "움파룸 우파",
+    "classType": "보주",
+    "rank": 6,
+    "AP": 168,
+    "AS": 1.1,
+    "bonus": "(10초 마다, 블록 사용) 토템 댄~스!! (모든 효과 +50% 적용)",
+    "weapon_thum": "img/hero/weapon/orb_06.png"
+  },
+  {
+    "name": null,
+    "hero": "신녀 히미코",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "미식헌터 챠이",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
+  },
+  {
+    "name": null,
+    "hero": "광기의 슈타인",
+    "classType": null,
+    "rank": null,
+    "AP": null,
+    "AS": null,
+    "bonus": null,
+    "weapon_thum": null
   }
 ]

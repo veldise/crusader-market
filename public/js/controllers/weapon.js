@@ -16,6 +16,9 @@ define([
             if (!weapons) {
                 return;
             }
+            weapons = _.filter(weapons, function (weapon) {
+                return weapon.name;
+            });
             originData = weapons;
 
             // $scope.classTypes = _.uniq(_.pluck(weapons, '클래스'));

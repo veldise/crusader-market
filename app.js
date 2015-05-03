@@ -83,6 +83,9 @@ app.get('/public/partials/row_skill_desc.html', function (req, res) {
 app.get('/public/partials/row_hero_desc.html', function (req, res) {
   res.render('partials/row_hero_desc');
 });
+app.get('/public/partials/row_weapon_desc.html', function (req, res) {
+  res.render('partials/row_weapon_desc');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

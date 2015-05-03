@@ -73,6 +73,28 @@ define([
         *   Grid
         */
         $scope.weapons = originData;
+
+        $scope.toggleDesc = function (event, weapon) {
+            // enable xs screen
+            var screenWidth = angular.element(document).width();
+            if (screenWidth > 767) {
+                return;
+            }
+
+            weapon.isOpened = !weapon.isOpened;
+
+            var $target = angular.element(event.target);
+            var $tr = $target.parents('tr');
+
+            // create open row
+            if (!$tr.next('.open-row').length) {
+                var template = $templateCache.get('row_weapon_desc');
+
+                // var newScope = $scope.$new({});
+                // newScope.weapon = weapon;
+                $tr.after($compile(template)($tr.scope()));
+            }
+        };
     }
     WeaponCtrl.$inject = ['$scope', '$compile', '$templateCache'];
 

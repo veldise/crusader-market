@@ -82,6 +82,11 @@ requirejs([
                 $templateCache.put('row_hero_desc', data);
             })
             .error(function (reason) { alert(reason); });
+        $http.get('public/partials/row_weapon_desc.html')
+            .success(function (data) {
+                $templateCache.put('row_weapon_desc', data);
+            })
+            .error(function (reason) { alert(reason); });
     }
     fnRun.$inject = ['$templateCache', '$http'];
     /**

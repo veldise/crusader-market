@@ -27,14 +27,14 @@ ul.nav.nav-tabs
 .container-fluid.table-bordered(style="border-top-color: transparent;")#table-cont
     table.table.table-bordered(style="margin-top:24px", st-table="displayedCollection", st-safe-src="weapons")
         colgroup
+            //- 클래스
+            col(width="80px").hidden-xs
             //- 이미지
             col(width="60px")
             //- 이름
             col(width="120px").hidden-xs
             //- 등급
             col(width="46px").hidden-xs
-            //- 클래스
-            col(width="80px").hidden-xs
             //- 이름
             col(width="156px")
             //- 공격력
@@ -45,22 +45,24 @@ ul.nav.nav-tabs
             col(width="*").hidden-xs
         thead
             tr
+                th.clickable(st-sort="classType").ac.va_m.hidden-xs 클래스
                 th.ac.va_m 이미지
                 th.clickable(st-sort="name").ac.va_m.hidden-xs 이름
                 th.clickable(st-sort="rank").ac.va_m.hidden-xs 등급
-                th.clickable(st-sort="classType").ac.va_m.hidden-xs 클래스
                 th.clickable(st-sort="hero").ac.va_m 착용가능
                 th.clickable(st-sort="AP").ac.va_m 공격력
                 th.clickable(st-sort="AS").ac.va_m 공격<br>속도
                 th.clickable(st-sort="bonus", ng-show="showDesc").ac.va_m.hidden-xs 전용 옵션
         tbody
-            tr.clickable(ng-repeat="weapon in displayedCollection | filter:searchText",
+            tr(ng-repeat="weapon in displayedCollection | filter:searchText",
                     ng-click="selectWeapon(weapon)", ng-class="{ info: weapon.isSelected }")
+                td.ac.va_m.hidden-xs
+                    img.img-icon(ng-src="{{convIconUrl(weapon.classType)}}")
+                    span  {{weapon.classType}}
                 td.ac.va_m(style="padding:4px")
-                    img.img-thum.clickable(ng-if="weapon.weapon_thum", ng-src="{{weapon.weapon_thum}}", ng-click="toggleDesc($event, weapon)")
+                    img.img-thum.clickable_xs(ng-if="weapon.weapon_thum", ng-src="{{weapon.weapon_thum}}", ng-click="toggleDesc($event, weapon)")
                 td.ac.va_m.hidden-xs {{weapon.name}}
                 td.ac.va_m.hidden-xs ★×{{weapon.rank}}
-                td.ac.va_m.hidden-xs {{weapon.classType}}
                 td.ac.va_m {{weapon.hero}}
                 td.ac.va_m {{weapon.AP}}
                 td.ac.va_m {{weapon.AS.toFixed(1)}}

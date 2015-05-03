@@ -74,6 +74,17 @@ define([
         */
         $scope.weapons = originData;
 
+        $scope.convIconUrl = function (classType) {
+            return {
+                '검': 'img/icon_warrior.png',
+                '망치': 'img/icon_paladin.png',
+                '활': 'img/icon_archer.png',
+                '총': 'img/icon_hunter.png',
+                '지팡이': 'img/icon_wizard.png',
+                '보주': 'img/icon_priest.png'
+            }[classType];
+        };
+
         $scope.toggleDesc = function (event, weapon) {
             // enable xs screen
             var screenWidth = angular.element(document).width();

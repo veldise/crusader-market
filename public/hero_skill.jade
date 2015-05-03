@@ -64,12 +64,12 @@ ul.nav.nav-tabs
 				th.ac.va_m(ng-show="showDesc").hidden-xs 스킬 설명
 				th.ac.va_m(ng-show="showDesc").hidden-xs 레벨업 조건
 		tbody
-			tr.clickable(ng-repeat="skill in skills | filter:searchText")
+			tr(ng-repeat="skill in skills | filter:searchText")
 				td.ac.va_m.hidden-xs.hidden-sm
 					img.img-icon(ng-src="{{convIconUrl(skill.classType)}}")
 					span  {{skill.classType}}
 				td.ac.va_m(style="padding:4px")
-					img.img-thum.clickable(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}", ng-click="toggleDesc($event, skill)")
+					img.img-thum.clickable_xs(ng-if="skill.skill_thum", ng-src="{{skill.skill_thum}}", ng-click="toggleDesc($event, skill)")
 				td.ac.va_m {{skill.name}}
 				td.ac.va_m {{skill.currLv}}
 				td.ac.va_m {{skill.effect}}

@@ -73,6 +73,7 @@ app.get('/heros', user.heros);
 app.get('/skills', user.skills);
 app.get('/weapons', user.weapons);
 app.get('/dev/ips', user.ips);
+app.get('/dev/reports', user.reports);
 
 // views
 app.get('/public/*.html', function (req, res) {

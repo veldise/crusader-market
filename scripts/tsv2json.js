@@ -22,7 +22,7 @@ if (process.argv.length < 2) {
 }
 
 var tsvPath = process.argv[2],
-    jsonPath = process.argv[3] || tsvPath.replace(/\.tsv$/, '.json');
+    jsonPath = process.argv[3] || tsvPath.replace(/\.\w+$/, '.json');
 
 console.log(tsvPath, ' to ', jsonPath);
 
@@ -46,7 +46,8 @@ function tsv2json (tsv) {
     var lines = tsv.replace(/\?/igm, ' ').split(/\r?\n/);
     lines = _.compact(_.map(lines, function (line) {
         if (line.trim()) {
-            line = line.trim().split(/\t/);
+            line = line.replace(/^\ +/, '').replace(/\ +$/, '');
+            line = line.split(/\t/);
             for (var i=line.length-1; i>=0; i--) {
                 line[i] = convTypes(line[i]);
             }

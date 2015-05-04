@@ -7,9 +7,9 @@ requirejs.config({
         'lodash': '/lib/lodash.min',
         'angular': '/lib/angular/angular.min',
         'angular-route': '/lib/angular/angular-route.min',
-        'bootstrap': '/lib/bootstrap-3.3.2/js/bootstrap.min',
+        'bootstrap': '/lib/bootstrap-3.3.4/js/bootstrap.min',
 
-        'ui-bootstrap': '/lib/ui-bootstrap-tpls-0.12.0.min',
+        'ui-bootstrap': '/lib/ui-bootstrap-tpls-0.13.0.min',
         'smart-table': '/lib/smart-table.min'
     },
 

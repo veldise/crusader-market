@@ -1,10 +1,11 @@
 /**
 *
 */
-define([
-    'angular', 'lodash'
-], function (angular, _) {
+define(function (require) {
     'use strict';
+
+    // var angular = require('angular');
+    // var _ = require('lodash');
     /**
     *
     */

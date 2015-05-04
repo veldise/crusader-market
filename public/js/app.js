@@ -1,39 +1,19 @@
 /**
 *
 */
-requirejs.config({
-    paths: {
-        'jquery': '/lib/jquery/jquery-1.11.2.min',
-        'lodash': '/lib/lodash.min',
-        'angular': '/lib/angular/angular.min',
-        'angular-route': '/lib/angular/angular-route.min',
-        'bootstrap': '/lib/bootstrap-3.3.4/js/bootstrap.min',
-
-        'ui-bootstrap': '/lib/ui-bootstrap-tpls-0.13.0.min',
-        'smart-table': '/lib/smart-table.min'
-    },
-
-    shim: {
-        'jquery': { exports: '$' },
-        'lodash': { exports: '_' },
-        'angular': { deps: [ 'jquery' ], exports: 'angular' },
-        'angular-route': { deps: [ 'angular' ] },
-        'bootstrap': { deps: [ 'jquery' ] },
-
-        'ui-bootstrap': { deps: [ 'angular' ] },
-        'smart-table': { deps: [ 'angular' ] }
-    }
-});
-
-requirejs([
-    'angular', 'lodash',
-    'angular-route',
-    'bootstrap',
-    'ui-bootstrap', 'smart-table',
-    '/js/controllers/app.js',
-    '/js/modal_diff.js'
-], function (angular) {
+define(function (require, exports) {
     'use strict';
+
+    var angular = require('angular');
+    // var _ = require('lodash');
+
+    require('angular-route');
+
+    require('bootstrap');
+    require('ui-bootstrap');
+    require('smart-table');
+
+    require('./controllers/app.js');
     /**
     *
     */
@@ -72,115 +52,18 @@ requirejs([
     *
     */
     function fnRun ($templateCache, $http) {
+        // pre-load partials template
         $http.get('public/partials/row_skill_desc.html')
-            .success(function (data) {
-                $templateCache.put('row_skill_desc', data);
-            })
+            .success(function (data) { $templateCache.put('row_skill_desc', data); })
             .error(function (reason) { alert(reason); });
         $http.get('public/partials/row_hero_desc.html')
-            .success(function (data) {
-                $templateCache.put('row_hero_desc', data);
-            })
+            .success(function (data) { $templateCache.put('row_hero_desc', data); })
             .error(function (reason) { alert(reason); });
         $http.get('public/partials/row_weapon_desc.html')
-            .success(function (data) {
-                $templateCache.put('row_weapon_desc', data);
-            })
+            .success(function (data) { $templateCache.put('row_weapon_desc', data); })
             .error(function (reason) { alert(reason); });
     }
     fnRun.$inject = ['$templateCache', '$http'];
-    /**
-    *
-    */
-    function MainCtrl ($scope, $http, $document, $modal) {
-        /**
-        *   shared
-        */
-        $scope.shared = {
-            party: [],
-            heros: null,
-            skills: null,
-            weapons: null
-        };
-
-        function loadData () {
-            $http.get('/heros')
-                .success(function (data) { $scope.shared.heros = data; })
-                .error(function (reason) { alert(reason); });
-            $http.get('/skills')
-                .success(function (data) { $scope.shared.skills = data; })
-                .error(function (reason) { alert(reason); });
-            $http.get('/weapons')
-                .success(function (data) { $scope.shared.weapons = data; })
-                .error(function (reason) { alert(reason); });
-        }
-        /**
-        *   init
-        */
-        loadData();
-        /**
-        *   navbar hide
-        */
-        $document.on('click', function (e) {
-            var $target = angular.element(e.target),
-                $navToggle = angular.element('.navbar-toggle'),
-                $navCollapse = angular.element('.navbar-collapse');
-
-            var isNavbar = $target.is('.navbar') || $target.parents().is('.navbar');
-            if (!isNavbar && $navCollapse.hasClass('in')) {
-                $navToggle.addClass('collapsed');
-                $navCollapse.removeClass('in').css('height', '0');
-            }
-        });
-        /**
-        *   navbar form
-        */
-        $scope.showDesc = true;
-
-        $scope.deselectAll = function () {
-            $scope.shared.party = [];
-            $scope.$broadcast('deselectAll');
-        };
-
-        $scope.openDiff = function (heros) {
-            var modalInstance = $modal.open({
-                templateUrl: '/public/modal_diff.html',
-                controller: 'ModalCtrl',
-                size: 'lg',
-                resolve: {
-                    heros: function () {
-                        return heros;
-                    }
-                }
-            });
-
-            // modalInstance.result.then(function (selectedItem) {
-            //     $scope.selected = selectedItem;
-            // }, function () {
-            //     $log.info('Modal dismissed at: ' + new Date());
-            // });
-        };
-        /**
-        *   route
-        */
-        $scope.$on('$routeChangeSuccess', function (scope, current/*, before*/) {
-            if (!current || !current.$$route) {
-                return;
-            }
-
-            $scope.currPath = current.$$route.originalPath;
-
-            // hide navbar
-            var $navToggle = angular.element('.navbar-toggle'),
-                $navCollapse = angular.element('.navbar-collapse');
-
-            if ($navCollapse.hasClass('in')) {
-                $navToggle.addClass('collapsed');
-                $navCollapse.removeClass('in').css('height', '0');
-            }
-        });
-    }
-    MainCtrl.$inject = ['$scope', '$http', '$document', '$modal'];
     /**
     *
     */
@@ -188,35 +71,17 @@ requirejs([
             'ngRoute',
             'smart-table',
             'ui.bootstrap',
-            'cm.controllers',
-            'cm.modals'
+
+            'cm.controllers'
         ])
         .config(fnConfig)
-        .run(fnRun)
-        .directive('boldKeyword', function () {
-            return {
-                restrict: 'A',
-                scope: false,
-                link: function (scope, element, attrs) {
-                    var re = /(무속성 피해|물리 피해|마법 피해|\(\d+\/\d+\/\d+\)\%)/gim,
-                        reText = '<span class="bold-text">$1</span>';
-
-                    scope.$watch(attrs.boldKeyword, function (text) {
-                        if (!text) {
-                            element.html('');
-                            return;
-                        }
-
-                        element.html(text.replace(re, reText));
-                    });
-                }
-            };
-        })
-        .controller('MainCtrl', MainCtrl);
+        .run(fnRun);
     /**
     *
     */
-    angular.element(document).ready(function () {
-        angular.bootstrap(document, [ 'crusaderMarketApp' ]);
-    });
+    exports.init = function () {
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, [ 'crusaderMarketApp' ]);
+        });
+    };
 });

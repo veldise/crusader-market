@@ -1,14 +1,15 @@
 /**
 *
 */
-define([
-    'angular', 'lodash'
-], function (angular, _) {
+define(function (require) {
     'use strict';
+
+    // var angular = require('angular');
+    var _ = require('lodash');
     /**
     *
     */
-    function ModalCtrl ($scope, $modalInstance, heros) {
+    function HeroDiffCtrl ($scope, $modalInstance, heros) {
         /**
         *   Dialog
         */
@@ -108,10 +109,9 @@ define([
             }
         };
     }
-    ModalCtrl.$inject = ['$scope', '$modalInstance', 'heros'];
+    HeroDiffCtrl.$inject = ['$scope', '$modalInstance', 'heros'];
     /**
     *
     */
-    angular.module('cm.modals', [])
-        .controller('ModalCtrl', ModalCtrl);
+    return HeroDiffCtrl;
 });

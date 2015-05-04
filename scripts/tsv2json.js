@@ -46,7 +46,7 @@ function tsv2json (tsv) {
     var lines = tsv.replace(/\?/igm, ' ').split(/\r?\n/);
     lines = _.compact(_.map(lines, function (line) {
         if (line.trim()) {
-            line = line.replace(/^\ +/, '').replace(/\ +$/, '');
+            line = line.replace(/^\ +/, '').replace(/\s+$/, '');
             line = line.split(/\t/);
             for (var i=line.length-1; i>=0; i--) {
                 line[i] = convTypes(line[i]);

@@ -61,43 +61,19 @@
   },
   {
     "name": null,
-    "hero": "진마사냥꾼 아벨",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "진마사냥꾼 아벨"
   },
   {
     "name": null,
-    "hero": "포도대장 변검수",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "포도대장 변검수"
   },
   {
     "name": null,
-    "hero": "대족장 우지멘트",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "대족장 우지멘트"
   },
   {
     "name": null,
-    "hero": "이능의 이사벨",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "이능의 이사벨"
   },
   {
     "name": "학살의 발뭉",
@@ -161,33 +137,15 @@
   },
   {
     "name": null,
-    "hero": "진마 카인",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "진마 카인"
   },
   {
     "name": null,
-    "hero": "대막리지 문덕",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "대막리지 문덕"
   },
   {
     "name": null,
-    "hero": "분쇄자 스타냐",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "분쇄자 스타냐"
   },
   {
     "name": "마궁 그라나르",
@@ -216,7 +174,7 @@
     "rank": 6,
     "AP": 175,
     "AS": 1.2,
-    "bonus": "(패시브 발동) 무속성 피해량 +50%, 표창 발사 수 4 (고정)",
+    "bonus": "(다른 아군의 3-체인 뒤) 무속성 피해량 +50%, 표창 발사 수 4 (고정)",
     "weapon_thum": "img/hero/weapon/bow_03.png"
   },
   {
@@ -251,33 +209,15 @@
   },
   {
     "name": null,
-    "hero": "백발백중 히카리",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "백발백중 히카리"
   },
   {
     "name": null,
-    "hero": "경국지색 춘향",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "경국지색 춘향"
   },
   {
     "name": null,
-    "hero": "서리악령 니븐",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "서리악령 니븐"
   },
   {
     "name": "피스메이커",
@@ -341,33 +281,15 @@
   },
   {
     "name": null,
-    "hero": "마탄의 No. 9",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "마탄의 No. 9"
   },
   {
     "name": null,
-    "hero": "히어로 맨디",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "히어로 맨디"
   },
   {
     "name": null,
-    "hero": "센티널R",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "센티널R"
   },
   {
     "name": "달의 여왕",
@@ -431,43 +353,19 @@
   },
   {
     "name": null,
-    "hero": "스페이드 퀸 앨리스",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "스페이드 퀸 앨리스"
   },
   {
     "name": null,
-    "hero": "장원급제 이몽룡",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "장원급제 이몽룡"
   },
   {
     "name": null,
-    "hero": "자연의 나즈룬",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "자연의 나즈룬"
   },
   {
     "name": null,
-    "hero": "강령술사 네크론",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "강령술사 네크론"
   },
   {
     "name": "미카엘라",
@@ -531,32 +429,14 @@
   },
   {
     "name": null,
-    "hero": "신녀 히미코",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "신녀 히미코"
   },
   {
     "name": null,
-    "hero": "미식헌터 챠이",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "미식헌터 챠이"
   },
   {
     "name": null,
-    "hero": "광기의 슈타인",
-    "classType": null,
-    "rank": null,
-    "AP": null,
-    "AS": null,
-    "bonus": null,
-    "weapon_thum": null
+    "hero": "광기의 슈타인"
   }
 ]

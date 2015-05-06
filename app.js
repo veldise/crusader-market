@@ -11,7 +11,7 @@ var fs = require('fs');
 var path = require('path');
 
 var app = express();
-var expressUglify = require('express-uglify');
+// var expressUglify = require('express-uglify');
 /**
 *   globals
 */
@@ -46,9 +46,9 @@ var dirPublic = path.join(__dirname, 'public');
 fs.mkdir('./log', function () {});
 var routeLogStream = fs.createWriteStream('./log/route.log');
 
-app.use(expressUglify.middleware({
-    src: dirPublic
-}));
+// app.use(expressUglify.middleware({
+//     src: dirPublic
+// }));
 
 // all environments
 app.set('port', process.argv[2] || 8800);
@@ -65,7 +65,7 @@ app.use(require('less-middleware')(dirPublic));
 app.use(express.static(dirPublic));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
@@ -94,9 +94,10 @@ http.createServer(app).listen(app.get('port'), function(){
 */
 function serverExit() {
     // save
-    fs.writeFile('./data/ips.json', JSON.stringify(global.ips, null, 4), function (err) {
+    var strJSON = JSON.stringify(global.ips, null, 4);
+    fs.writeFile('./data/ips.json', strJSON, function (err) {
         if (err) {
-            throw err;
+            console.error(err);
             process.exit(1);
         }
         process.exit(0);

@@ -2,9 +2,9 @@
 *
 */
 require([
-    '/js/app.js'
-], function (app) {
-    'use strict';
-
-    app.init();
+    '/app.min.js'
+], function () {
+    require(['app'], function (app) {
+        app.init();
+    });
 });

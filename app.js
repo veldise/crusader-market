@@ -11,7 +11,6 @@ var fs = require('fs');
 var path = require('path');
 
 var app = express();
-// var expressUglify = require('express-uglify');
 /**
 *   globals
 */
@@ -25,28 +24,32 @@ fs.readFile('./data/ips.json', function (err, data) {
     }
 });
 require('child_process').exec('git describe --tags', function (err, stdout) {
-  if (err) {
-    throw err;
-  }
-  // ex) v0.3.0-14-g2638707 -> v0.3.14
-  var m = /(v\d+\.\d+\.)\d+\-(\d+)\-\w+/.exec(stdout);
-  if (m) {
-    global.version = m[1] + m[2];
-  }
-  else {
-    global.version = stdout.trim();
-  }
+    if (err) {
+        throw err;
+    }
+    // ex) v0.3.0-14-g2638707 -> v0.3.14
+    var m = /(v\d+\.\d+\.)\d+\-(\d+)\-\w+/.exec(stdout);
+    if (m) {
+        global.version = m[1] + m[2];
+    }
+    else {
+        global.version = stdout.trim();
+    }
 });
 /**
 *   Express
 */
 var dirViews = path.join(__dirname, 'views');
 var dirPublic = path.join(__dirname, 'public');
+
+global.dirViews = dirViews;
+global.dirPublic = dirPublic;
 // route log
 fs.mkdir('./log', function () {});
 var routeLogStream = fs.createWriteStream('./log/route.log');
 
-// app.use(expressUglify.middleware({
+// var uglifyMiddleware = require('./uglify_middleware.js');
+// app.use(uglifyMiddleware({
 //     src: dirPublic
 // }));
 
@@ -78,17 +81,29 @@ app.get('/dev/reports', user.reports);
 
 // views
 app.get('/public/*.html', function (req, res) {
-  var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
-  res.render(renderUrl);
+    var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
+    res.render(renderUrl);
 });
 app.get('/public/partials/*.html', function (req, res) {
-  var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
-  res.render(renderUrl);
+    var renderUrl = req.url.replace('/public/', '').replace(/\.html$/, '');
+    res.render(renderUrl);
 });
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
+/**
+*
+*/
+app.get('/app.min.js', routes.optimizeIndex([
+    'jquery',
+    'angular',
+    'angular-route',
+    'lodash',
+    'bootstrap',
+    'ui-bootstrap',
+    'smart-table'
+]));
 /**
 *
 */

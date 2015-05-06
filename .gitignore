@@ -9,8 +9,6 @@ pids
 
 #
 public/css/*.css
-public/**/.cache
-public/**/**/.cache
 
 #
 data/ips.json

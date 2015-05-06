@@ -40,6 +40,7 @@ require('child_process').exec('git describe --tags', function (err, stdout) {
 /**
 *   Express
 */
+var dirViews = path.join(__dirname, 'views');
 var dirPublic = path.join(__dirname, 'public');
 // route log
 fs.mkdir('./log', function () {});
@@ -51,7 +52,7 @@ app.use(expressUglify.middleware({
 
 // all environments
 app.set('port', process.argv[2] || 8800);
-app.set('views', dirPublic);
+app.set('views', dirViews);
 app.set('view engine', 'jade');
 // app.use(express.favicon());
 app.use(express.logger({ format: 'short', stream: routeLogStream }));

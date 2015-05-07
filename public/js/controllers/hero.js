@@ -9,21 +9,27 @@ define(function (require) {
     /**
     *
     */
-    function HeroCtrl($scope, $compile, $templateCache) {
+    HeroCtrl.$inject = ['$scope', '$http', '$compile', '$templateCache'];
+    function HeroCtrl($scope, $http, $compile, $templateCache) {
         /**
         *   Locals
         */
         var originData = [];
+        var shared = $scope.shared; // from main
 
-        $scope.$watch('shared.heros', function (heros) {
-            if (!heros) {
-                return;
-            }
-            originData = heros;
-
-            // $scope.classTypes = _.uniq(_.pluck(heros, '클래스'));
-            $scope.heros = heros;
-        });
+        if (!shared.heros || !shared.heros.length) {
+            $http.get('/heros')
+                .success(function (data) {
+                    shared.heros = data;
+                    originData = data;
+                    $scope.heros = data;
+                })
+                .error(function (reason) { alert(reason); });
+        }
+        else {
+            originData = shared.heros;
+            $scope.heros = shared.heros;
+        }
         /**
         *   func
         */
@@ -146,7 +152,6 @@ define(function (require) {
             }
         };
     }
-    HeroCtrl.$inject = ['$scope', '$compile', '$templateCache'];
 
     return HeroCtrl;
 });

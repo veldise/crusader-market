@@ -9,6 +9,7 @@ define(function (require) {
     /**
     *
     */
+    BreadCalcCtrl.$inject = ['$scope'];
     function BreadCalcCtrl ($scope) {
         /**
         *   locals
@@ -99,7 +100,6 @@ define(function (require) {
             $scope.addedBread = undefined;
         };
     }
-    BreadCalcCtrl.$inject = ['$scope'];
 
     return BreadCalcCtrl;
 });

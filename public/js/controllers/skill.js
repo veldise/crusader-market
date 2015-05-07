@@ -9,12 +9,11 @@ define(function (require) {
     /**
     *
     */
-    function SkillCtrl($scope, $compile, $templateCache) {
+    SkillCtrl.$inject = ['$scope', '$http', '$compile', '$templateCache'];
+    function SkillCtrl($scope, $http, $compile, $templateCache) {
         /**
         *   Locals
         */
-        var originData = [];
-
         var lvProps = [
             'lv1_desc',
             'lv1_up_cond',
@@ -27,35 +26,44 @@ define(function (require) {
             'lv5_desc',
             'lv5_up_cond'
         ];
-        $scope.$watch('shared.skills', function (skills) {
-            if (!skills) {
-                return;
-            }
-            // convert
-            var allLv = $scope.allLv;
 
-            skills = _.map(skills, function (skill) {
-                var rst = _.omit(skill, lvProps);
-                rst.currLv = Math.min(allLv, skill.max_level);
-                rst.lvs = [null];
+        var originData = [];
+        var shared = $scope.shared; // from main
 
-                var lvs = _.values(_.pick(skill, lvProps));
-                for (var i=0, l=lvs.length; i<l; i+=2) {
-                    var lv = {
-                        desc: lvs[i],
-                        up_cond: lvs[i+1]
-                    };
-                    rst.lvs.push(lv);
-                }
+        if (!shared.skills || !shared.skills.length) {
+            $http.get('/skills')
+                .success(function (data) {
 
-                return rst;
-            });
+                    // convert
+                    var allLv = $scope.allLv;
 
-            originData = skills;
+                    data = _.map(data, function (skill) {
+                        var rst = _.omit(skill, lvProps);
+                        rst.currLv = Math.min(allLv, skill.max_level);
+                        rst.lvs = [null];
 
-            // $scope.classTypes = _.uniq(_.pluck(skills, '클래스'));
-            $scope.skills = skills;
-        });
+                        var lvs = _.values(_.pick(skill, lvProps));
+                        for (var i=0, l=lvs.length; i<l; i+=2) {
+                            var lv = {
+                                desc: lvs[i],
+                                up_cond: lvs[i+1]
+                            };
+                            rst.lvs.push(lv);
+                        }
+
+                        return rst;
+                    });
+
+                    shared.skills = data;
+                    originData = data;
+                    $scope.skills = data;
+                })
+                .error(function (reason) { alert(reason); });
+        }
+        else {
+            originData = shared.skills;
+            $scope.skills = shared.skills;
+        }
         /**
         *   func
         */
@@ -187,7 +195,6 @@ define(function (require) {
             skill.currLv = skill.max_level;
         };
     }
-    SkillCtrl.$inject = ['$scope', '$compile', '$templateCache'];
 
     return SkillCtrl;
 });

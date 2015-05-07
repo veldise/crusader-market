@@ -9,6 +9,7 @@ define(function (require) {
     /**
     *
     */
+    HeroDiffCtrl.$inject = ['$scope', '$modalInstance', 'heros'];
     function HeroDiffCtrl ($scope, $modalInstance, heros) {
         /**
         *   Dialog
@@ -109,9 +110,6 @@ define(function (require) {
             }
         };
     }
-    HeroDiffCtrl.$inject = ['$scope', '$modalInstance', 'heros'];
-    /**
-    *
-    */
+
     return HeroDiffCtrl;
 });

@@ -8,6 +8,7 @@ define(function (require) {
     /**
     *
     */
+    MainCtrl.$inject = ['$scope', '$http', '$document', '$modal'];
     function MainCtrl ($scope, $http, $document, $modal) {
         /**
         *   shared
@@ -18,22 +19,6 @@ define(function (require) {
             skills: null,
             weapons: null
         };
-
-        function loadData () {
-            $http.get('/heros')
-                .success(function (data) { $scope.shared.heros = data; })
-                .error(function (reason) { alert(reason); });
-            $http.get('/skills')
-                .success(function (data) { $scope.shared.skills = data; })
-                .error(function (reason) { alert(reason); });
-            $http.get('/weapons')
-                .success(function (data) { $scope.shared.weapons = data; })
-                .error(function (reason) { alert(reason); });
-        }
-        /**
-        *   init
-        */
-        loadData();
         /**
         *   navbar hide
         */
@@ -96,9 +81,6 @@ define(function (require) {
             }
         });
     }
-    MainCtrl.$inject = ['$scope', '$http', '$document', '$modal'];
-    /**
-    *
-    */
+
     return MainCtrl;
 });

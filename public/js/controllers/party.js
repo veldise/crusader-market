@@ -9,6 +9,7 @@ define(function (require) {
     /**
     *
     */
+    PartyCtrl.$inject = ['$scope'];
     function PartyCtrl($scope) {
         /**
         *   party layer
@@ -38,7 +39,6 @@ define(function (require) {
             }
         };
     }
-    PartyCtrl.$inject = ['$scope'];
 
     return PartyCtrl;
 });

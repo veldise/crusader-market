@@ -9,24 +9,31 @@ define(function (require) {
     /**
     *
     */
-    function WeaponCtrl($scope, $compile, $templateCache) {
+    WeaponCtrl.$inject = ['$scope', '$http', '$compile', '$templateCache'];
+    function WeaponCtrl($scope, $http, $compile, $templateCache) {
         /**
         *   Locals
         */
         var originData = [];
+        var shared = $scope.shared; // from main
 
-        $scope.$watch('shared.weapons', function (weapons) {
-            if (!weapons) {
-                return;
-            }
-            weapons = _.filter(weapons, function (weapon) {
-                return weapon.name;
-            });
-            originData = weapons;
+        if (!shared.weapons || !shared.weapons.length) {
+            $http.get('/weapons')
+                .success(function (data) {
+                    data = _.filter(data, function (weapon) {
+                        return weapon.name;
+                    });
 
-            // $scope.classTypes = _.uniq(_.pluck(weapons, '클래스'));
-            $scope.weapons = weapons;
-        });
+                    shared.weapons = data;
+                    originData = data;
+                    $scope.weapons = data;
+                })
+                .error(function (reason) { alert(reason); });
+        }
+        else {
+            originData = shared.weapons;
+            $scope.weapons = shared.weapons;
+        }
         /**
         *   Tabset
         */
@@ -110,7 +117,6 @@ define(function (require) {
             }
         };
     }
-    WeaponCtrl.$inject = ['$scope', '$compile', '$templateCache'];
 
     return WeaponCtrl;
 });

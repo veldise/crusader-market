@@ -8,8 +8,8 @@ define(function (require) {
     /**
     *
     */
-    MainCtrl.$inject = ['$scope', '$http', '$document', '$modal'];
-    function MainCtrl ($scope, $http, $document, $modal) {
+    MainCtrl.$inject = ['$scope', '$http', '$document', '$window', '$location', '$modal'];
+    function MainCtrl ($scope, $http, $document, $window, $location, $modal) {
         /**
         *   shared
         */
@@ -79,7 +79,10 @@ define(function (require) {
                 $navToggle.addClass('collapsed');
                 $navCollapse.removeClass('in').css('height', '0');
             }
+
+            $window.ga('send', 'pageview', { page: $location.url() });
         });
+        $window.ga('send', 'pageview', { page: '/' });
     }
 
     return MainCtrl;

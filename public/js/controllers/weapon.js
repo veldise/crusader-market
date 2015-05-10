@@ -38,12 +38,12 @@ define(function (require) {
         *   Tabset
         */
         $scope.classTypes = [
-            { heading: '워리어', icon: 'img/icon_warrior.png' },
-            { heading: '팔라딘', icon: 'img/icon_paladin.png' },
-            { heading: '아처', icon: 'img/icon_archer.png' },
-            { heading: '헌터', icon: 'img/icon_hunter.png' },
-            { heading: '위자드', icon: 'img/icon_wizard.png' },
-            { heading: '프리스트', icon: 'img/icon_priest.png' }
+            { heading: '워리어', icon: 'img/icon/icon_warrior.png' },
+            { heading: '팔라딘', icon: 'img/icon/icon_paladin.png' },
+            { heading: '아처', icon: 'img/icon/icon_archer.png' },
+            { heading: '헌터', icon: 'img/icon/icon_hunter.png' },
+            { heading: '위자드', icon: 'img/icon/icon_wizard.png' },
+            { heading: '프리스트', icon: 'img/icon/icon_priest.png' }
         ];
         $scope.currType = '전체';
 
@@ -86,12 +86,12 @@ define(function (require) {
 
         $scope.convIconUrl = function (classType) {
             return {
-                '검': 'img/icon_warrior.png',
-                '망치': 'img/icon_paladin.png',
-                '활': 'img/icon_archer.png',
-                '총': 'img/icon_hunter.png',
-                '지팡이': 'img/icon_wizard.png',
-                '보주': 'img/icon_priest.png'
+                '검': 'img/icon/icon_warrior.png',
+                '망치': 'img/icon/icon_paladin.png',
+                '활': 'img/icon/icon_archer.png',
+                '총': 'img/icon/icon_hunter.png',
+                '지팡이': 'img/icon/icon_wizard.png',
+                '보주': 'img/icon/icon_priest.png'
             }[classType];
         };
 

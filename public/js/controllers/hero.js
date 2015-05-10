@@ -77,12 +77,12 @@ define(function (require) {
         *   Tabset
         */
         $scope.classTypes = [
-            { heading: '워리어', icon: 'img/icon_warrior.png' },
-            { heading: '팔라딘', icon: 'img/icon_paladin.png' },
-            { heading: '아처', icon: 'img/icon_archer.png' },
-            { heading: '헌터', icon: 'img/icon_hunter.png' },
-            { heading: '위자드', icon: 'img/icon_wizard.png' },
-            { heading: '프리스트', icon: 'img/icon_priest.png' }
+            { heading: '워리어', icon: 'img/icon/icon_warrior.png' },
+            { heading: '팔라딘', icon: 'img/icon/icon_paladin.png' },
+            { heading: '아처', icon: 'img/icon/icon_archer.png' },
+            { heading: '헌터', icon: 'img/icon/icon_hunter.png' },
+            { heading: '위자드', icon: 'img/icon/icon_wizard.png' },
+            { heading: '프리스트', icon: 'img/icon/icon_priest.png' }
         ];
         $scope.currType = '전체';
 

@@ -64,6 +64,7 @@ define(function (require) {
         /**
         *   route
         */
+        $window.ga('send', 'pageview', { page: '/' });
         $scope.$on('$routeChangeSuccess', function (scope, current/*, before*/) {
             if (!current || !current.$$route) {
                 return;
@@ -80,9 +81,16 @@ define(function (require) {
                 $navCollapse.removeClass('in').css('height', '0');
             }
 
-            $window.ga('send', 'pageview', { page: $location.url() });
+            var path = $location.path();
+            if (path[0] === '#') {
+                path = path.slice(1);
+            }
+            if (path[0] !== '/') {
+                path = '/' + path;
+            }
+
+            $window.ga('send', 'pageview', { page: path });
         });
-        $window.ga('send', 'pageview', { page: '/' });
     }
 
     return MainCtrl;

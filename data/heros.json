@@ -17,6 +17,23 @@
     "block_thum": "img/hero/block/3.png"
   },
   {
+    "name": "승리의 로슈포르",
+    "heroType": "전설",
+    "isContract": null,
+    "rank": 6,
+    "classType": "워리어",
+    "AP": 551,
+    "HP": 5301,
+    "critical": 20,
+    "defense": 284,
+    "resist": 50,
+    "block_name": "매의 깃털",
+    "block_desc": "블록 사용 시, 체인 수에 따라 공격력의 (100/150/250)%만큼 물리 피해를 주고, 다음 받는 5초 이내 10회의 공격을 (25/50/75)% 확률로 막습니다.",
+    "passive_desc": "(주력형) : 막기에 성공하면 즉시 반격해, 자기 방어력의 200%만큼 물리 피해를 줍니다. 반격 후 블록 사용 시, 반격 피해가 3회 추가로 적용되고, 이 공격이 치명타로 적중 시 자신의 블록을 하나 생성합니다.(1초에 1회 발동)",
+    "hero_thum": "img/hero/thum/rochefort.png",
+    "block_thum": "img/hero/block/rochefort_block.png"
+  },
+  {
     "name": "강철기사 잔다르크",
     "heroType": "고급",
     "isContract": null,
@@ -185,6 +202,23 @@
     "passive_desc": "(주력형) : 3-체인 사용시, 다음 3초간 자동 공격으로 공격력의 380%만큼 물리 피해를 주고 0.75초간 기절시키는 궁극의 용오름을 최대 3회 사용합니다. 이 효과는 해제되거나 강화되지 않습니다.",
     "hero_thum": "img/hero/thum/46.png",
     "block_thum": "img/hero/block/21.png"
+  },
+  {
+    "name": "영광의 롤랑",
+    "heroType": "전설",
+    "isContract": null,
+    "rank": 6,
+    "classType": "팔라딘",
+    "AP": 353,
+    "HP": 8636,
+    "critical": 12,
+    "defense": 50,
+    "resist": 284,
+    "block_name": "빛의 수호",
+    "block_desc": "블록 사용 시, 체인 수에 따라 저항력의 (50/100/175)%만큼 물리 피해를 주고, 5초간 자신의 방어력이 저항력과 같아집니다.",
+    "passive_desc": "(보조형) : 자신의 블록 사용 후 5초 동안, 자신이 공격받을 때마다 자기 공격력의 75%만큼 아군 전체를 회복시킵니다. 8회 회복 시, 즉시 적 전체를 2초간 기절시키고 자신의 블록을 하나 생성합니다.",
+    "hero_thum": "img/hero/thum/roland.png",
+    "block_thum": "img/hero/block/roland_block.png"
   },
   {
     "name": "혹한의 토르",
@@ -510,6 +544,23 @@
     "block_thum": "img/hero/block/57.png"
   },
   {
+    "name": "나이트위치 테레사",
+    "heroType": "전설",
+    "isContract": null,
+    "rank": 6,
+    "classType": "헌터",
+    "AP": 910,
+    "HP": 3595,
+    "critical": 23,
+    "defense": 217,
+    "resist": 50,
+    "block_name": "최후의 빛",
+    "block_desc": "체인 수에 따라 공격력의 (75/150/275)%만큼 마법 피해를 주는 광선을 발사해, 맞은 적들에게 5초간 빛의 표식을 부여합니다.",
+    "passive_desc": "(보조형) : 빛의 표식을 받은 적은 공격을 시도할 때마다 SP가 5씩 감소합니다. 해당 적의 SP가 50 미만이면 즉시 공격력의 350%만큼 마법 피해를 입히는 포격을 가합니다. (2초 1회 발동)",
+    "hero_thum": "img/hero/thum/teresa.png",
+    "block_thum": "img/hero/block/teresa_block.png"
+  },
+  {
     "name": "카우걸 맥시",
     "heroType": "고급",
     "isContract": null,
@@ -661,6 +712,23 @@
     "passive_desc": "(주력형) : 1-체인 발동 후 4초내에 3-체인을 발동할 때마다 공격력의 271% 만큼 마법 피해를 주는 추가 광선을 발사합니다. 추가 광선은 상대의 이로운 효과를 모두 해제합니다.",
     "hero_thum": "img/hero/thum/166.png",
     "block_thum": "img/hero/block/75.png"
+  },
+  {
+    "name": "마법소녀 카노",
+    "heroType": "전설",
+    "isContract": null,
+    "rank": 6,
+    "classType": "위자드",
+    "AP": 992,
+    "HP": 2716,
+    "critical": 35,
+    "defense": 50,
+    "resist": 217,
+    "block_name": "러브 임팩트!",
+    "block_desc": "체인 수에 따라 공격력의 (85/125/250)%만큼 마법 피해를 주고, 대상에게 5초간 매혹 효과를 부여합니다.",
+    "passive_desc": "(주력형) : 다른 아군 블록을 2회 사용할 때마다, 매혹에 걸린 적의 수만큼 공격력의 200%만큼 마법 피해를 주는 러브빔!을 발사합니다. 러브빔!에 맞은 적들은 다음 5초간 공격이 40%확률로 빗나갑니다.",
+    "hero_thum": "img/hero/thum/kano.png",
+    "block_thum": "img/hero/block/kano_block.png"
   },
   {
     "name": "각성의 아칸",

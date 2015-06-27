@@ -676,7 +676,7 @@
     "block_name": "GP-7 유탄",
     "block_desc": "유탄을 발사해, 공격력의 (40/125/300)% 만큼 물리 피해를 줍니다.",
     "passive_desc": "(주력형) : 3-체인의 치명타 확률이 25% 증가합니다. 3-체인이 치명타로 적중되면, 자신의 공격력을 7초간 45% 증가시키고 공격력의 150%만큼 물리 피해를 주고 30%확률로 2차 폭발하는 유탄을 두 발을 추가로 발사합니다.",
-    "hero_thum": "img/hero/thum/141.png",
+    "hero_thum": "img/hero/thum/vincent.png",
     "block_thum": "img/hero/block/72.png"
   },
   {
@@ -1067,7 +1067,7 @@
     "block_name": "명왕류 결계술",
     "block_desc": "전방에 결계를 생성합니다. 결계 내의 적은 공격력이 체인에 따라 (25/35/50)% 감소합니다. 영향을 받은 적 하나 당, 아군 전체의 체력이 공격력의 45%씩 최대 3회 회복됩니다.",
     "passive_desc": "(보조형) : 결계 내의 적은 공격 속도와 치명타 확률, 치명타 피해량이 같은 양만큼 감소됩니다. 결계를 사용할 때마다 50% 확률로 가장 뒤의 적을 향해 3-체인을 발동합니다. 추가 결계는 2초에 1회만 발동됩니다.",
-    "hero_thum": "img/hero/thum/263.png",
+    "hero_thum": "img/hero/thum/himiko.png",
     "block_thum": "img/hero/block/131.png"
   },
   {
